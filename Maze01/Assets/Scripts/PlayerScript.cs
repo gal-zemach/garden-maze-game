@@ -6,8 +6,10 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {	
 	private Rigidbody2D rb2d;
+	private SpriteRenderer sprite;
 	private Controller controller;
 	private TileMap map;
+	private GameManager gameManager;
 
 	public Vector2 gridPosition;
 	public Vector2 gridCell;
@@ -15,6 +17,7 @@ public class PlayerScript : MonoBehaviour
 	public Vector2 tileSize;
 
 	private Vector2 forward, right;
+	private bool movementStarted;
 
 	// movement
 	public int movementSpeed = 100;	
@@ -22,6 +25,8 @@ public class PlayerScript : MonoBehaviour
 	void Awake ()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
+		sprite = GetComponentInChildren<SpriteRenderer>();
+		gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 		controller = GetComponent<Controller>();
 		if (ReferenceEquals(controller, null))
 		{
@@ -41,10 +46,14 @@ public class PlayerScript : MonoBehaviour
 		var worldPosition = transform.position;
 		gridPosition = IsoVectors.WorldToIso(worldPosition, tileSize);
 		gridCell = new Vector2(Mathf.Round(gridPosition.x), Mathf.Round(gridPosition.y));
+
+		movementStarted = false;
 	}
 	
 	private void FixedUpdate()
 	{
+		if (!movementStarted)
+			return;
 		
 		float horizontalDirection = controller.HorizontalAxis();
 		float verticalDirection = controller.VerticalAxis();
@@ -52,6 +61,7 @@ public class PlayerScript : MonoBehaviour
 		var worldPosition = transform.position;
 		gridPosition = IsoVectors.WorldToIso(worldPosition, tileSize);
 		gridCell = new Vector2(Mathf.Round(gridPosition.x), Mathf.Round(gridPosition.y)); // changed from Floor to Round because of AIController not recognizing it got to a destination cell
+		map.tiles[map.TileIndex((int)gridCell.x, (int)gridCell.y)].MarkAsVisited();
 		
 		Vector2 currentPos = rb2d.position;
 //		var inputVector = new Vector2(horizontalDirection, verticalDirection);
@@ -70,5 +80,36 @@ public class PlayerScript : MonoBehaviour
 		worldPosition = transform.position;
 		worldPosition.z = gridPosition.x + gridPosition.y;
 		transform.position = worldPosition;
+	}
+
+	public void StartMovement()
+	{
+		StartCoroutine(BlinkSpriteAndStartMovement());
+	}
+
+	private IEnumerator BlinkSpriteAndStartMovement()
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			sprite.enabled = false;
+			yield return new WaitForSeconds(0.4f);
+		
+			sprite.enabled = true;
+			yield return new WaitForSeconds(0.4f);
+		}
+		movementStarted = true;
+	}
+
+	public void FellToHole()
+	{
+		Debug.Log("PlayerScript: player fell to Hole");
+		movementStarted = false;
+		StartCoroutine(WaitAndEndGame());
+	}
+
+	private IEnumerator WaitAndEndGame()
+	{
+		yield return new WaitForSeconds(2f);
+		gameManager.PlayerDied();
 	}
 }

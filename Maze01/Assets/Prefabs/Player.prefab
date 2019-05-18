@@ -129,7 +129,7 @@ MonoBehaviour:
   gridPosition: {x: 0, y: 0}
   gridCell: {x: 0, y: 0}
   tileSize: {x: 0, y: 0}
-  movementSpeed: 120
+  movementSpeed: 100
 --- !u!50 &8445921771619169066
 Rigidbody2D:
   serializedVersion: 4

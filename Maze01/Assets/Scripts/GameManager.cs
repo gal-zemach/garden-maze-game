@@ -18,10 +18,8 @@ public class GameManager : MonoBehaviour
     {
         map = GameObject.Find("Tile Map").GetComponent<TileMap>();
         tileSize = new Vector2(map.tileSize.x, map.tileSize.y / 2);
-        
-        Vector3 playerStartPosition = IsoVectors.IsoToWorld(startTile, tileSize);
-        player = (GameObject)Instantiate(playerPrefab);
-        player.transform.position = playerStartPosition;
+
+        SpawnPlayer();
 
         gameEnded = false;
     }
@@ -49,10 +47,29 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("GameManager: you Lose!");
+            Debug.Log("GameManager: you Lose! Respawning...");
+            SpawnPlayer();
         }
         gameEnded = true;
-//        Time.timeScale = 0;
+    }
+
+
+    private void SpawnPlayer()
+    {
+        if (player != null)
+        {
+            Destroy(player);
+        }
+        Vector3 playerStartPosition = IsoVectors.IsoToWorld(startTile, tileSize);
+        player = (GameObject)Instantiate(playerPrefab);
+        player.transform.position = playerStartPosition;
+        
+        player.GetComponent<PlayerScript>().StartMovement();
+    }
+
+    public void PlayerDied()
+    {
+        endGame();
     }
 
     

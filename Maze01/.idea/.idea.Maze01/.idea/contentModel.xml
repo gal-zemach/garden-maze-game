@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="$USER_HOME$/Library/Caches/Rider2018.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2018.3/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_Maze01.1380466921.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.3/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_Maze01.74196251.00" t="ExcludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
@@ -16,11 +16,13 @@
         <e p="Scripts" t="Include">
           <e p="Controllers" t="Include">
             <e p="AIController.cs" t="Include" />
+            <e p="CameraController.cs" t="Include" />
             <e p="Controller.cs" t="Include" />
             <e p="KeyboardController.cs" t="Include" />
           </e>
           <e p="Enemies" t="Include">
             <e p="enemyScript.cs" t="Include" />
+            <e p="HoleEnemy.cs" t="Include" />
             <e p="QuadDirectionAttackingEnemy.cs" t="Include" />
             <e p="RotatingAttackingEnemy.cs" t="Include" />
             <e p="ShootingEnemy.cs" t="Include" />

@@ -8,6 +8,7 @@ public class Tile : MonoBehaviour
     public Vector2 index;
     
     private Vector2 tileSize;
+    private bool visited;
     
     private SpriteRenderer spriteRenderer;
     private Collider2D collider;
@@ -17,17 +18,26 @@ public class Tile : MonoBehaviour
     void Start()
     {
         tileSize = GameObject.Find("Tile Map").GetComponent<TileMap>().tileSize;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
         collider = AddTileCollider();
         wallTrigger = AddTileTrigger();
+        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = gameObject.AddComponent<Animator>();
+        var animationController = Resources.Load("Animation/tile") as RuntimeAnimatorController;
+        animator.runtimeAnimatorController = animationController;
+        if (animationController == null)
+        {
+            Debug.Log("animation controller not found in Resources/Animation");
+        }
+        
+        MarkAsUnvisited();
         
         switch (type)
         {
             case TileMap.TileType.constWall:
                 spriteRenderer.sortingOrder = 1;
                 
-                animator.Play("wall_asWall");
+                animator.Play("tile_wall");
                 animator.SetBool("isWall", true);
         
                 collider.isTrigger = false;
@@ -35,12 +45,12 @@ public class Tile : MonoBehaviour
                 break;
                 
             case TileMap.TileType.moveableWall:
-                animator.Play("wall_asWall");
+                animator.Play("tile_wall");
                 Enable();
                 break;
             
             case TileMap.TileType.Floor:
-                animator.Play("wall_asFloor");
+                animator.Play("tile_floor_unvisited");
                 Disable();
                 break;
         }
@@ -85,6 +95,18 @@ public class Tile : MonoBehaviour
         {
             Disable();
         }
+    }
+
+    public void MarkAsVisited()
+    {
+        visited = true;
+        animator.SetBool("wasVisited", true);
+    }
+    
+    public void MarkAsUnvisited()
+    {
+        visited = true;
+        animator.SetBool("wasVisited", false);
     }
     
     private Collider2D AddTileCollider()

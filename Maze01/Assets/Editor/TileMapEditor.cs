@@ -34,6 +34,8 @@ public class TileMapEditor : Editor
             UpdateCalculations();
         }
         
+        map.tileSize = EditorGUILayout.Vector2Field("Tile Size:", map.tileSize);
+        
         var oldTexture = map.texture2D;
         map.texture2D = (Texture2D) EditorGUILayout.ObjectField("Texture2D:", map.texture2D, typeof(Texture2D), false);
         if (map.texture2D != oldTexture)
@@ -128,12 +130,16 @@ public class TileMapEditor : Editor
         var path = AssetDatabase.GetAssetPath(map.texture2D);
         map.spriteReferences = AssetDatabase.LoadAllAssetsAtPath(path);
 
-        var sprite = (Sprite) map.spriteReferences[1];
-        var width = sprite.textureRect.width;
-        var height = sprite.textureRect.height;
-            
+//        var sprite = (Sprite) map.spriteReferences[1];
+//        var width = sprite.textureRect.width;
+//        var height = sprite.textureRect.height;
+
+        var width = map.tileSize.x;
+        var height = map.tileSize.y;
+
         map.tileSize = new Vector2(width, height);
-        map.pixelsToUnits = (int) (sprite.rect.width / sprite.bounds.size.x);
+//        map.pixelsToUnits = (int) (sprite.rect.width / sprite.bounds.size.x);
+        map.pixelsToUnits = (int) (map.spriteReferences[1] as Sprite).pixelsPerUnit;
         map.gridSize = new Vector2((width / map.pixelsToUnits) * map.mapSize.x, 
                                    (height / map.pixelsToUnits) * (0.5f * map.mapSize.y));
     }
@@ -258,13 +264,6 @@ public class TileMapEditor : Editor
             
             tile.AddComponent<Tile>();
             tile.AddComponent<SpriteRenderer>();
-            var tileAnimator = tile.AddComponent<Animator>();
-            var animationController = Resources.Load("Animation/wall") as RuntimeAnimatorController;
-            tileAnimator.runtimeAnimatorController = animationController;
-            if (animationController == null)
-            {
-                Debug.Log("animation controller not found in Resources/Animation");
-            }
         }
 
         var tileScript = tile.GetComponent<Tile>();

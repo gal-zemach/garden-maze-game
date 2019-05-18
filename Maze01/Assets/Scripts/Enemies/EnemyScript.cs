@@ -23,7 +23,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("enemyScript: hit player");
+            Debug.Log("EnemyScript: hit player");
             var playerScript = other.gameObject.GetComponentInParent<PlayerScript>();
 //            playerScript.ReduceHealth();
         }
