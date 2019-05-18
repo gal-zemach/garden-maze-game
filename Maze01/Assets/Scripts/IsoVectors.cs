@@ -24,12 +24,30 @@ public class IsoVectors : MonoBehaviour
         var gridPos = new Vector2(column, row);
         return gridPos;
     }
+    
+    public static Vector2 WorldToIsoRounded(Vector3 worldPosition, Vector2 tileSize)
+    {
+        var iso = WorldToIso(worldPosition, tileSize);
+        return new Vector2(Mathf.Round(iso.x), Mathf.Round(iso.y));
+    }
+    
+    public static Vector2 WorldToIsoFloored(Vector3 worldPosition, Vector2 tileSize)
+    {
+        var iso = WorldToIso(worldPosition, tileSize);
+        return new Vector2(Mathf.Floor(iso.x), Mathf.Floor(iso.y));
+    }
 
     public static Vector2 IsoToWorld(Vector2 gridPos, Vector2 tileSize)
     {
         var x = gridPos.x * (tileSize.x / 2) - gridPos.y * (tileSize.x / 2);
         var y = gridPos.x * (tileSize.y / 2) + gridPos.y * (tileSize.y / 2);
         return new Vector2(x, y);
+    }
+
+    public static Vector2 WorldToTileCenter(Vector3 worldPosition, Vector2 tileSize)
+    {
+        var gridCell = WorldToIsoRounded(worldPosition, tileSize);
+        return IsoToWorld(gridCell, tileSize);
     }
 
     private void OnDrawGizmosSelected()

@@ -8,6 +8,7 @@ public class TileMap : MonoBehaviour
     public Vector2 mapSize = new Vector2(20, 10);
     public Texture2D texture2D;
     public Vector2 tileSize = new Vector2();
+    public Vector2 actualTileSize;
     public Vector2 tilePadding = new Vector2();
     public Object[] spriteReferences;
     public Vector2 gridSize;
@@ -90,6 +91,14 @@ public class TileMap : MonoBehaviour
     public bool IsValidIndex(int column, int row)
     {
         return column >= 0 && column < mapSize.x && row >= 0 && row < mapSize.y;
+    }
+
+    public Vector3 GetZPosition(Transform otherTransform)
+    {
+        var pos = otherTransform.position;
+        var gridCell = IsoVectors.WorldToIsoFloored(pos, actualTileSize);
+        pos.z = gridCell.x + gridCell.y;
+        return pos;
     }
     
     private void OnDrawGizmosSelected()

@@ -138,6 +138,8 @@ public class TileMapEditor : Editor
         var height = map.tileSize.y;
 
         map.tileSize = new Vector2(width, height);
+        map.actualTileSize = new Vector2(width, height / 2);
+        
 //        map.pixelsToUnits = (int) (sprite.rect.width / sprite.bounds.size.x);
         map.pixelsToUnits = (int) (map.spriteReferences[1] as Sprite).pixelsPerUnit;
         map.gridSize = new Vector2((width / map.pixelsToUnits) * map.mapSize.x, 

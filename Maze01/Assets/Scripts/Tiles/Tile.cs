@@ -130,18 +130,14 @@ public class Tile : MonoBehaviour
         var offset = new Vector2(0, tileSize.y / 4);
         collider.points = new[]
         {
-            new Vector2(0, tileSize.y / 4) + offset,
-            new Vector2(tileSize.x / 2, 0) + offset,
-            
+            new Vector2(0, 0) + offset, // top
+            new Vector2(tileSize.x / 2, -tileSize.y / 4) + offset,  // top right
             
             new Vector2(tileSize.x / 2, -tileSize.y / 2) + offset,
-            
-            new Vector2(0 , -tileSize.y / 4 * 3) + offset,
-            
+            new Vector2(0 , -tileSize.y / 4 * 3) + offset,  // bottom
             new Vector2(-tileSize.x / 2, -tileSize.y / 2) + offset,
             
-            
-            new Vector2(-tileSize.x / 2, 0) + offset
+            new Vector2(-tileSize.x / 2, -tileSize.y / 4) + offset  // top left
         };
         return collider;
     }

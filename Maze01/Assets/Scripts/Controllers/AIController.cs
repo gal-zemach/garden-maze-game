@@ -153,9 +153,14 @@ public class AIController : Controller
         if (!TouchingWall())
         {
 //            currentDirectionIndex = NearestWallDirection();
-            currentDirectionIndex = 0;
+
+              // always walk in 1 direction
+//            currentDirectionIndex = 0;
+//            approachingWall = true;
+//            return currentCell + direction[currentDirectionIndex];
+            
             approachingWall = true;
-            return currentCell + direction[currentDirectionIndex];
+            return RandomNeighbor();
         }
 
         // aligning direction so wall is on the left
