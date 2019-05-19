@@ -111,7 +111,7 @@ public class AIController : Controller
             turnsStuck++;
             if (turnsStuck == maxTurnsStuck)
             {
-                Debug.Log("AIController: stuck for too long");
+//                Debug.Log("AIController: stuck for too long");
                 horizontalDirection = 0;
                 verticalDirection = 0;
                 turnsStuck = 0;

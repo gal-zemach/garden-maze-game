@@ -23,6 +23,7 @@
           <e p="Enemies" t="Include">
             <e p="enemyScript.cs" t="Include" />
             <e p="HoleEnemy.cs" t="Include" />
+            <e p="Projectile.cs" t="Include" />
             <e p="QuadDirectionAttackingEnemy.cs" t="Include" />
             <e p="RotatingAttackingEnemy.cs" t="Include" />
             <e p="ShootingEnemy.cs" t="Include" />

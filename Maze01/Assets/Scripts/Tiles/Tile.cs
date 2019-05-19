@@ -22,7 +22,7 @@ public class Tile : MonoBehaviour
         wallTrigger = AddTileTrigger();
         
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (type != TileMap.TileType.constWall)
+        if (type == TileMap.TileType.Floor || type == TileMap.TileType.moveableWall)
         {
             animator = gameObject.AddComponent<Animator>();
             var animationController = Resources.Load("Animation/tile") as RuntimeAnimatorController;
