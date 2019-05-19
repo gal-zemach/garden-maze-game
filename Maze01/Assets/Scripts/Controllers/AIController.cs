@@ -45,13 +45,15 @@ public class AIController : Controller
     private int turnsStuck;
 
     public float horizontalDirection, verticalDirection;
-        
+
+    private Vector2 EMPTY_CELL = new Vector2(-1, -1);
+    
     void Start()
     {
         playerScript = GetComponent<PlayerScript>();
         map = GameObject.Find("Tile Map").GetComponent<TileMap>();
         mapSize = map.mapSize;
-        currentDestination = playerScript.gridCell;
+        currentDestination = EMPTY_CELL;
         horizontalDirection = 0;
         verticalDirection = 0;
         currentDirectionIndex = 0;
@@ -65,9 +67,17 @@ public class AIController : Controller
 
     void FixedUpdate()
     {
+        if (!playerScript.movementStarted)
+            return;
+        
         // update map memory
         currentCell = playerScript.gridCell;
         currentPosition = playerScript.gridPosition;
+        
+        if (currentDestination == EMPTY_CELL)
+        {
+            currentDestination = currentCell;
+        }
         
         // updating AI memory
 //        updateSurroundings();
@@ -83,15 +93,15 @@ public class AIController : Controller
         else
         {
             horizontalDirection = 0;
-        }
-        
-        if (Mathf.Abs(delta.x) > proximityEpsilon)
-        {
-            verticalDirection = -Mathf.Sign(delta.x);
-        }
-        else
-        {
-            verticalDirection = 0;
+            
+            if (Mathf.Abs(delta.x) > proximityEpsilon)
+            {
+                verticalDirection = -Mathf.Sign(delta.x);
+            }
+            else
+            {
+                verticalDirection = 0;
+            }
         }
         
         // check if the player is stuck
@@ -137,7 +147,7 @@ public class AIController : Controller
     {
         // move to a random neighbor floor tile
         var i = Random.Range(0, 4);
-        while (!map.IsFloor(currentCell + direction[i]))
+        while (!map.IsWalkable(currentCell + direction[i]))
         {
             i = Random.Range(0, 4);
         }
@@ -167,7 +177,7 @@ public class AIController : Controller
         if (approachingWall)
         {
             var j = 0;
-            while (j < 4 && map.IsFloor(currentCell + direction[j]))
+            while (j < 4 && map.IsWalkable(currentCell + direction[j]))
                 j++;
             currentDirectionIndex = Mod(j + 1, 4);
             approachingWall = false;
@@ -183,7 +193,7 @@ public class AIController : Controller
         };
 
         var i = 0;
-        while (i < 4 && !map.IsFloor(currentCell + direction[directionIndices[i]]))
+        while (i < 4 && !map.IsWalkable(currentCell + direction[directionIndices[i]]))
         {
             i++;
         }
@@ -206,7 +216,7 @@ public class AIController : Controller
     bool TouchingWall()
     {
         var i = 0;
-        while (i < 8 && map.IsFloor(currentCell + allDirections[i]))
+        while (i < 8 && map.IsWalkable(currentCell + allDirections[i]))
             i++;
         return i != 8;
     }
@@ -216,7 +226,7 @@ public class AIController : Controller
         var i = 0;
         var mult = 1;
         var closestBorder = Mathf.Min(map.mapSize.x, map.mapSize.y);
-        while (mult < closestBorder && map.IsFloor(currentCell + direction[i] * mult))
+        while (mult < closestBorder && map.IsWalkable(currentCell + direction[i] * mult))
         {
             i++;
             if (i == 4)

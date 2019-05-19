@@ -22,23 +22,31 @@ public class Tile : MonoBehaviour
         wallTrigger = AddTileTrigger();
         
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = gameObject.AddComponent<Animator>();
-        var animationController = Resources.Load("Animation/tile") as RuntimeAnimatorController;
-        animator.runtimeAnimatorController = animationController;
-        if (animationController == null)
+        if (type != TileMap.TileType.constWall)
         {
-            Debug.Log("animation controller not found in Resources/Animation");
+            animator = gameObject.AddComponent<Animator>();
+            var animationController = Resources.Load("Animation/tile") as RuntimeAnimatorController;
+            animator.runtimeAnimatorController = animationController;
+            if (animationController == null)
+            {
+                Debug.Log("animation controller not found in Resources/Animation");
+            }
         }
         
         MarkAsUnvisited();
         
         switch (type)
         {
+            case TileMap.TileType.trap:
+                collider.enabled = false;
+                wallTrigger.enabled = false;
+                break;
+            
             case TileMap.TileType.constWall:
                 spriteRenderer.sortingOrder = 1;
                 
-                animator.Play("tile_wall");
-                animator.SetBool("isWall", true);
+//                animator.Play("tile_wall");
+//                animator.SetBool("isWall", true);
         
                 collider.isTrigger = false;
                 wallTrigger.enabled = false;
@@ -58,7 +66,7 @@ public class Tile : MonoBehaviour
 
     public void Enable()
     {
-        if (type == TileMap.TileType.constWall)
+        if (type == TileMap.TileType.constWall || type == TileMap.TileType.trap)
             return;
 
         animator.SetBool("isWall", true);
@@ -72,7 +80,7 @@ public class Tile : MonoBehaviour
     
     public void Disable()
     {
-        if (type == TileMap.TileType.constWall)
+        if (type == TileMap.TileType.constWall || type == TileMap.TileType.trap)
             return;
 
         animator.SetBool("isWall", false);
@@ -86,6 +94,9 @@ public class Tile : MonoBehaviour
 
     public void Toggle()
     {
+        if (type == TileMap.TileType.constWall || type == TileMap.TileType.trap)
+            return;
+
         if (type == TileMap.TileType.Floor)
         {
             Enable();
@@ -99,12 +110,18 @@ public class Tile : MonoBehaviour
 
     public void MarkAsVisited()
     {
+        if (type == TileMap.TileType.constWall || type == TileMap.TileType.trap)
+            return;
+
         visited = true;
         animator.SetBool("wasVisited", true);
     }
     
     public void MarkAsUnvisited()
     {
+        if (type == TileMap.TileType.constWall || type == TileMap.TileType.trap)
+            return;
+
         visited = true;
         animator.SetBool("wasVisited", false);
     }

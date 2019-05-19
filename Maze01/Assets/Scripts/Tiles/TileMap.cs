@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class TileMap : MonoBehaviour
 {
@@ -20,7 +22,7 @@ public class TileMap : MonoBehaviour
     
     public enum TileType
     {
-        Floor, constWall, moveableWall
+        Floor, constWall, moveableWall, trap
     }
     
     public Sprite currentTileBrush
@@ -78,9 +80,10 @@ public class TileMap : MonoBehaviour
         return tiles[TileIndex(column, row)].type;
     }
 
-    public bool IsFloor(Vector2 tile)
+    public bool IsWalkable(Vector2 tile)
     {
-        return GetTileType((int)tile.x, (int)tile.y) == TileType.Floor;
+        var tileType = GetTileType((int) tile.x, (int) tile.y);
+        return tileType == TileType.Floor || tileType == TileType.trap;
     }
 
     public bool IsValidIndex(Vector2 index)

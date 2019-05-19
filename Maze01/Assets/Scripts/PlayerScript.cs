@@ -17,7 +17,11 @@ public class PlayerScript : MonoBehaviour
 	public Vector2 tileSize;
 
 	private Vector2 forward, right;
-	private bool movementStarted;
+
+	public Sprite frontSprite, backSprite;
+	
+	[HideInInspector]
+	public bool movementStarted;
 
 	// movement
 	public int movementSpeed = 100;	
@@ -47,6 +51,7 @@ public class PlayerScript : MonoBehaviour
 		gridPosition = IsoVectors.WorldToIso(worldPosition, tileSize);
 		gridCell = new Vector2(Mathf.Round(gridPosition.x), Mathf.Round(gridPosition.y));
 
+		sprite.sprite = backSprite;
 		movementStarted = false;
 	}
 	
@@ -58,9 +63,9 @@ public class PlayerScript : MonoBehaviour
 		float horizontalDirection = controller.HorizontalAxis();
 		float verticalDirection = controller.VerticalAxis();
 
-		var worldPosition = transform.position;
-		gridPosition = IsoVectors.WorldToIso(worldPosition, tileSize);
-		gridCell = new Vector2(Mathf.Round(gridPosition.x), Mathf.Round(gridPosition.y)); // changed from Floor to Round because of AIController not recognizing it got to a destination cell
+		UpdateSprite(horizontalDirection, verticalDirection);
+		
+		UpdatePosition();
 		map.tiles[map.TileIndex((int)gridCell.x, (int)gridCell.y)].MarkAsVisited();
 		
 		Vector2 currentPos = rb2d.position;
@@ -75,15 +80,59 @@ public class PlayerScript : MonoBehaviour
 		Vector3 newPos = currentPos + movement * Time.fixedDeltaTime;
 		
 		rb2d.MovePosition(newPos);
-		
-		// updating z position
+		UpdateZPosition();
+	}
+
+	private void UpdatePosition()
+	{
+		var worldPosition = transform.position;
+		gridPosition = IsoVectors.WorldToIso(worldPosition, tileSize);
+		gridCell = new Vector2(Mathf.Round(gridPosition.x), Mathf.Round(gridPosition.y)); // changed from Floor to Round because of AIController not recognizing it got to a destination cell
+	}
+
+	private void UpdateZPosition()
+	{
+		var worldPosition = transform.position;
 		worldPosition = transform.position;
 		worldPosition.z = gridPosition.x + gridPosition.y;
 		transform.position = worldPosition;
 	}
 
+	private void UpdateSprite(float horizontalDirection, float verticalDirection)
+	{
+		if (horizontalDirection > 0)
+		{
+			sprite.sprite = frontSprite;
+			SpriteScale(1);
+		}
+		else if (horizontalDirection < 0)
+		{
+			sprite.sprite = backSprite;
+			SpriteScale(-1);
+		}
+
+		else if (verticalDirection > 0)
+		{
+			sprite.sprite = backSprite;
+			SpriteScale(1);
+		}
+		else if (verticalDirection < 0)
+		{
+			sprite.sprite = frontSprite;
+			SpriteScale(-1);
+		}
+	}
+
+	private void SpriteScale(int scale)
+	{
+		var spriteScale = sprite.gameObject.transform.localScale;
+		spriteScale.x = scale;
+		sprite.gameObject.transform.localScale = spriteScale;
+	}
+
 	public void StartMovement()
 	{
+		UpdatePosition();
 		StartCoroutine(BlinkSpriteAndStartMovement());
 	}
 
