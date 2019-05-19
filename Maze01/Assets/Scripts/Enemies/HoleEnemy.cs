@@ -8,6 +8,8 @@ public class HoleEnemy : EnemyScript
     {
         EnemyBaseStart();
         isoCollider.colliderSize = new Vector2(1, 1);
+        var rb2d = gameObject.AddComponent<Rigidbody2D>();
+        rb2d.bodyType = RigidbodyType2D.Kinematic;
     }
 
     void Update()

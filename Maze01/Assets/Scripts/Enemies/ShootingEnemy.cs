@@ -1,15 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 
 public class ShootingEnemy : EnemyScript
 {
-
+    public enum Direction {Up, Down, Left, Right};
+    
     public GameObject projectilePrefab;
     public int turnsToAttack = 150;
+    public Direction direction;
+    public Transform bulletSpawn;
 
     private int turnCount;
-    private GameObject projectile;
+    private BulletScript bullet;
+    private Vector2 shootingDirection;
     
     void Start()
     {
@@ -17,7 +23,25 @@ public class ShootingEnemy : EnemyScript
         isoCollider.colliderSize = new Vector2(1, 1);
         
         turnCount = 0;
-        projectile = (GameObject) Instantiate(projectilePrefab, transform);
+
+        switch (direction)
+        {
+            case Direction.Up:
+                shootingDirection = IsoVectors.UP;
+                break;
+
+            case Direction.Down:
+                shootingDirection = IsoVectors.DOWN;
+                break;
+            
+            case Direction.Left:
+                shootingDirection = IsoVectors.LEFT;
+                break;
+            
+            case Direction.Right:
+                shootingDirection = IsoVectors.RIGHT;
+                break;
+        }
     }
 
     
@@ -26,16 +50,17 @@ public class ShootingEnemy : EnemyScript
         turnCount++;
         if (turnCount >= turnsToAttack)
         {
-            if (!projectile.activeSelf)
-            {
-                turnCount = 0;
-                Shoot();
-            }
+            turnCount = 0;
+            Fire();
         }
     }
 
-    private void Shoot()
+    private void Fire()
     {
-        projectile.SetActive(enabled);
+        bullet = Instantiate(projectilePrefab, transform).GetComponent<BulletScript>();
+        bullet.transform.position = bulletSpawn.position;
+        bullet.shooter = gameObject;
+        bullet.Shoot(shootingDirection);
+            
     }
 }

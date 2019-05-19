@@ -15,7 +15,7 @@ public class QuadDirectionAttackingEnemy : EnemyScript
         EnemyBaseStart();
         isoCollider.colliderSize = new Vector2(1, 1);
         
-        isoCollider2 = gameObject.AddComponent<IsoCollider>();
+        isoCollider2 = colliderChild.AddComponent<IsoCollider>();
         isoCollider2.tileSize = 35;
         isoCollider2.colliderSize = new Vector2(3, 1);
         isoCollider2.colliderCenter = new Vector2(1, 0);

@@ -12,7 +12,7 @@ public class IsoCollider : MonoBehaviour
     
     private BoxCollider2D baseCollider;
     private Vector2 tileDimensions, size, center;
-    private bool aligned;
+//    private bool aligned;
     
     void Start()
     {
@@ -54,15 +54,15 @@ public class IsoCollider : MonoBehaviour
         baseCollider.offset = new Vector2(size.x - 1, size.y -1) * 0.5f - center;
     }
 
-    void alignPositionToGrid()
-    {
-        var isoPosition = IsoVectors.WorldToIso(transform.position, tileDimensions);
-        isoPosition = new Vector2(Mathf.Round(isoPosition.x), Mathf.Round(isoPosition.y));
-        var newWorldPosition = IsoVectors.IsoToWorld(isoPosition, tileDimensions);
-        Vector3 newWorldPosition3D = newWorldPosition;
-        newWorldPosition3D.z = newWorldPosition.x + newWorldPosition.y;
-        transform.position = newWorldPosition3D;
-    }
+//    void alignPositionToGrid()
+//    {
+//        var isoPosition = IsoVectors.WorldToIso(transform.position, tileDimensions);
+//        isoPosition = new Vector2(Mathf.Round(isoPosition.x), Mathf.Round(isoPosition.y));
+//        var newWorldPosition = IsoVectors.IsoToWorld(isoPosition, tileDimensions);
+//        Vector3 newWorldPosition3D = newWorldPosition;
+//        newWorldPosition3D.z = newWorldPosition.x + newWorldPosition.y;
+//        transform.position = newWorldPosition3D;
+//    }
 
     public void RotateCW()
     {

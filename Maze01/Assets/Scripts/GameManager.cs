@@ -13,9 +13,12 @@ public class GameManager : MonoBehaviour
     private Vector2 tileSize;
 
     private bool gameEnded;
+
+    private GameObject camera;
     
     void Start()
     {
+        camera = GameObject.Find("Main Camera");
         map = GameObject.Find("Tile Map").GetComponent<TileMap>();
         tileSize = new Vector2(map.tileSize.x, map.tileSize.y / 2);
 
@@ -48,6 +51,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("GameManager: you Lose! Respawning...");
+            camera.transform.position = new Vector3(1, 103, -10); // todo: remove this
             SpawnPlayer();
         }
         gameEnded = true;
