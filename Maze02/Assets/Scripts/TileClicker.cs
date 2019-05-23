@@ -8,6 +8,7 @@ public class TileClicker : MonoBehaviour
     public int maxChangedTiles = 3;
     private PlayerScript playerScript;
     private List<Tile> tileQueue;
+    private Tile lastChangedTile;
     
     void Start()
     {
@@ -21,7 +22,7 @@ public class TileClicker : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
         RaycastHit2D hit;
         hit = Physics2D.Raycast(ray.origin, ray.direction);
-        if (Input.GetMouseButtonDown(0) && hit.collider != null)
+        if (Input.GetMouseButton(0) && hit.collider != null)
         {
             var tile = hit.collider.gameObject.GetComponent<Tile>();
             if (tile != null)
@@ -30,9 +31,10 @@ public class TileClicker : MonoBehaviour
                 {
                     Debug.Log("TileClicker: clicked on player's tile");
                 }
-                else
+                else if (Input.GetMouseButtonDown(0) || lastChangedTile != tile)
                 {
                     OnTileClick(tile);
+                    lastChangedTile = tile;
                 }
             }
         }
@@ -41,7 +43,7 @@ public class TileClicker : MonoBehaviour
     private void OnTileClick(Tile tile)
     {
         ToggleTile(tile);
-        Debug.Log("TileClicker: clicked on " + tile.gameObject.name);
+//        Debug.Log("TileClicker: clicked on " + tile.gameObject.name);
         if (tileQueue.Remove(tile))
         {
             return;

@@ -41,8 +41,9 @@ public class AIController : Controller
     public Vector2 currentCell, currentPosition, currentDestination, oldPosition;
     private int currentDirectionIndex;
 
-    private int maxTurnsStuck = 200;
-    private int turnsStuck;
+    private float lastCheckTime = 0f;
+    private Vector2 lastCheckCell;
+    private float stuckCheckTime = 3f;
 
     public float horizontalDirection, verticalDirection;
 
@@ -105,29 +106,23 @@ public class AIController : Controller
         }
         
         // check if the player is stuck
-        if (currentPosition.x - oldPosition.x < stuckProximityEpsilon &&
-            currentPosition.y - oldPosition.y < stuckProximityEpsilon)
+        if (Time.time - lastCheckTime > stuckCheckTime)
         {
-            turnsStuck++;
-            if (turnsStuck == maxTurnsStuck)
+            if (currentCell == lastCheckCell)
             {
-//                Debug.Log("AIController: stuck for too long");
+                Debug.Log("AIController: stuck for too long");
                 horizontalDirection = 0;
                 verticalDirection = 0;
-                turnsStuck = 0;
             }
+
+            lastCheckCell = currentCell;
+            lastCheckTime = Time.time;
         }
-        else
-        {
-            turnsStuck = 0;
-        }
-        oldPosition = currentPosition;
         
         // if reached destination - choose a new one
         if (Mathf.Approximately(horizontalDirection, 0) && 
             Mathf.Approximately(verticalDirection, 0))
         {
-//            currentDestination = RandomNeighbor();
             currentDestination = WallFollower();
 //            Debug.Log("AIController: currentDestination = " + currentDestination);
         }
@@ -159,7 +154,7 @@ public class AIController : Controller
     private Vector2 WallFollower()
     {
         
-        // if not around a wall, get to one
+        // if not around a wall, go to a random walkable direction
         if (!TouchingWall())
         {
             approachingWall = true;
@@ -169,21 +164,12 @@ public class AIController : Controller
         // aligning direction so wall is on the left
         if (approachingWall)
         {
-            var j = 0;
-            while (j < 4 && map.IsWalkable(currentCell + direction[j]))
-                j++;
-            currentDirectionIndex = Mod(j + 1, 4);
+            AlignPlayerDirection();
             approachingWall = false;
         }
         
         // wall follower
-        var directionIndices = new []
-        {
-            Mod(currentDirectionIndex - 1, 4),  // left turn
-            currentDirectionIndex,                     // same direction
-            Mod(currentDirectionIndex + 1, 4),  // right turn
-            Mod(currentDirectionIndex + 2, 4)   // 180 turn
-        };
+        var directionIndices = DirectionsArray();
 
         var i = 0;
         while (i < 4 && !map.IsWalkable(currentCell + direction[directionIndices[i]]))
@@ -198,6 +184,65 @@ public class AIController : Controller
 
         currentDirectionIndex = directionIndices[i];
         return currentCell + direction[currentDirectionIndex];
+    }
+
+    private int[] DirectionsArray()
+    {
+        int[] directions = new[]
+            {
+                Mod(currentDirectionIndex - 1, 4), // left turn
+                currentDirectionIndex, // same direction
+                Mod(currentDirectionIndex + 1, 4), // right turn
+                Mod(currentDirectionIndex + 2, 4) // 180 turn
+            };
+        
+        return directions;
+    }
+
+    private void AlignPlayerDirection()
+    {
+        var j = 0;
+        var currentDir = currentDirectionIndex;
+
+        // finding direction index in allDirections
+        for (int k = 0; k < allDirections.Length; k++)
+        {
+            if (allDirections[k] == direction[currentDirectionIndex])
+            {
+                currentDir = k;
+                break;
+            }
+        }
+
+        // checking if the player is already oriented correctly
+        if (map.IsWalkable(currentCell + allDirections[currentDir]) ||
+            map.IsWalkable(currentCell + allDirections[Mod(currentDir - 1, 8)]))
+        {
+            return;
+        }
+    
+        // checking all directions for the wall location
+        while (map.IsWalkable(currentCell + allDirections[Mod(currentDir, 8)]))
+        {
+            currentDir++;
+        }
+        currentDir = Mod(currentDir, 8);
+
+        // if wall is diagonal - changing to prev direction (that is not diagonal)
+        if (allDirections[currentDir].magnitude > 1)
+        {
+            currentDir = Mod(currentDir - 1, 8);
+        }
+        
+        // finding direction in the 4 dir array and taking the direction after it
+        for (int k = 0; k < direction.Length; k++)
+        {
+            if (direction[k] == allDirections[currentDir])
+            {
+                currentDirectionIndex = Mod(k + 1, 4);
+                return;
+            }
+        }
     }
     
     int Mod(int x, int m) 
@@ -278,3 +323,28 @@ public class AIController : Controller
         }
     }
 }
+
+// old stuck check
+//
+//
+//    private int maxTurnsStuck = 200;
+//    private int turnsStuck;
+//
+//
+//        if (currentPosition.x - oldPosition.x < stuckProximityEpsilon &&
+//            currentPosition.y - oldPosition.y < stuckProximityEpsilon)
+//        {
+//            turnsStuck++;
+//            if (turnsStuck == maxTurnsStuck)
+//            {
+//                Debug.Log("AIController: stuck for too long");
+//                horizontalDirection = 0;
+//                verticalDirection = 0;
+//                turnsStuck = 0;
+//            }
+//        }
+//        else
+//        {
+//            turnsStuck = 0;
+//        }
+//        oldPosition = currentPosition;

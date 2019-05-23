@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     private bool gameEnded;
 
     private GameObject camera;
+
+    public int tilesLeft;
     
     void Start()
     {
@@ -36,7 +38,7 @@ public class GameManager : MonoBehaviour
         Vector2 playerTile = IsoVectors.WorldToIso(playerPosition, tileSize);
         playerTile = new Vector2(Mathf.Round(playerTile.x), Mathf.Round(playerTile.y));
 
-        if (playerTile == endTile)
+        if (tilesLeft == 0)
         {
             endGame(true);
         }
@@ -51,7 +53,6 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("GameManager: you Lose! Respawning...");
-//            camera.transform.position = new Vector3(1, 103, -10); // todo: remove this
             SpawnPlayer();
         }
         gameEnded = true;
@@ -69,8 +70,10 @@ public class GameManager : MonoBehaviour
         player.transform.position = playerStartPosition;
         
         player.GetComponent<PlayerScript>().StartMovement();
-        
-        camera.transform.position = player.transform.position;
+
+        var cameraStartPosition = playerStartPosition;
+        cameraStartPosition.z = -10;
+        camera.transform.position = cameraStartPosition;
     }
 
     public void PlayerDied()
@@ -78,6 +81,15 @@ public class GameManager : MonoBehaviour
         endGame();
     }
 
+    public void AddTile()
+    {
+        tilesLeft++;
+    }
+
+    public void SubTile()
+    {
+        tilesLeft--;
+    }
     
     private void OnDrawGizmos()
     {

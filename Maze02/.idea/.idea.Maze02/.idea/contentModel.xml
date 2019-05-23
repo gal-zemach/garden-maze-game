@@ -33,10 +33,10 @@
           <e p="IsometricPlayerMovementController.cs" t="Include" />
           <e p="IsoVectors.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
+          <e p="Score.cs" t="Include" />
           <e p="TileClicker.cs" t="Include" />
           <e p="Tiles" t="Include">
             <e p="ConstWall.cs" t="Include" />
-            <e p="Floor.cs" t="Include" />
             <e p="MoveableWall.cs" t="Include" />
             <e p="Tile.cs" t="Include" />
             <e p="TileBrush.cs" t="Include" />

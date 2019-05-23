@@ -7,10 +7,13 @@ public class MoveableWall : Tile
     private Animator animator;
     private bool visited;
     private Collider2D wallTrigger;
+
+    private GameManager gameManager;
     
     void Start()
     {
         base.Start();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         wallTrigger = AddTileTrigger();
         animator = gameObject.GetComponent<Animator>();
 
@@ -88,15 +91,23 @@ public class MoveableWall : Tile
     }
     
     
-    public void MarkAsVisited()
+    public bool MarkAsVisited()
     {
+        var retVal = !visited;
         visited = true;
         animator.SetBool("wasVisited", true);
+
+        if (retVal)
+        {
+            gameManager.SubTile();
+        }
+        return retVal;
     }
     
     public void MarkAsUnvisited()
     {
-        visited = true;
+        visited = false;
         animator.SetBool("wasVisited", false);
+        gameManager.AddTile();
     }
 }
