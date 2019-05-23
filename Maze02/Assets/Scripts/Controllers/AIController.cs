@@ -162,13 +162,6 @@ public class AIController : Controller
         // if not around a wall, get to one
         if (!TouchingWall())
         {
-//            currentDirectionIndex = NearestWallDirection();
-
-              // always walk in 1 direction
-//            currentDirectionIndex = 0;
-//            approachingWall = true;
-//            return currentCell + direction[currentDirectionIndex];
-            
             approachingWall = true;
             return RandomNeighbor();
         }
@@ -280,15 +273,8 @@ public class AIController : Controller
 //                }
 //            }
 
-            Vector3 pos = IsoVectors.IsoToWorld(currentPosition, playerScript.tileSize);
-            pos.z = -100;
-            Gizmos.color = Color.red;
-            Gizmos.DrawSphere(pos, 5f);
-            
-            Vector3 destinationPosition = IsoVectors.IsoToWorld(currentDestination, playerScript.tileSize);
-            destinationPosition.z = -100;
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawSphere(destinationPosition, 5f);
+            IsoVectors.drawPoint(currentPosition, Color.yellow, playerScript.tileSize);
+            IsoVectors.drawPoint(currentDestination, Color.green, playerScript.tileSize);
         }
     }
 }

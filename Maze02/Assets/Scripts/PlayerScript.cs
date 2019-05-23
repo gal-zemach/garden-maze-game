@@ -11,7 +11,9 @@ public class PlayerScript : MonoBehaviour
 	private TileMap map;
 	private GameManager gameManager;
 
+	[HideInInspector]
 	public Vector2 gridPosition;
+	[HideInInspector]
 	public Vector2 gridCell;
 	[HideInInspector]
 	public Vector2 tileSize;
@@ -24,7 +26,10 @@ public class PlayerScript : MonoBehaviour
 	public bool movementStarted;
 
 	// movement
-	public int movementSpeed = 100;	
+	public int normalMovementSpeed = 100;
+	public int fasterMovementSpeed = 200;
+	
+	private int movementSpeed = 100;
 	
 	void Awake ()
 	{
@@ -53,8 +58,21 @@ public class PlayerScript : MonoBehaviour
 
 		sprite.sprite = backSprite;
 		movementStarted = false;
+		movementSpeed = normalMovementSpeed;
 	}
-	
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.LeftShift))
+		{
+			movementSpeed = fasterMovementSpeed;
+		}
+		if (Input.GetKeyUp(KeyCode.LeftShift))
+		{
+			movementSpeed = normalMovementSpeed;
+		}
+	}
+
 	private void FixedUpdate()
 	{
 		if (!movementStarted)

@@ -7,12 +7,12 @@ public class TileClicker : MonoBehaviour
 {
     public int maxChangedTiles = 3;
     private PlayerScript playerScript;
-    private Queue<Tile> tileQueue;
+    private List<Tile> tileQueue;
     
     void Start()
     {
         playerScript = GetComponent<GameManager>().player.GetComponent<PlayerScript>();
-        tileQueue = new Queue<Tile>();
+        tileQueue = new List<Tile>();
     }
 
     void Update()
@@ -42,15 +42,17 @@ public class TileClicker : MonoBehaviour
     {
         ToggleTile(tile);
         Debug.Log("TileClicker: clicked on " + tile.gameObject.name);
-        if (tileQueue.Contains(tile))
+        if (tileQueue.Remove(tile))
+        {
             return;
-        
-        tileQueue.Enqueue(tile);
+        }
+            
+        tileQueue.Add(tile);
         if (tileQueue.Count > maxChangedTiles)
         {
-            var oldTile = tileQueue.Dequeue();
-//            Debug.Log("TileClicker: unclicked on " + tile.gameObject.name);
+            var oldTile = tileQueue[0];
             ToggleTile(oldTile);
+            tileQueue.RemoveAt(0);
         }
     }
 

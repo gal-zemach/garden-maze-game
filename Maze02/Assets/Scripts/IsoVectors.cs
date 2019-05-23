@@ -49,6 +49,14 @@ public class IsoVectors : MonoBehaviour
         var gridCell = WorldToIsoRounded(worldPosition, tileSize);
         return IsoToWorld(gridCell, tileSize);
     }
+    
+    public static void drawPoint(Vector2 position, Color color, Vector2 tileSize)
+    {
+        Vector3 destinationPosition = IsoVectors.IsoToWorld(position, tileSize);
+        destinationPosition.z = -100;
+        Gizmos.color = color;
+        Gizmos.DrawSphere(destinationPosition, 5f);
+    }
 
     private void OnDrawGizmosSelected()
     {

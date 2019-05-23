@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("GameManager: you Lose! Respawning...");
-            camera.transform.position = new Vector3(1, 103, -10); // todo: remove this
+//            camera.transform.position = new Vector3(1, 103, -10); // todo: remove this
             SpawnPlayer();
         }
         gameEnded = true;
@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
         player.transform.position = playerStartPosition;
         
         player.GetComponent<PlayerScript>().StartMovement();
+        
+        camera.transform.position = player.transform.position;
     }
 
     public void PlayerDied()
@@ -79,15 +81,7 @@ public class GameManager : MonoBehaviour
     
     private void OnDrawGizmos()
     {
-        drawPoint(startTile, Color.white);
-        drawPoint(endTile, Color.green);
-    }
-
-    private void drawPoint(Vector2 position, Color color)
-    {
-        Vector3 destinationPosition = IsoVectors.IsoToWorld(position, tileSize);
-        destinationPosition.z = -100;
-        Gizmos.color = color;
-        Gizmos.DrawSphere(destinationPosition, 5f);
+        IsoVectors.drawPoint(startTile, Color.cyan, tileSize);
+        IsoVectors.drawPoint(endTile, Color.blue, tileSize);
     }
 }
