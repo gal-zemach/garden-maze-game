@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class HoleEnemy : EnemyScript
 {
+    private Trap parentTrapTile;
+    
     void Start()
     {
         EnemyBaseStart();
         isoCollider.colliderSize = new Vector2(1, 1);
         var rb2d = gameObject.AddComponent<Rigidbody2D>();
         rb2d.bodyType = RigidbodyType2D.Kinematic;
+        
+        parentTrapTile = transform.parent.GetComponentInParent<Trap>();
     }
 
     void Update()
@@ -24,6 +28,8 @@ public class HoleEnemy : EnemyScript
             Debug.Log("HoleEnemy: player fell to Hole");
             var playerScript = other.gameObject.GetComponentInParent<PlayerScript>();
             playerScript.FellToHole();
+            
+//            parentTrapTile.changeToFloorTile();
         }
     }
 }

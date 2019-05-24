@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   index: {x: 0, y: 0}
+  replacementTile: {fileID: 5244557549314216361, guid: afdd17e8974b748409f0e0a510966396,
+    type: 3}
 --- !u!212 &413077221016921705
 SpriteRenderer:
   m_ObjectHideFlags: 0
