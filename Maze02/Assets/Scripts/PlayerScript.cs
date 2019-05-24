@@ -180,6 +180,21 @@ public class PlayerScript : MonoBehaviour
 		StartCoroutine(WaitAndEndGame());
 	}
 
+	private List<Item.ItemType> items;
+	
+	public void AddItem(Item.ItemType itemType)
+	{
+		if (items.Contains(itemType))
+			return;
+		
+		items.Add(itemType);
+	}
+
+	public bool HasItem(Item.ItemType itemType)
+	{
+		return items.Contains(itemType);
+	}
+	
 	private IEnumerator WaitAndEndGame()
 	{
 		yield return new WaitForSeconds(0.3f);

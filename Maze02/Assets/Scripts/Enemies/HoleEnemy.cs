@@ -25,11 +25,17 @@ public class HoleEnemy : EnemyScript
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("HoleEnemy: player fell to Hole");
-            var playerScript = other.gameObject.GetComponentInParent<PlayerScript>();
-            playerScript.FellToHole();
-            
-//            parentTrapTile.changeToFloorTile();
+            var playerScript = other.gameObject.GetComponent<PlayerScript>();
+
+            if (playerScript.HasItem(Item.ItemType.Shovel))
+            {
+                parentTrapTile.changeToFloorTile();                
+            }
+            else
+            {
+                Debug.Log("HoleEnemy: player fell to Hole");
+                playerScript.FellToHole();
+            }
         }
     }
 }

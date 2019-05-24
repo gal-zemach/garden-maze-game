@@ -32,6 +32,7 @@
           <e p="IsoCollider.cs" t="Include" />
           <e p="IsometricPlayerMovementController.cs" t="Include" />
           <e p="IsoVectors.cs" t="Include" />
+          <e p="Item.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
           <e p="Score.cs" t="Include" />
           <e p="TileClicker.cs" t="Include" />
