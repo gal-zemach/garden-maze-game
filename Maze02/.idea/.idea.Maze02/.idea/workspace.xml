@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42f579d4-9fb6-406a-b2b7-b079bab9c82b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Maze02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Maze02/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/tile.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/tile.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/wall.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/wall.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Editor/isoMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Editor/isoMap.png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Maze01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Maze01.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/AIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/AIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IsoVectors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IsoVectors.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/MoveableWall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/MoveableWall.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/HoleEnemy.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+            <state relative-caret-position="105">
+              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
               <folding>
                 <marker date="1558715381336" expanded="false" signature="6:78" ph="..." />
                 <marker date="1558715381336" expanded="true" signature="116:1018" ph="{...}" />
@@ -81,66 +67,6 @@
                 <marker date="1558715381336" expanded="true" signature="606:1010" ph="{...}" />
                 <marker date="1558715381336" expanded="true" signature="755:851" ph="{...}" />
                 <marker date="1558715381336" expanded="true" signature="868:1000" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScript.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-40">
-              <caret line="79" column="29" lean-forward="true" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
-              <folding>
-                <marker date="1558794941487" expanded="false" signature="6:92" ph="..." />
-                <marker date="1558794941487" expanded="true" signature="135:4956" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="696:1587" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="951:1022" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="1128:1190" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="1611:1797" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="1657:1705" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="1746:1794" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="1826:2185" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="2227:2524" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="2602:2957" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="2990:3167" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="3253:3631" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="3287:3346" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="3382:3441" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="3476:3534" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="3568:3628" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="3669:3816" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="3846:3931" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="3973:4185" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="4141:4182" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="4237:4447" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="4270:4418" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="4474:4593" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="4677:4752" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="4798:4839" ph="{...}" />
-                <marker date="1558794941487" expanded="true" signature="4879:4954" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/IsoVectors.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
-              <folding>
-                <marker date="1558793102451" expanded="false" signature="6:78" ph="..." />
-                <marker date="1558793102451" expanded="true" signature="119:2776" ph="{...}" />
-                <marker date="1558793102451" expanded="true" signature="492:525" ph="{...}" />
-                <marker date="1558793102451" expanded="true" signature="608:854" ph="{...}" />
-                <marker date="1558793102451" expanded="true" signature="944:1079" ph="{...}" />
-                <marker date="1558793102451" expanded="true" signature="1169:1304" ph="{...}" />
-                <marker date="1558793102451" expanded="true" signature="1377:1577" ph="{...}" />
-                <marker date="1558793102451" expanded="true" signature="1663:1789" ph="{...}" />
-                <marker date="1558793102451" expanded="true" signature="1876:2089" ph="{...}" />
-                <marker date="1558793102451" expanded="true" signature="2183:2380" ph="{...}" />
-                <marker date="1558793102451" expanded="true" signature="2421:2774" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -295,12 +221,12 @@
       <workItem from="1558538341224" duration="9233000" />
       <workItem from="1558614436459" duration="10545000" />
       <workItem from="1558706487900" duration="4542000" />
-      <workItem from="1558792184174" duration="3406000" />
+      <workItem from="1558792184174" duration="4496000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27726000" />
+    <option name="totallyTimeSpent" value="28816000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -313,7 +239,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -542,23 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/HoleEnemy.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="35" column="60" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
-          <folding>
-            <marker date="1558715381336" expanded="false" signature="6:78" ph="..." />
-            <marker date="1558715381336" expanded="true" signature="116:1018" ph="{...}" />
-            <marker date="1558715381336" expanded="true" signature="173:456" ph="{...}" />
-            <marker date="1558715381336" expanded="true" signature="475:496" ph="{...}" />
-            <marker date="1558715381336" expanded="true" signature="549:1016" ph="{...}" />
-            <marker date="1558715381336" expanded="true" signature="606:1010" ph="{...}" />
-            <marker date="1558715381336" expanded="true" signature="755:851" ph="{...}" />
-            <marker date="1558715381336" expanded="true" signature="868:1000" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Item.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -592,26 +500,6 @@
             <marker date="1558632001583" expanded="true" signature="1949:1982" ph="{...}" />
             <marker date="1558632001583" expanded="true" signature="2009:2042" ph="{...}" />
             <marker date="1558632001583" expanded="true" signature="2079:2215" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/IsoVectors.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
-          <folding>
-            <marker date="1558793102451" expanded="false" signature="6:78" ph="..." />
-            <marker date="1558793102451" expanded="true" signature="119:2776" ph="{...}" />
-            <marker date="1558793102451" expanded="true" signature="492:525" ph="{...}" />
-            <marker date="1558793102451" expanded="true" signature="608:854" ph="{...}" />
-            <marker date="1558793102451" expanded="true" signature="944:1079" ph="{...}" />
-            <marker date="1558793102451" expanded="true" signature="1169:1304" ph="{...}" />
-            <marker date="1558793102451" expanded="true" signature="1377:1577" ph="{...}" />
-            <marker date="1558793102451" expanded="true" signature="1663:1789" ph="{...}" />
-            <marker date="1558793102451" expanded="true" signature="1876:2089" ph="{...}" />
-            <marker date="1558793102451" expanded="true" signature="2183:2380" ph="{...}" />
-            <marker date="1558793102451" expanded="true" signature="2421:2774" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -757,6 +645,43 @@
             <marker date="1558794941487" expanded="true" signature="4677:4752" ph="{...}" />
             <marker date="1558794941487" expanded="true" signature="4798:4839" ph="{...}" />
             <marker date="1558794941487" expanded="true" signature="4879:4954" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/IsoVectors.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
+          <folding>
+            <marker date="1558793102451" expanded="false" signature="6:78" ph="..." />
+            <marker date="1558793102451" expanded="true" signature="119:2776" ph="{...}" />
+            <marker date="1558793102451" expanded="true" signature="492:525" ph="{...}" />
+            <marker date="1558793102451" expanded="true" signature="608:854" ph="{...}" />
+            <marker date="1558793102451" expanded="true" signature="944:1079" ph="{...}" />
+            <marker date="1558793102451" expanded="true" signature="1169:1304" ph="{...}" />
+            <marker date="1558793102451" expanded="true" signature="1377:1577" ph="{...}" />
+            <marker date="1558793102451" expanded="true" signature="1663:1789" ph="{...}" />
+            <marker date="1558793102451" expanded="true" signature="1876:2089" ph="{...}" />
+            <marker date="1558793102451" expanded="true" signature="2183:2380" ph="{...}" />
+            <marker date="1558793102451" expanded="true" signature="2421:2774" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/HoleEnemy.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <marker date="1558715381336" expanded="false" signature="6:78" ph="..." />
+            <marker date="1558715381336" expanded="true" signature="116:1018" ph="{...}" />
+            <marker date="1558715381336" expanded="true" signature="173:456" ph="{...}" />
+            <marker date="1558715381336" expanded="true" signature="475:496" ph="{...}" />
+            <marker date="1558715381336" expanded="true" signature="549:1016" ph="{...}" />
+            <marker date="1558715381336" expanded="true" signature="606:1010" ph="{...}" />
+            <marker date="1558715381336" expanded="true" signature="755:851" ph="{...}" />
+            <marker date="1558715381336" expanded="true" signature="868:1000" ph="{...}" />
           </folding>
         </state>
       </provider>
