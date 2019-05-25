@@ -57,6 +57,15 @@ public class IsoVectors : MonoBehaviour
         Gizmos.color = color;
         Gizmos.DrawSphere(destinationPosition, 5f);
     }
+    
+    public static void drawLine(Vector2 from, Vector2 to, Color color, Vector2 tileSize)
+    {
+        Vector3 a = IsoToWorld(from, tileSize);
+        Vector3 b = IsoToWorld(to, tileSize);
+        a.z = b.z = -100;
+        Gizmos.color = color;
+        Gizmos.DrawLine(from, to);
+    }
 
     private void OnDrawGizmosSelected()
     {

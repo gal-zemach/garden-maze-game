@@ -43,7 +43,7 @@ public class AIController : Controller
 
     private float lastCheckTime = 0f;
     private Vector2 lastCheckCell;
-    private float stuckCheckTime = 3f;
+    private float stuckCheckTime = 2f;
 
     public float horizontalDirection, verticalDirection;
 
@@ -137,6 +137,11 @@ public class AIController : Controller
     {
         return verticalDirection;
     }
+
+    private Vector2 KeepStraight()
+    {
+        return currentCell + direction[currentDirectionIndex];
+    }
     
     private Vector2 RandomNeighbor()
     {
@@ -158,7 +163,7 @@ public class AIController : Controller
         if (!TouchingWall())
         {
             approachingWall = true;
-            return RandomNeighbor();
+            return KeepStraight();
         }
 
         // aligning direction so wall is on the left
@@ -307,17 +312,6 @@ public class AIController : Controller
     {
         if (playerScript != null)
         {
-//            Gizmos.color = Color.yellow;
-//            for (int column = 0; column < map.mapSize.x; column++)
-//            {
-//                for (int row = 0; row < map.mapSize.y; row++)
-//                {
-//                    Vector3 pos = playerScript.IsoToWorld(new Vector2(column, row));
-//                    pos.z = -100;
-//                    Gizmos.DrawSphere(pos, 5f);
-//                }
-//            }
-
             IsoVectors.drawPoint(currentPosition, Color.yellow, playerScript.tileSize);
             IsoVectors.drawPoint(currentDestination, Color.green, playerScript.tileSize);
         }

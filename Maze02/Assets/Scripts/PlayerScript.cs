@@ -59,6 +59,8 @@ public class PlayerScript : MonoBehaviour
 		sprite.sprite = backSprite;
 		movementStarted = false;
 		movementSpeed = normalMovementSpeed;
+		
+		items = new List<Item.ItemType>();
 	}
 
 	private void Update()
@@ -81,37 +83,29 @@ public class PlayerScript : MonoBehaviour
 		float horizontalDirection = controller.HorizontalAxis();
 		float verticalDirection = controller.VerticalAxis();
 
-		UpdateSprite(horizontalDirection, verticalDirection);
+		UpdatePositionParameters();
+		MarkCurrentTileAsVisited();
+		UpdatePlayerSprite(horizontalDirection, verticalDirection);
 		
-		UpdatePosition();
-		
-		var tile = map.tiles[map.TileIndex((int)gridCell.x, (int)gridCell.y)].GetComponent<Tile>();
-		var moveableWall = tile as MoveableWall;
-		if (moveableWall != null)
-		{
-			moveableWall.MarkAsVisited();
-		}
-		
-		Vector2 currentPos = rb2d.position;
-//		var inputVector = new Vector2(horizontalDirection, verticalDirection);
-
-		var verticalVector = (verticalDirection * IsoVectors.UP).normalized;
-		var horizontalVector = (horizontalDirection * IsoVectors.RIGHT).normalized;
-		var inputVector = horizontalVector + verticalVector;
-		
-		inputVector = Vector2.ClampMagnitude(inputVector, 1);
-		Vector2 movement = inputVector * movementSpeed;
-		Vector3 newPos = currentPos + movement * Time.fixedDeltaTime;
-		
-		rb2d.MovePosition(newPos);
+		MovePlayer(horizontalDirection, verticalDirection);
 		UpdateZPosition();
 	}
 
-	private void UpdatePosition()
+	private void UpdatePositionParameters()
 	{
 		var worldPosition = transform.position;
 		gridPosition = IsoVectors.WorldToIso(worldPosition, tileSize);
 		gridCell = new Vector2(Mathf.Round(gridPosition.x), Mathf.Round(gridPosition.y)); // changed from Floor to Round because of AIController not recognizing it got to a destination cell
+	}
+
+	private void MovePlayer(float horizontalDirection, float verticalDirection)
+	{
+		Vector2 currentPos = rb2d.position;
+		Vector2 verticalVector = (verticalDirection * IsoVectors.UP).normalized;
+		Vector2 horizontalVector = (horizontalDirection * IsoVectors.RIGHT).normalized;
+		var inputVector = horizontalVector + verticalVector;
+		
+		rb2d.MovePosition(currentPos + inputVector.normalized * movementSpeed * Time.fixedDeltaTime);
 	}
 
 	private void UpdateZPosition()
@@ -122,7 +116,7 @@ public class PlayerScript : MonoBehaviour
 		transform.position = worldPosition;
 	}
 
-	private void UpdateSprite(float horizontalDirection, float verticalDirection)
+	private void UpdatePlayerSprite(float horizontalDirection, float verticalDirection)
 	{
 		if (horizontalDirection > 0)
 		{
@@ -156,8 +150,18 @@ public class PlayerScript : MonoBehaviour
 
 	public void StartMovement()
 	{
-		UpdatePosition();
+		UpdatePositionParameters();
 		StartCoroutine(BlinkSpriteAndStartMovement());
+	}
+
+	private void MarkCurrentTileAsVisited()
+	{
+		var tile = map.tiles[map.TileIndex((int)gridCell.x, (int)gridCell.y)].GetComponent<Tile>();
+		var moveableWall = tile as MoveableWall;
+		if (moveableWall != null)
+		{
+			moveableWall.MarkAsVisited();
+		}
 	}
 
 	private IEnumerator BlinkSpriteAndStartMovement()

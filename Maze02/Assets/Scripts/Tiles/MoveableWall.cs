@@ -50,7 +50,7 @@ public class MoveableWall : Tile
     public void Disable()
     {
         animator.SetBool("isWall", false);
-        spriteRenderer.sortingOrder = 0;
+//        spriteRenderer.sortingOrder = 0; // moved to animation event
         
         collider.isTrigger = true;
         wallTrigger.enabled = false;
@@ -109,5 +109,15 @@ public class MoveableWall : Tile
         visited = false;
         animator.SetBool("wasVisited", false);
         gameManager.AddTile();
+    }
+
+    private void MoveToFront()
+    {
+        spriteRenderer.sortingOrder = 1;
+    }
+    
+    private void MoveToBack()
+    {
+        spriteRenderer.sortingOrder = 0;
     }
 }
