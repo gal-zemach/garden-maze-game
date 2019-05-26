@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TileClicker : MonoBehaviour
 {
+    public GameObject marker, wallMarker;
     public int maxChangedTiles = 3;
     private PlayerScript playerScript;
     private List<Tile> tileQueue;
@@ -22,11 +23,26 @@ public class TileClicker : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
         RaycastHit2D hit;
         hit = Physics2D.Raycast(ray.origin, ray.direction);
-        if (Input.GetMouseButton(0) && hit.collider != null)
+        
+        if (hit.collider != null)
         {
             var tile = hit.collider.gameObject.GetComponent<Tile>();
-            if (tile != null)
+            var moveableWall = tile as MoveableWall; // this is only used so the marker doesn't move to a non-clickable tile
+            if (moveableWall != null)
             {
+//                if (Mathf.Approximately((tile.index - playerScript.gridCell).magnitude, 1))
+                if (tile.index == playerScript.gridCell)
+                {
+                    marker.SetActive(false);
+                    wallMarker.SetActive(false);
+                    return;
+                }
+
+                UpdateMarker(moveableWall, hit.collider.transform.position);
+                
+                if (!Input.GetMouseButton(0))
+                    return;
+                
                 if (tile.index == playerScript.gridCell)
                 {
                     Debug.Log("TileClicker: clicked on player's tile");
@@ -80,6 +96,22 @@ public class TileClicker : MonoBehaviour
         else if (moveableWall.type == TileMap.TileType.moveableWall)
         {
             moveableWall.type = TileMap.TileType.Floor;
+        }
+    }
+
+    private void UpdateMarker(MoveableWall moveableWall, Vector3 pos)
+    {
+        if (moveableWall.type == TileMap.TileType.Floor)
+        {
+            wallMarker.SetActive(false);
+            marker.SetActive(true);
+            marker.transform.position = pos;
+        }
+        else
+        {
+            marker.SetActive(false);
+            wallMarker.SetActive(true);
+            wallMarker.transform.position = pos + new Vector3(0, 0, -1);
         }
     }
 }

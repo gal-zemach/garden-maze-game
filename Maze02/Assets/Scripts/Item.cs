@@ -12,12 +12,24 @@ public class Item : MonoBehaviour
 
     public ItemType type;
 
+    private TileMap map;
+
+    private void Start()
+    {
+        map = GameObject.Find("Tile Map").GetComponent<TileMap>();
+        var pos = transform.parent.position;
+        var newPos = IsoVectors.WorldToTileCenter(pos, map.actualTileSize);
+        pos.z = newPos.z;
+        transform.parent.position = pos;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            var playerScript = other.gameObject.GetComponent<PlayerScript>();
+            var playerScript = other.gameObject.GetComponentInParent<PlayerScript>();
             playerScript.AddItem(type);
+            transform.parent.gameObject.SetActive(false);
         }
     }
 }

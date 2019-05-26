@@ -44,10 +44,12 @@ public class IsoVectors : MonoBehaviour
         return new Vector2(x, y);
     }
 
-    public static Vector2 WorldToTileCenter(Vector3 worldPosition, Vector2 tileSize)
+    public static Vector3 WorldToTileCenter(Vector3 worldPosition, Vector2 tileSize)
     {
         var gridCell = WorldToIsoRounded(worldPosition, tileSize);
-        return IsoToWorld(gridCell, tileSize);
+        Vector3 centerWorldPos = IsoToWorld(gridCell, tileSize);
+        centerWorldPos.z = gridCell.x + gridCell.y;
+        return centerWorldPos;
     }
     
     public static void drawPoint(Vector2 position, Color color, Vector2 tileSize)

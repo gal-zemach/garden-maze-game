@@ -25,7 +25,7 @@ public class HoleEnemy : EnemyScript
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            var playerScript = other.gameObject.GetComponent<PlayerScript>();
+            var playerScript = other.gameObject.GetComponentInParent<PlayerScript>();
 
             if (playerScript.HasItem(Item.ItemType.Shovel))
             {
