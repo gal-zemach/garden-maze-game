@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2836868230709280829}
   - component: {fileID: 7139278420366851693}
   - component: {fileID: 413077221016921705}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hole_trap_tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,6 +109,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hole
       objectReference: {fileID: 0}
+    - target: {fileID: 3639092324459376320, guid: 75d8f96e76b364d76a0a1156f4140a33,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3639092324459376321, guid: 75d8f96e76b364d76a0a1156f4140a33,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -163,6 +168,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3639092324240493090, guid: 75d8f96e76b364d76a0a1156f4140a33,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053355235565585334, guid: 75d8f96e76b364d76a0a1156f4140a33,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75d8f96e76b364d76a0a1156f4140a33, type: 3}

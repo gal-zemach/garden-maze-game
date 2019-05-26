@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 867404293350291966}
   - component: {fileID: 5207560702140450734}
   - component: {fileID: 3381284887776108458}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: sprinkler_trap_tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8513125608789071524}
   - component: {fileID: 8513125608789071527}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8513125609328746824}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bullets Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8513125610167289404}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: bullet spawn point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8513125610373483091}
   - component: {fileID: 8513125610373483090}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sprinkler
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -94,7 +94,8 @@ public class BulletScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
+//    private void OnCollisionEnter2D(Collision2D other)
     {
         if (shooter != null && other.gameObject == shooter)
             return;
@@ -108,7 +109,7 @@ public class BulletScript : MonoBehaviour
         }
         else
         {
-//            Debug.Log("Bullet: destroyed by " + other.gameObject.name);
+//            Debug.Log("Bullet: destroyed by " + other.gameObject.transform.parent.name);
             Destroy(gameObject);
         }
     }

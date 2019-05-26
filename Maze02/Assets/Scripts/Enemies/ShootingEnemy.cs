@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
+using Random = UnityEngine.Random;
 
 public class ShootingEnemy : EnemyScript
 {
@@ -29,7 +30,7 @@ public class ShootingEnemy : EnemyScript
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         
-        turnCount = 0;
+        turnCount = Random.Range(0, 30);
 
         switch (direction)
         {

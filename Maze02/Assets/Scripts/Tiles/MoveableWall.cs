@@ -43,6 +43,7 @@ public class MoveableWall : Tile
         
         collider.isTrigger = false;
         wallTrigger.enabled = true;
+        gameObject.layer = LayerMask.NameToLayer("Walls");
 
 //        type = TileMap.TileType.moveableWall;
     }
@@ -54,7 +55,8 @@ public class MoveableWall : Tile
         
         collider.isTrigger = true;
         wallTrigger.enabled = false;
-        
+        gameObject.layer = LayerMask.NameToLayer("Tiles");
+
 //        type = TileMap.TileType.Floor;
     }
 

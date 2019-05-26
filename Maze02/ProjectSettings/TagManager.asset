@@ -18,10 +18,10 @@ TagManager:
   - 
   - 
   - Bullet
-  - 
-  - 
-  - 
-  - 
+  - Tiles
+  - Walls
+  - Items
+  - Traps
   - 
   - 
   - 

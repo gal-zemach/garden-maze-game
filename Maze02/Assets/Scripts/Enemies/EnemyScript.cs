@@ -18,6 +18,7 @@ public class EnemyScript : MonoBehaviour
         colliderChild = new GameObject("collider");
         colliderChild.transform.SetParent(gameObject.transform);
         colliderChild.transform.localPosition = Vector3.zero;
+        colliderChild.layer = gameObject.layer;
         
         isoCollider = colliderChild.AddComponent<IsoCollider>();
         isoCollider.tileSize = 35; // 64 makes for larger than map tiles' tiles, this is smaller than the map tiles

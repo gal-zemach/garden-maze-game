@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8054137215024100627}
   - component: {fileID: 3101099839952807470}
   - component: {fileID: 1532878947075172081}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: uncut_grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}

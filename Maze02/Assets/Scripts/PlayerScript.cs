@@ -6,42 +6,39 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {	
-	private Rigidbody2D rb2d;
-	private SpriteRenderer sprite;
-	private Controller controller;
-	private TileMap map;
-	private GameManager gameManager;
-
+	public Sprite frontSprite, backSprite;
+	public int MaxLives = 3;
+	public LivesVisualizer livesVisualizer;
+	public bool invincible;
+	public int normalMovementSpeed = 100;
+	public int fasterMovementSpeed = 200;
+	
+	// used for positioning and controller
+	[HideInInspector]
+	public bool movementStarted;
 	[HideInInspector]
 	public Vector2 gridPosition;
 	[HideInInspector]
 	public Vector2 gridCell;
 	[HideInInspector]
 	public Vector2 tileSize;
+	
+	private Rigidbody2D rb2d;
+	private SpriteRenderer sprite;
+	private Controller controller;
+	private GameManager gameManager;
+	private TileMap map;
 
-	public LivesVisualizer livesVisualizer;
-	public bool invincible;
-
+	private List<Item.ItemType> items;
 	private Vector2 forward, right;
-
-	public Sprite frontSprite, backSprite;
-	public int MaxLives;
-	
-	[HideInInspector]
-	public bool movementStarted;
-
-	// movement
-	public int normalMovementSpeed = 100;
-	public int fasterMovementSpeed = 200;
-	
 	private int movementSpeed = 100;
-
 	private int currentLives = 5;
-	
+
 	void Awake ()
 	{
 		currentLives = MaxLives;
 		livesVisualizer = GameObject.Find("Lives").GetComponent<LivesVisualizer>();
+		livesVisualizer.setLives(MaxLives);
 		
 		rb2d = GetComponent<Rigidbody2D>();
 		sprite = GetComponentInChildren<SpriteRenderer>();
@@ -132,31 +129,24 @@ public class PlayerScript : MonoBehaviour
 		if (horizontalDirection > 0)
 		{
 			sprite.sprite = frontSprite;
-			SpriteScale(1);
+			sprite.flipX = true;
 		}
 		else if (horizontalDirection < 0)
 		{
 			sprite.sprite = backSprite;
-			SpriteScale(-1);
+			sprite.flipX = false;
 		}
 
 		else if (verticalDirection > 0)
 		{
 			sprite.sprite = backSprite;
-			SpriteScale(1);
+			sprite.flipX = true;
 		}
 		else if (verticalDirection < 0)
 		{
 			sprite.sprite = frontSprite;
-			SpriteScale(-1);
+			sprite.flipX = false;
 		}
-	}
-
-	private void SpriteScale(int scale)
-	{
-		var spriteScale = sprite.gameObject.transform.localScale;
-		spriteScale.x = scale;
-		sprite.gameObject.transform.localScale = spriteScale;
 	}
 
 	public void StartMovement()
@@ -224,8 +214,6 @@ public class PlayerScript : MonoBehaviour
 	{
 		return currentLives == 0;
 	}
-
-	private List<Item.ItemType> items;
 	
 	public void AddItem(Item.ItemType itemType)
 	{
