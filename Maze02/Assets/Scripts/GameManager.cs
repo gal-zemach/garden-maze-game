@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
 //            SpawnPlayer();
         }
         gameEnded = true;
+        Time.timeScale = 0;
     }
 
 

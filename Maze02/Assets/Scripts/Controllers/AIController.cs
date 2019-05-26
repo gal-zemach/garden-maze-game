@@ -195,8 +195,9 @@ public class AIController : Controller
     {
         int[] directions = new[]
             {
-                Mod(currentDirectionIndex - 1, 4), // left turn
                 currentDirectionIndex, // same direction
+                Mod(currentDirectionIndex - 1, 4), // left turn
+                // same direction used to be here
                 Mod(currentDirectionIndex + 1, 4), // right turn
                 Mod(currentDirectionIndex + 2, 4) // 180 turn
             };

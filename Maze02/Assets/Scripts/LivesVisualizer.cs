@@ -26,7 +26,7 @@ namespace Game
 
 			for (int i = 0; i < maxLives; i++)
 			{
-				allLives[i] = Instantiate(LifeGameObject, transform);
+				allLives[i] = (GameObject) Instantiate(LifeGameObject, transform);
 				allLives[i].SetActive(true);
 
 				allLives[i].transform.localPosition = curentPosition;
@@ -61,8 +61,14 @@ namespace Game
 		{
 			for (int i = 0; i < maxLives; i++)
 			{
-				if (i < numOfLives) allLives[i].SetActive(true);
-				else allLives[i].SetActive(false);
+				if (i < numOfLives)
+				{
+					allLives[i].SetActive(true);
+				}
+				else
+				{
+					allLives[i].SetActive(false);
+				}
 			}
 			currentLives = numOfLives;
 		}
