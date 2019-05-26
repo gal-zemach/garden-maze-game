@@ -7,12 +7,16 @@ using UnityEngine.Experimental.PlayerLoop;
 public class ShootingEnemy : EnemyScript
 {
     public enum Direction {Up, Down, Left, Right};
+
+    public Sprite UpLeftSprite, DownRightSprite;
     
     public GameObject projectilePrefab;
     public int turnsToAttack = 150;
     public Direction direction;
     public Transform bulletSpawn;
 
+    private SpriteRenderer spriteRenderer;
+    private Transform bulletsParent;
     private int turnCount;
     private BulletScript bullet;
     private Vector2 shootingDirection;
@@ -21,6 +25,9 @@ public class ShootingEnemy : EnemyScript
     {
         EnemyBaseStart();
         isoCollider.colliderSize = new Vector2(1, 1);
+        bulletsParent = transform.Find("Bullets Parent");
+
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         
         turnCount = 0;
 
@@ -47,6 +54,8 @@ public class ShootingEnemy : EnemyScript
     
     void FixedUpdate()
     {
+        UpdateSprite();
+        
         turnCount++;
         if (turnCount >= turnsToAttack)
         {
@@ -57,10 +66,37 @@ public class ShootingEnemy : EnemyScript
 
     private void Fire()
     {
-        bullet = Instantiate(projectilePrefab, transform).GetComponent<BulletScript>();
+        bullet = Instantiate(projectilePrefab, bulletsParent).GetComponent<BulletScript>();
         bullet.transform.position = bulletSpawn.position;
         bullet.shooter = gameObject;
         bullet.Shoot(shootingDirection);
             
+    }
+
+    private void UpdateSprite()
+    {
+        switch (direction)
+        {
+            case Direction.Up:
+                spriteRenderer.sprite = UpLeftSprite;
+                spriteRenderer.flipX = true;
+                break;
+            
+            case Direction.Down:
+                spriteRenderer.sprite = DownRightSprite;
+                spriteRenderer.flipX = false;
+                break;
+            
+            case Direction.Left:
+                spriteRenderer.sprite = UpLeftSprite;
+                spriteRenderer.flipX = false;
+                break;
+            
+            case Direction.Right:
+                spriteRenderer.sprite = DownRightSprite;
+                spriteRenderer.flipX = true;
+                break;
+            
+        }
     }
 }

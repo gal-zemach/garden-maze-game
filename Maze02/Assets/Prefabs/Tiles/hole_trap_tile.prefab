@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c3698deba8554a42bfca2147ba95963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 3
   index: {x: 0, y: 0}
   replacementTile: {fileID: 5244557549314216361, guid: afdd17e8974b748409f0e0a510966396,
     type: 3}
