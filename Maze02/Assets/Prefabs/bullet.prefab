@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3749039492832510151}
   - component: {fileID: 3749039492832510152}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,9 +91,9 @@ GameObject:
   - component: {fileID: 3749039493295856530}
   - component: {fileID: 3749039493295856532}
   - component: {fileID: 3749039493295856533}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,8 +130,8 @@ MonoBehaviour:
   shooter: {fileID: 0}
   UpLeftSprite: {fileID: 21300006, guid: 1d128f2e2952443069c1147480530760, type: 3}
   DownRightSprite: {fileID: 21300008, guid: 1d128f2e2952443069c1147480530760, type: 3}
-  bulletSpawnOffset: 0.5
-  turnsToLive: 100000
+  bulletSpawnOffset: 25
+  distanceToLive: 1000
 --- !u!50 &3749039493295856532
 Rigidbody2D:
   serializedVersion: 4

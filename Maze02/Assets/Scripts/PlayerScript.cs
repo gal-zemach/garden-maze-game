@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -18,9 +19,13 @@ public class PlayerScript : MonoBehaviour
 	[HideInInspector]
 	public Vector2 tileSize;
 
+	public LivesVisualizer livesVisualizer;
+	public bool invincible;
+
 	private Vector2 forward, right;
 
 	public Sprite frontSprite, backSprite;
+	public int MaxLives;
 	
 	[HideInInspector]
 	public bool movementStarted;
@@ -30,9 +35,14 @@ public class PlayerScript : MonoBehaviour
 	public int fasterMovementSpeed = 200;
 	
 	private int movementSpeed = 100;
+
+	private int currentLives = 5;
 	
 	void Awake ()
 	{
+		currentLives = MaxLives;
+		livesVisualizer = GameObject.Find("Lives").GetComponent<LivesVisualizer>();
+		
 		rb2d = GetComponent<Rigidbody2D>();
 		sprite = GetComponentInChildren<SpriteRenderer>();
 		gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
@@ -55,12 +65,13 @@ public class PlayerScript : MonoBehaviour
 		var worldPosition = transform.position;
 		gridPosition = IsoVectors.WorldToIso(worldPosition, tileSize);
 		gridCell = new Vector2(Mathf.Round(gridPosition.x), Mathf.Round(gridPosition.y));
-
-		sprite.sprite = backSprite;
-		movementStarted = false;
-		movementSpeed = normalMovementSpeed;
 		
 		items = new List<Item.ItemType>();
+		
+		sprite.sprite = backSprite;
+		movementSpeed = normalMovementSpeed;
+		movementStarted = false;
+		StartMovement();
 	}
 
 	private void Update()
@@ -166,7 +177,8 @@ public class PlayerScript : MonoBehaviour
 
 	private IEnumerator BlinkSpriteAndStartMovement()
 	{
-		for (int i = 0; i < 3; i++)
+		invincible = true;
+		for (int i = 0; i < 4; i++)
 		{
 			sprite.enabled = false;
 			yield return new WaitForSeconds(0.4f);
@@ -175,13 +187,42 @@ public class PlayerScript : MonoBehaviour
 			yield return new WaitForSeconds(0.4f);
 		}
 		movementStarted = true;
+		invincible = false;
+	}
+	
+	private IEnumerator InvincibilityBlink()
+	{
+		yield return new WaitForSeconds(0.7f);
+		movementStarted = true;
+		
+		invincible = true;
+		for (int i = 0; i < 3; i++)
+		{
+			sprite.enabled = false;
+			yield return new WaitForSeconds(0.4f);
+		
+			sprite.enabled = true;
+			yield return new WaitForSeconds(0.4f);
+		}
+
+		movementStarted = true;
+		invincible = false;
 	}
 
-	public void FellToHole()
+	public void ReduceLives()
 	{
-		Debug.Log("PlayerScript: player fell to Hole");
 		movementStarted = false;
-		StartCoroutine(WaitAndEndGame());
+		if (!invincible)
+		{
+			currentLives--;
+			livesVisualizer.decreaseLife();
+		}
+		StartCoroutine(InvincibilityBlink());
+	}
+	
+	public bool IsDead()
+	{
+		return currentLives == 0;
 	}
 
 	private List<Item.ItemType> items;
@@ -197,11 +238,5 @@ public class PlayerScript : MonoBehaviour
 	public bool HasItem(Item.ItemType itemType)
 	{
 		return items.Contains(itemType);
-	}
-	
-	private IEnumerator WaitAndEndGame()
-	{
-		yield return new WaitForSeconds(0.3f);
-		gameManager.PlayerDied();
 	}
 }

@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public GameObject player;
+
+    private PlayerScript playerScript;
     private TileMap map;
     private Vector2 tileSize;
 
@@ -24,7 +26,9 @@ public class GameManager : MonoBehaviour
         map = GameObject.Find("Tile Map").GetComponent<TileMap>();
         tileSize = new Vector2(map.tileSize.x, map.tileSize.y / 2);
 
-        SpawnPlayer();
+//        SpawnPlayer();
+        player = GameObject.Find("Player");
+        playerScript = player.GetComponent<PlayerScript>();
 
         gameEnded = false;
     }
@@ -42,6 +46,10 @@ public class GameManager : MonoBehaviour
         {
             endGame(true);
         }
+        else if (playerScript != null && playerScript.IsDead())
+        {
+            endGame(false);
+        }
     }
 
     void endGame(bool win=false)
@@ -52,34 +60,31 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("GameManager: you Lose! Respawning...");
-            SpawnPlayer();
+            Debug.Log("GameManager: you Lose!");
+//            SpawnPlayer();
         }
         gameEnded = true;
     }
 
 
-    private void SpawnPlayer()
-    {
-        if (player != null)
-        {
-            Destroy(player);
-        }
-        Vector3 playerStartPosition = IsoVectors.IsoToWorld(startTile, tileSize);
-        player = (GameObject)Instantiate(playerPrefab);
-        player.transform.position = playerStartPosition;
-        
-        player.GetComponent<PlayerScript>().StartMovement();
-
-        var cameraStartPosition = playerStartPosition;
-        cameraStartPosition.z = -10;
-        camera.transform.position = cameraStartPosition;
-    }
-
-    public void PlayerDied()
-    {
-        endGame();
-    }
+//    private void SpawnPlayer()
+//    {
+//        if (player != null)
+//        {
+//            Destroy(player);
+//        }
+//        Vector3 playerStartPosition = IsoVectors.IsoToWorld(startTile, tileSize);
+//        player = (GameObject)Instantiate(playerPrefab);
+//        player.transform.position = playerStartPosition;
+//        
+//        player.GetComponent<PlayerScript>().StartMovement();
+//
+//        var cameraStartPosition = playerStartPosition;
+//        cameraStartPosition.z = -10;
+//        camera.transform.position = cameraStartPosition;
+//
+//        playerScript = player.GetComponent<PlayerScript>();
+//    }
 
     public void AddTile()
     {

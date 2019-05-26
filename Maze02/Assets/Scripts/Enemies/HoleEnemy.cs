@@ -34,7 +34,7 @@ public class HoleEnemy : EnemyScript
             else
             {
                 Debug.Log("HoleEnemy: player fell to Hole");
-                playerScript.FellToHole();
+                playerScript.ReduceLives();
             }
         }
     }

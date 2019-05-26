@@ -103,7 +103,8 @@ public class BulletScript : MonoBehaviour
         {
             Debug.Log("Bullet: hit player");
             var playerScript = other.gameObject.GetComponentInParent<PlayerScript>(); 
-            playerScript.FellToHole();  //todo: change this
+            playerScript.ReduceLives();
+            Destroy(gameObject);
         }
         else
         {
