@@ -68,28 +68,28 @@ public class BulletScript : MonoBehaviour
         if (direction == IsoVectors.UP)
         {
             spriteRenderer.sprite = UpLeftSprite;
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
             return;
         }
         
         if (direction == IsoVectors.LEFT)
         {
             spriteRenderer.sprite = UpLeftSprite;
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
             return;
         }
 
         if (direction == IsoVectors.DOWN)
         {
             spriteRenderer.sprite = DownRightSprite;
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
             return;
         }
 
         if (direction == IsoVectors.RIGHT)
         {
             spriteRenderer.sprite = DownRightSprite;
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
             return;
         }
     }
