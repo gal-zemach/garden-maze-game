@@ -5,16 +5,18 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public TileMap.TileType type;
-    public Vector2 index;
+    public Vector2Int index;
     
     protected Vector2 tileSize;
     
     protected SpriteRenderer spriteRenderer;
     protected Collider2D collider;
+    protected TileMap map;
     
     protected void Start()
     {
-        tileSize = GameObject.Find("Tile Map").GetComponent<TileMap>().tileSize;
+        map = GameObject.Find("Tile Map").GetComponent<TileMap>();
+        tileSize = map.tileSize;
         collider = AddTileCollider();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }

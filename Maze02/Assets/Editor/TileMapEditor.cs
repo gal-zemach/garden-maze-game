@@ -281,7 +281,7 @@ public class TileMapEditor : Editor
 
         var tileScript = tile.GetComponent<Tile>();
         int column = brush.tileID / (int) map.mapSize.y;
-        tileScript.index = new Vector2(column, brush.tileID - column * map.mapSize.y);
+        tileScript.index = new Vector2Int(column, (int)(brush.tileID - column * map.mapSize.y));
     }
 
     private void RemoveTileCollider(GameObject tile)

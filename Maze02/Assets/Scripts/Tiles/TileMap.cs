@@ -21,7 +21,11 @@ public class TileMap : MonoBehaviour
     public List<GameObject> tilePrefabs;
     
     public Tile[] tiles;
+    public NesScripts.Controls.PathFind.Grid pGrid;
     
+    private const byte GRID_BLOCKED = 0;
+    private const byte GRID_WALKABLE = 1;
+
     public enum TileType
     {
         Floor, constWall, moveableWall, trap
@@ -47,6 +51,8 @@ public class TileMap : MonoBehaviour
 
     private void UpdateTiles()
     {
+        var grid = new float[(int)mapSize.x, (int)mapSize.y];
+
         for (int i = 0; i < tilesParent.transform.childCount; i++)
         {
             var tile = tilesParent.transform.GetChild(i);
@@ -60,12 +66,25 @@ public class TileMap : MonoBehaviour
             if (tileIndex != -1)
             {
                 tiles[tileIndex] = tile.GetComponent<Tile>();
+                
+//                // updating walkability grid
+//                var index = tiles[tileIndex].index;
+//                if (tiles[tileIndex].type == TileType.Floor || tiles[tileIndex].type == TileType.trap)
+//                {
+//                    grid[index.x, index.y] = GRID_WALKABLE;
+//                }
+//                else
+//                {
+//                    grid[index.x, index.y] = GRID_BLOCKED;
+//                } 
             }
             else
             {
                 Debug.LogError("TileMap/UpdateTiles: got tile index " + tileIndexString);
             }
         }
+        
+        pGrid = new NesScripts.Controls.PathFind.Grid(grid);
     }
 
     public int TileIndex(int column, int row)
@@ -104,6 +123,16 @@ public class TileMap : MonoBehaviour
         var gridCell = IsoVectors.WorldToIsoFloored(pos, actualTileSize);
         pos.z = gridCell.x + gridCell.y;
         return pos;
+    }
+
+    public void UpdateWalkabilityGrid(Vector2Int index, bool walkable)
+    {
+        if (walkable)
+        {
+            pGrid.nodes[index.x, index.y].Update(GRID_WALKABLE, index.x, index.y);
+            return;
+        }
+        pGrid.nodes[index.x, index.y].Update(GRID_BLOCKED, index.x, index.y);
     }
     
     private void OnDrawGizmosSelected()

@@ -18,6 +18,25 @@
             <e p="AIController.cs" t="Include" />
             <e p="CameraController.cs" t="Include" />
             <e p="Controller.cs" t="Include" />
+            <e p="FSMAI" t="Include">
+              <e p="2dTileBasedPathFinding" t="Include">
+                <e p="Grid.cs" t="Include" />
+                <e p="Node.cs" t="Include" />
+                <e p="PathFinding.cs" t="Include" />
+                <e p="Point.cs" t="Include" />
+              </e>
+              <e p="Action.cs" t="Include" />
+              <e p="Decision.cs" t="Include" />
+              <e p="GoToTargetAction.cs" t="Include" />
+              <e p="LookDecision.cs" t="Include" />
+              <e p="NavigationAgent.cs" t="Include" />
+              <e p="PatrolAction.cs" t="Include" />
+              <e p="ReachedTargetDecision.cs" t="Include" />
+              <e p="State.cs" t="Include" />
+              <e p="StateController.cs" t="Include" />
+              <e p="Transition.cs" t="Include" />
+            </e>
+            <e p="FSMAIController.cs" t="Include" />
             <e p="KeyboardController.cs" t="Include" />
           </e>
           <e p="Enemies" t="Include">

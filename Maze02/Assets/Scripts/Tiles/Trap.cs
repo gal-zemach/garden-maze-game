@@ -5,11 +5,12 @@ using UnityEngine;
 public class Trap : Tile
 {
     public GameObject replacementTile;
-    private TileMap map;
     
     void Start()
     {
-        map = GameObject.Find("Tile Map").GetComponent<TileMap>();
+        base.Start();
+        map.UpdateWalkabilityGrid(index, true);
+        collider.isTrigger = true;
     }
 
     void Update()

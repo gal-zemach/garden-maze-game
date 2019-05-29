@@ -8,6 +8,7 @@ public class ConstWall : Tile
     {
         base.Start();
         spriteRenderer.sortingOrder = 1;
+        map.UpdateWalkabilityGrid(index, false);
     }
 
     void Update()

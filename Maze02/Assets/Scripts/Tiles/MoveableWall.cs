@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class MoveableWall : Tile
 {
+    public bool visited;
+    
     private Animator animator;
-    private bool visited;
     private Collider2D wallTrigger;
 
     private GameManager gameManager;
@@ -38,6 +39,8 @@ public class MoveableWall : Tile
     
     public void Enable()
     {
+        map.UpdateWalkabilityGrid(index, false);
+            
         animator.SetBool("isWall", true);
         spriteRenderer.sortingOrder = 1;
         
@@ -50,6 +53,8 @@ public class MoveableWall : Tile
     
     public void Disable()
     {
+        map.UpdateWalkabilityGrid(index, true);
+        
         animator.SetBool("isWall", false);
 //        spriteRenderer.sortingOrder = 0; // moved to animation event
         
