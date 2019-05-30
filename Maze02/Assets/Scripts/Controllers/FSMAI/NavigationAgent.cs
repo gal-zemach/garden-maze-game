@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class NavigationAgent : Controller
 {
-    public TileMap map;
+    [HideInInspector] public TileMap map;
     
     public Vector2 currentCell, currentPosition;
     public Vector2 destination, currentDestination;
@@ -22,23 +22,17 @@ public class NavigationAgent : Controller
     public List<Point> path;
     
     private const float PROXIMITY_EPSILON = 0.1f;
-    private readonly Vector2 EMPTY_CELL = new Vector2(-1, -1);
     
     void Start()
     {
         map = GameObject.Find("Tile Map").GetComponent<TileMap>();
         playerScript = GetComponent<PlayerScript>();
         
-        destination = EMPTY_CELL;
         horizontalDirection = 0;
         verticalDirection = 0;
         path = new List<Point>();
-    }
-    
-    void Update()
-    {
-        if (stopped)
-            return;
+
+        destination = currentDestination = playerScript.gridCell;
     }
     
     void FixedUpdate()
@@ -58,11 +52,6 @@ public class NavigationAgent : Controller
         // update position
         currentCell = playerScript.gridCell;
         currentPosition = playerScript.gridPosition;
-        
-        if (destination == EMPTY_CELL)
-        {
-            currentDestination = currentCell;
-        }
         
         SetMoveParameters();
         

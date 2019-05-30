@@ -13,7 +13,7 @@ public class StateController : MonoBehaviour
     
     public List<Transform> wayPointList;
     [HideInInspector] public int nextWayPoint;
-    [HideInInspector] public Transform targetObject;
+    public Vector2 targetObject;
     [HideInInspector] public float stateTimeElapsed;
 
     private PlayerScript playerScript;
@@ -22,6 +22,7 @@ public class StateController : MonoBehaviour
     {
         navAgent = GetComponent<NavigationAgent>();
         playerScript = GetComponent<PlayerScript>();
+        targetObject = navAgent.currentCell;
     }
 
     void Update()
@@ -40,7 +41,7 @@ public class StateController : MonoBehaviour
         if (currentState != null) // && eyes != null
         {
             Gizmos.color = currentState.sceneGizmoColor;
-            Gizmos.DrawWireSphere(transform.position, 5);
+            Gizmos.DrawWireSphere(transform.position, 16);
         }
     }
 
@@ -62,5 +63,15 @@ public class StateController : MonoBehaviour
     private void OnExitState()
     {
         stateTimeElapsed = 0;
+    }
+
+    public void SetTargetObject(Vector2 tileIndex)
+    {
+        targetObject = tileIndex;
+    }
+    
+    public void SetTargetObject(Vector3 objectPosition)
+    {
+        targetObject = IsoVectors.WorldToIsoRounded(objectPosition, navAgent.map.actualTileSize);
     }
 }

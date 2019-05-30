@@ -13,10 +13,16 @@ public class LookDecision : Decision
 
     private int Look(StateController controller)
     {
-//        if (LookFor(controller, "Trap"))
-//            return 1;
-//        if (LookFor(controller, "Tool"))
+        if (LookFor(controller, "Traps"))
+        {
+            Debug.Log("saw trap at " + controller.targetObject);
+            return 1;
+        }
+//        if (LookFor(controller, "Items"))
+//        {
+//            Debug.Log("saw item at " + controller.targetObject);
 //            return 2;
+//        }
         if (LookForUncutGrass(controller))
             return 3;
         
@@ -30,29 +36,29 @@ public class LookDecision : Decision
         var playerPos = controller.transform.position;
         var lookRadius = controller.navAgent.lookRadiusInPixels;
 
-        var targetVisibleUp = Physics2D.Raycast(playerPos, IsoVectors.UP, lookRadius, targetLayer);
-        var targetVisibleDown = Physics2D.Raycast(playerPos, IsoVectors.DOWN, lookRadius, targetLayer);
         var targetVisibleLeft = Physics2D.Raycast(playerPos, IsoVectors.LEFT, lookRadius, targetLayer);
         var targetVisibleRight = Physics2D.Raycast(playerPos, IsoVectors.RIGHT, lookRadius, targetLayer);
+        var targetVisibleUp = Physics2D.Raycast(playerPos, IsoVectors.UP, lookRadius, targetLayer);
+        var targetVisibleDown = Physics2D.Raycast(playerPos, IsoVectors.DOWN, lookRadius, targetLayer);
         
-        if (targetVisibleUp)
-        {
-            controller.targetObject = targetVisibleUp.collider.transform;
-            return true;
-        }
-        if (targetVisibleDown)
-        {
-            controller.targetObject = targetVisibleDown.collider.transform;
-            return true;
-        }
         if (targetVisibleLeft)
         {
-            controller.targetObject = targetVisibleLeft.collider.transform;
+            controller.SetTargetObject(targetVisibleLeft.collider.transform.position);
             return true;
         }
         if (targetVisibleRight)
         {
-            controller.targetObject = targetVisibleRight.collider.transform;
+            controller.SetTargetObject(targetVisibleRight.collider.transform.position);
+            return true;
+        }
+        if (targetVisibleUp)
+        {
+            controller.SetTargetObject(targetVisibleUp.collider.transform.position);
+            return true;
+        }
+        if (targetVisibleDown)
+        {
+            controller.SetTargetObject(targetVisibleDown.collider.transform.position);
             return true;
         }
 
@@ -62,47 +68,92 @@ public class LookDecision : Decision
     private bool LookForUncutGrass(StateController controller)
     {
         var currentCell = controller.navAgent.currentCell;
-
-        int dx = 1;
-        while (dx < controller.navAgent.lookRadius)
+        bool foundWall;
+        
+        int dy = 0;
+        while (dy < controller.navAgent.lookRadius)
         {
-            if (isUncutGrass(controller, new Vector2Int((int) currentCell.x + dx, (int) currentCell.y)) || 
-                isUncutGrass(controller, new Vector2Int((int) currentCell.x - dx, (int) currentCell.y)))
+            if (isUncutGrass(controller, new Vector2Int((int) currentCell.x, (int) currentCell.y + dy), out foundWall))
             {
                 return true;
+            }
+            if (foundWall)
+            {
+                break;
+            }
+            dy++;
+        }
+        dy = 0;
+        while (dy < controller.navAgent.lookRadius)
+        {
+            if (isUncutGrass(controller, new Vector2Int((int) currentCell.x, (int) currentCell.y - dy), out foundWall))
+            {
+                return true;
+            }
+            if (foundWall)
+            {
+                break;
+            }
+            dy++;
+        }
+        
+        int dx = 0;
+        while (dx < controller.navAgent.lookRadius)
+        {
+            if (isUncutGrass(controller, new Vector2Int((int) currentCell.x + dx, (int) currentCell.y), out foundWall))
+            {
+                return true;
+            }
+            if (foundWall)
+            {
+                break;
+            }
+            dx++;
+        }
+
+        dx = 0;
+        while (dx < controller.navAgent.lookRadius)
+        {
+            if (isUncutGrass(controller, new Vector2Int((int) currentCell.x - dx, (int) currentCell.y), out foundWall))
+            {
+                return true;
+            }
+            if (foundWall)
+            {
+                break;
             }
             dx++;
         }
         
-        int dy = 1;
-        while (dy < controller.navAgent.lookRadius)
-        {
-            if (isUncutGrass(controller, new Vector2Int((int) currentCell.x, (int) currentCell.y + dy)) || 
-                isUncutGrass(controller, new Vector2Int((int) currentCell.x, (int) currentCell.y + dy)))
-            {
-                return true;
-            }
-            dy++;
-        }
-
         return false;
     }
 
-    private bool isUncutGrass(StateController controller, Vector2Int index)
+    private bool isUncutGrass(StateController controller, Vector2Int index, out bool foundWall)
     {
+        foundWall = false;
+        
         if (index.x < 0 || index.x >= controller.navAgent.map.mapSize.x ||
             index.y < 0 || index.y >= controller.navAgent.map.mapSize.y)
+        {
+            foundWall = true;
             return false;
+        }
         
         var tileIndex = controller.navAgent.map.TileIndex(index.x, index.y);
         var tile = controller.navAgent.map.tiles[tileIndex];
         var moveableWall = tile as MoveableWall;
-        if (moveableWall == null || moveableWall.type == TileMap.TileType.moveableWall)
+        if (moveableWall == null)
             return false;
+
+        if (moveableWall.type == TileMap.TileType.moveableWall)
+        {
+            foundWall = true;
+            return false;
+        }
 
         if (!moveableWall.visited)
         {
-            controller.targetObject = moveableWall.transform;
+            controller.SetTargetObject(moveableWall.index);
             return true;
         }
 

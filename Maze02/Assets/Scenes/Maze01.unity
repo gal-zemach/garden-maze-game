@@ -12872,7 +12872,7 @@ MonoBehaviour:
   reachedDestination: 0
   remainingDistance: 0
   lookRadius: 3
-  lookRadiusInPixels: 200
+  lookRadiusInPixels: 100
 --- !u!114 &8445921770808495646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12895,7 +12895,7 @@ MonoBehaviour:
   - {fileID: 96945022}
   - {fileID: 1615026254}
   nextWayPoint: 0
-  targetObject: {fileID: 0}
+  targetObject: {x: 0, y: 0}
   stateTimeElapsed: 0
 --- !u!114 &8445921770808495647
 MonoBehaviour:

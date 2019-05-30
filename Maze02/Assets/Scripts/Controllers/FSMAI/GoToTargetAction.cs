@@ -12,6 +12,6 @@ public class GoToTargetAction : Action
 
     private void GoToTarget(StateController controller)
     {
-        controller.navAgent.UpdateDestination(controller.targetObject.position);
+        controller.navAgent.UpdateDestination(controller.targetObject);
     }
 }
