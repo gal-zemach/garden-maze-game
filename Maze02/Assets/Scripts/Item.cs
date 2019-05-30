@@ -6,6 +6,7 @@ public class Item : MonoBehaviour
 {
     public enum ItemType
     {
+        None,
         Shovel,
         Shears
     }

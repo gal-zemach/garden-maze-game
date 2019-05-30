@@ -29,7 +29,14 @@ public class State : ScriptableObject
         {
             var decisionResult = transitions[i].decision.Decide(controller);
 
-            controller.TransitionToState(transitions[i].resultingStates[decisionResult]);
+            if (decisionResult)
+            {
+                controller.TransitionToState(transitions[i].trueState);
+            }
+            else
+            {
+                controller.TransitionToState(transitions[i].falseState);                
+            }
         }
     }
 }

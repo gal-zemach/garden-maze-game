@@ -6,5 +6,5 @@ using UnityEngine;
 public class Transition
 {
     public Decision decision;
-    public State[] resultingStates;
+    public State trueState, falseState;
 }

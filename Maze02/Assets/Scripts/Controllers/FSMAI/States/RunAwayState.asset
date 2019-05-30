@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2946a7ce50524181b229dac171b2a62, type: 3}
   m_Name: RunAwayState
   m_EditorClassIdentifier: 
-  actions: []
-  transitions: []
+  actions:
+  - {fileID: 11400000, guid: 86a09d637f1a649dcb0e306d06c88d2c, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 4624b0426ba144213bc1145d1d5dbd11, type: 2}
+    trueState: {fileID: 11400000, guid: 90cb2dcac19a642c886013ab588283b9, type: 2}
+    falseState: {fileID: 11400000, guid: 67639371e694f42568204d3051492055, type: 2}
   sceneGizmoColor: {r: 1, g: 0, b: 0, a: 1}

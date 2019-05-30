@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-
+    [HideInInspector] public Item.ItemType defeatingItem = Item.ItemType.None;
+    
     protected Vector2 gridCell, tileSize;
     protected TileMap map;
     protected IsoCollider isoCollider;

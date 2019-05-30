@@ -10,13 +10,13 @@ public class StateController : MonoBehaviour
     public State remainState;
 
     [HideInInspector] public NavigationAgent navAgent;
+    [HideInInspector] public PlayerScript playerScript;
     
     public List<Transform> wayPointList;
     [HideInInspector] public int nextWayPoint;
     public Vector2 targetObject;
     [HideInInspector] public float stateTimeElapsed;
 
-    private PlayerScript playerScript;
     
     void Start()
     {

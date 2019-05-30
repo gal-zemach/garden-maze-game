@@ -14,6 +14,8 @@ public class HoleEnemy : EnemyScript
         rb2d.bodyType = RigidbodyType2D.Kinematic;
         
         parentTrapTile = transform.parent.GetComponentInParent<Trap>();
+
+        defeatingItem = Item.ItemType.Shovel;
     }
 
     void Update()
@@ -27,7 +29,7 @@ public class HoleEnemy : EnemyScript
         {
             var playerScript = other.gameObject.GetComponentInParent<PlayerScript>();
 
-            if (playerScript.HasItem(Item.ItemType.Shovel))
+            if (playerScript.HasItem(defeatingItem))
             {
                 parentTrapTile.changeToFloorTile();                
             }

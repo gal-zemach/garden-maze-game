@@ -29,6 +29,7 @@ public class ShootingEnemy : EnemyScript
         bulletsParent = transform.Find("Bullets Parent");
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        defeatingItem = Item.ItemType.Shears;
         
         turnCount = Random.Range(0, 30);
 

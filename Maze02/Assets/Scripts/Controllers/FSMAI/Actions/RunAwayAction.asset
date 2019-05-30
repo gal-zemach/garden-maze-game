@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2a2a078af695401195eca26aa1f12a6, type: 3}
-  m_Name: LookDecision
+  m_Script: {fileID: 11500000, guid: 3563ea1364716492ab7102577b2b1e36, type: 3}
+  m_Name: RunAwayAction
   m_EditorClassIdentifier: 

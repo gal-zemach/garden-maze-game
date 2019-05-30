@@ -25,13 +25,23 @@
                 <e p="PathFinding.cs" t="Include" />
                 <e p="Point.cs" t="Include" />
               </e>
-              <e p="Action.cs" t="Include" />
-              <e p="Decision.cs" t="Include" />
-              <e p="GoToTargetAction.cs" t="Include" />
-              <e p="LookDecision.cs" t="Include" />
+              <e p="ActionScripts" t="Include">
+                <e p="Action.cs" t="Include" />
+                <e p="GoToTargetAction.cs" t="Include" />
+                <e p="PatrolAction.cs" t="Include" />
+                <e p="RunAwayAction.cs" t="Include" />
+              </e>
+              <e p="DecisionScripts" t="Include">
+                <e p="CheckToolsDecision.cs" t="Include" />
+                <e p="Decision.cs" t="Include" />
+                <e p="LookDecision.cs" t="Include" />
+                <e p="LookForToolsDecision.cs" t="Include" />
+                <e p="LookForTrapsDecision.cs" t="Include" />
+                <e p="LookForUncutGrassDecision.cs" t="Include" />
+                <e p="ReachedTargetDecision.cs" t="Include" />
+                <e p="TimerDecision.cs" t="Include" />
+              </e>
               <e p="NavigationAgent.cs" t="Include" />
-              <e p="PatrolAction.cs" t="Include" />
-              <e p="ReachedTargetDecision.cs" t="Include" />
               <e p="State.cs" t="Include" />
               <e p="StateController.cs" t="Include" />
               <e p="Transition.cs" t="Include" />
