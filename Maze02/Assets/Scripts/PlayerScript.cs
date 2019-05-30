@@ -3,15 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using Game;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {	
 	public Sprite frontSprite, backSprite;
+	
 	public int MaxLives = 3;
+	public int initialChangeableTiles = 3;
 	public LivesVisualizer livesVisualizer;
 	public bool invincible;
 	public int normalMovementSpeed = 100;
 	public int fasterMovementSpeed = 200;
+	public Text ChangeableTilesGUI;
 	
 	// used for positioning and controller
 	[HideInInspector]
@@ -33,6 +37,7 @@ public class PlayerScript : MonoBehaviour
 	private Vector2 forward, right;
 	private int movementSpeed = 100;
 	private int currentLives = 5;
+	[HideInInspector] public int changeableTiles;
 
 	void Awake ()
 	{
@@ -68,6 +73,7 @@ public class PlayerScript : MonoBehaviour
 		sprite.sprite = backSprite;
 		movementSpeed = normalMovementSpeed;
 		movementStarted = false;
+		changeableTiles = initialChangeableTiles;
 		StartMovement();
 	}
 
@@ -81,6 +87,8 @@ public class PlayerScript : MonoBehaviour
 		{
 			movementSpeed = normalMovementSpeed;
 		}
+		
+		ChangeableTilesGUI.text = changeableTiles.ToString();
 	}
 
 	private void FixedUpdate()
@@ -161,8 +169,20 @@ public class PlayerScript : MonoBehaviour
 		var moveableWall = tile as MoveableWall;
 		if (moveableWall != null)
 		{
-			moveableWall.MarkAsVisited();
+			var visitedNewTile = moveableWall.MarkAsVisited();
+			if (visitedNewTile)
+				AddChangeableTile();
 		}
+	}
+
+	private void AddChangeableTile()
+	{
+		changeableTiles++;
+	}
+
+	public void SubtractChangeableTile()
+	{
+		changeableTiles--;
 	}
 
 	private IEnumerator BlinkSpriteAndStartMovement()

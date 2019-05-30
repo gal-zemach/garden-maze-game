@@ -29,7 +29,14 @@ public class MoveableWall : Tile
             Enable();
         }
 
-        MarkAsUnvisited();
+        if (visited)
+        {
+            MarkAsVisited();
+        }
+        else
+        {
+            MarkAsUnvisited();
+        }
     }
     
     void Update()

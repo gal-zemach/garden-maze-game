@@ -58,20 +58,25 @@ public class TileClicker : MonoBehaviour
 
     private void OnTileClick(Tile tile)
     {
-        ToggleTile(tile);
 //        Debug.Log("TileClicker: clicked on " + tile.gameObject.name);
-        if (tileQueue.Remove(tile))
+        if (playerScript.changeableTiles > 0)
         {
-            return;
+            ToggleTile(tile);
+            playerScript.SubtractChangeableTile();
         }
-            
-        tileQueue.Add(tile);
-        if (tileQueue.Count > maxChangedTiles)
-        {
-            var oldTile = tileQueue[0];
-            ToggleTile(oldTile);
-            tileQueue.RemoveAt(0);
-        }
+
+//        if (tileQueue.Remove(tile))
+//        {
+//            return;
+//        }
+//            
+//        tileQueue.Add(tile);
+//        if (tileQueue.Count > maxChangedTiles)
+//        {
+//            var oldTile = tileQueue[0];
+//            ToggleTile(oldTile);
+//            tileQueue.RemoveAt(0);
+//        }
     }
 
     private void ToggleTile(Tile tile)

@@ -67,25 +67,24 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    private void SpawnPlayer()
+    {
+        if (player != null)
+        {
+            Destroy(player);
+        }
+        Vector3 playerStartPosition = IsoVectors.IsoToWorld(startTile, tileSize);
+        player = (GameObject)Instantiate(playerPrefab);
+        player.transform.position = playerStartPosition;
+        
+        player.GetComponent<PlayerScript>().StartMovement();
 
-//    private void SpawnPlayer()
-//    {
-//        if (player != null)
-//        {
-//            Destroy(player);
-//        }
-//        Vector3 playerStartPosition = IsoVectors.IsoToWorld(startTile, tileSize);
-//        player = (GameObject)Instantiate(playerPrefab);
-//        player.transform.position = playerStartPosition;
-//        
-//        player.GetComponent<PlayerScript>().StartMovement();
-//
-//        var cameraStartPosition = playerStartPosition;
-//        cameraStartPosition.z = -10;
-//        camera.transform.position = cameraStartPosition;
-//
-//        playerScript = player.GetComponent<PlayerScript>();
-//    }
+        var cameraStartPosition = playerStartPosition;
+        cameraStartPosition.z = -10;
+        camera.transform.position = cameraStartPosition;
+
+        playerScript = player.GetComponent<PlayerScript>();
+    }
 
     public void AddTile()
     {
