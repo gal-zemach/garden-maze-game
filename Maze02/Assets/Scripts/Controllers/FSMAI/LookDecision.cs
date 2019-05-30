@@ -18,11 +18,11 @@ public class LookDecision : Decision
             Debug.Log("saw trap at " + controller.targetObject);
             return 1;
         }
-//        if (LookFor(controller, "Items"))
-//        {
-//            Debug.Log("saw item at " + controller.targetObject);
-//            return 2;
-//        }
+        if (LookFor(controller, "Items"))
+        {
+            Debug.Log("saw item at " + controller.targetObject);
+            return 2;
+        }
         if (LookForUncutGrass(controller))
             return 3;
         
@@ -32,32 +32,39 @@ public class LookDecision : Decision
     private bool LookFor(StateController controller, string targetLayerName)
     {
         // raycast to 4 sides on the given layer
-        var targetLayer = LayerMask.NameToLayer(targetLayerName);
+        int wallLayer = LayerMask.NameToLayer("Walls");
+        int targetLayer = LayerMask.NameToLayer(targetLayerName);
+        LayerMask combinedLayerMask = ((1 << targetLayer) | (1 << wallLayer));
+        
         var playerPos = controller.transform.position;
         var lookRadius = controller.navAgent.lookRadiusInPixels;
 
-        var targetVisibleLeft = Physics2D.Raycast(playerPos, IsoVectors.LEFT, lookRadius, targetLayer);
-        var targetVisibleRight = Physics2D.Raycast(playerPos, IsoVectors.RIGHT, lookRadius, targetLayer);
-        var targetVisibleUp = Physics2D.Raycast(playerPos, IsoVectors.UP, lookRadius, targetLayer);
-        var targetVisibleDown = Physics2D.Raycast(playerPos, IsoVectors.DOWN, lookRadius, targetLayer);
+        var targetVisibleLeft = Physics2D.Raycast(playerPos, IsoVectors.LEFT, lookRadius, combinedLayerMask);
+        var targetVisibleRight = Physics2D.Raycast(playerPos, IsoVectors.RIGHT, lookRadius, combinedLayerMask);
+        var targetVisibleUp = Physics2D.Raycast(playerPos, IsoVectors.UP, lookRadius, combinedLayerMask);
+        var targetVisibleDown = Physics2D.Raycast(playerPos, IsoVectors.DOWN, lookRadius, combinedLayerMask);
         
-        if (targetVisibleLeft)
+        if (targetVisibleLeft && targetVisibleLeft.collider.gameObject.layer == targetLayer)
         {
+//            Debug.Log(targetVisibleLeft.collider.gameObject.transform.parent.name);
             controller.SetTargetObject(targetVisibleLeft.collider.transform.position);
             return true;
         }
-        if (targetVisibleRight)
+        if (targetVisibleRight && targetVisibleRight.collider.gameObject.layer == targetLayer)
         {
+//            Debug.Log(targetVisibleRight.collider.gameObject.transform.parent.name);
             controller.SetTargetObject(targetVisibleRight.collider.transform.position);
             return true;
         }
-        if (targetVisibleUp)
+        if (targetVisibleUp && targetVisibleUp.collider.gameObject.layer == targetLayer)
         {
+//            Debug.Log(targetVisibleUp.collider.gameObject.transform.parent.name);
             controller.SetTargetObject(targetVisibleUp.collider.transform.position);
             return true;
         }
-        if (targetVisibleDown)
+        if (targetVisibleDown && targetVisibleDown.collider.gameObject.layer == targetLayer)
         {
+//            Debug.Log(targetVisibleDown.collider.gameObject.transform.parent.name);
             controller.SetTargetObject(targetVisibleDown.collider.transform.position);
             return true;
         }
