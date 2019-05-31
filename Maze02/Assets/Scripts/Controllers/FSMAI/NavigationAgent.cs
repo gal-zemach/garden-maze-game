@@ -31,7 +31,7 @@ public class NavigationAgent : Controller
         horizontalDirection = 0;
         verticalDirection = 0;
         path = new List<Point>();
-
+        
         destination = currentDestination = playerScript.gridCell;
     }
     
@@ -40,7 +40,11 @@ public class NavigationAgent : Controller
         if (!playerScript.playerIsMoving)
             Stop();
         else
+        {
+            if (stopped)
+                currentDestination = playerScript.gridCell;
             Resume();
+        }
         
         if (stopped)
         {
@@ -54,10 +58,9 @@ public class NavigationAgent : Controller
         currentPosition = playerScript.gridPosition;
         
         SetMoveParameters();
-        
+
         // if reached destination - choose a new one
-        if (Mathf.Approximately(horizontalDirection, 0) && 
-            Mathf.Approximately(verticalDirection, 0))
+        if (Mathf.Approximately(horizontalDirection, 0) && Mathf.Approximately(verticalDirection, 0))
         {
             GetNextDestination();
         }

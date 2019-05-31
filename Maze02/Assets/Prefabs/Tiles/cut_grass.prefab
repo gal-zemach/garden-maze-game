@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   index: {x: 1, y: 4}
+  visited: 1
 --- !u!212 &2791192505068276661
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -176,14 +176,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: 9848331af841848e49753e791e2d2cc5, type: 3}
   backSprite: {fileID: 21300002, guid: 9848331af841848e49753e791e2d2cc5, type: 3}
-  MaxLives: 3
+  MaxLives: 1
   initialChangeableTiles: 3
   livesVisualizer: {fileID: 0}
   invincible: 0
   normalMovementSpeed: 60
   fasterMovementSpeed: 300
-  ChangeableTilesGUI: {fileID: 0}
-  movementStarted: 0
+  playerIsMoving: 0
   gridPosition: {x: 0, y: 0}
   gridCell: {x: 0, y: 0}
   tileSize: {x: 0, y: 0}

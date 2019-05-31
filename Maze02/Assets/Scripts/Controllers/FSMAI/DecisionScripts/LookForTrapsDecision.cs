@@ -8,8 +8,8 @@ public class LookForTrapsDecision : LookDecision
     public override bool Decide(StateController controller)
     {
         var trapFound = LookFor(controller, "Traps");
-        if (trapFound)
-            Debug.Log("trap found");
+//        if (trapFound)
+//            Debug.Log("trap found");
         
         return trapFound;
     }

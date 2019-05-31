@@ -92,7 +92,10 @@ public class PlayerScript : MonoBehaviour
 	private void FixedUpdate()
 	{
 		if (!playerIsMoving)
+		{
+			UpdatePositionParameters();
 			return;
+		}
 		
 		float horizontalDirection = controller.HorizontalAxis();
 		float verticalDirection = controller.VerticalAxis();
@@ -155,11 +158,11 @@ public class PlayerScript : MonoBehaviour
 		}
 	}
 
-	public void StartMovement()
-	{
-		UpdatePositionParameters();
-		StartCoroutine(BlinkSpriteAndStartMovement());
-	}
+//	public void StartMovement()
+//	{
+//		UpdatePositionParameters();
+//		StartCoroutine(BlinkSpriteAndStartMovement());
+//	}
 
 	private void MarkCurrentTileAsVisited()
 	{
@@ -183,23 +186,25 @@ public class PlayerScript : MonoBehaviour
 		changeableTiles--;
 	}
 
-	private IEnumerator BlinkSpriteAndStartMovement()
-	{
-		invincible = true;
-		for (int i = 0; i < 4; i++)
-		{
-			sprite.enabled = false;
-			yield return new WaitForSeconds(0.4f);
-		
-			sprite.enabled = true;
-			yield return new WaitForSeconds(0.4f);
-		}
-		playerIsMoving = true;
-		invincible = false;
-	}
+//	private IEnumerator BlinkSpriteAndStartMovement()
+//	{
+//		invincible = true;
+//		for (int i = 0; i < 4; i++)
+//		{
+//			sprite.enabled = false;
+//			yield return new WaitForSeconds(0.4f);
+//		
+//			sprite.enabled = true;
+//			yield return new WaitForSeconds(0.4f);
+//		}
+//		playerIsMoving = true;
+//		invincible = false;
+//	}
 
 	public void EnableControls()
 	{
+		var navAgent = GetComponent<NavigationAgent>();
+		navAgent.currentDestination = gridCell;
 		playerIsMoving = true;
 	}
 
@@ -208,24 +213,24 @@ public class PlayerScript : MonoBehaviour
 		playerIsMoving = false;
 	}
 	
-	private IEnumerator InvincibilityBlink()
-	{
-		yield return new WaitForSeconds(0.7f);
-		playerIsMoving = true;
-		
-		invincible = true;
-		for (int i = 0; i < 3; i++)
-		{
-			sprite.enabled = false;
-			yield return new WaitForSeconds(0.4f);
-		
-			sprite.enabled = true;
-			yield return new WaitForSeconds(0.4f);
-		}
-
-		playerIsMoving = true;
-		invincible = false;
-	}
+//	private IEnumerator InvincibilityBlink()
+//	{
+//		yield return new WaitForSeconds(0.7f);
+//		playerIsMoving = true;
+//		
+//		invincible = true;
+//		for (int i = 0; i < 3; i++)
+//		{
+//			sprite.enabled = false;
+//			yield return new WaitForSeconds(0.4f);
+//		
+//			sprite.enabled = true;
+//			yield return new WaitForSeconds(0.4f);
+//		}
+//
+//		playerIsMoving = true;
+//		invincible = false;
+//	}
 
 	public void ReduceLives()
 	{
@@ -235,7 +240,8 @@ public class PlayerScript : MonoBehaviour
 			currentLives--;
 			livesVisualizer.decreaseLife();
 		}
-		StartCoroutine(InvincibilityBlink());
+//		StartCoroutine(InvincibilityBlink());
+		StartCoroutine(Blink());
 	}
 	
 	public bool IsDead()
