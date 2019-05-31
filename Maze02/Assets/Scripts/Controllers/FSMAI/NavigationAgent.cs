@@ -37,7 +37,7 @@ public class NavigationAgent : Controller
     
     void FixedUpdate()
     {
-        if (!playerScript.movementStarted)
+        if (!playerScript.playerIsMoving)
             Stop();
         else
             Resume();

@@ -15,17 +15,12 @@ public class PlayerScript : MonoBehaviour
 	public bool invincible;
 	public int normalMovementSpeed = 100;
 	public int fasterMovementSpeed = 200;
-	public Text ChangeableTilesGUI;
 	
 	// used for positioning and controller
-	[HideInInspector]
-	public bool movementStarted;
-	[HideInInspector]
-	public Vector2 gridPosition;
-	[HideInInspector]
-	public Vector2 gridCell;
-	[HideInInspector]
-	public Vector2 tileSize;
+	[HideInInspector] public bool playerIsMoving;
+	[HideInInspector] public Vector2 gridPosition;
+	[HideInInspector] public Vector2 gridCell;
+	[HideInInspector] public Vector2 tileSize;
 	
 	private Rigidbody2D rb2d;
 	private SpriteRenderer sprite;
@@ -72,13 +67,16 @@ public class PlayerScript : MonoBehaviour
 		
 		sprite.sprite = backSprite;
 		movementSpeed = normalMovementSpeed;
-		movementStarted = false;
+		playerIsMoving = false;
 		changeableTiles = initialChangeableTiles;
-		StartMovement();
+//		StartMovement();
 	}
 
 	private void Update()
 	{
+		if (!playerIsMoving)
+			return;
+		
 		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
 			movementSpeed = fasterMovementSpeed;
@@ -88,12 +86,12 @@ public class PlayerScript : MonoBehaviour
 			movementSpeed = normalMovementSpeed;
 		}
 		
-		ChangeableTilesGUI.text = changeableTiles.ToString();
+//		ChangeableTilesGUI.text = changeableTiles.ToString();
 	}
 
 	private void FixedUpdate()
 	{
-		if (!movementStarted)
+		if (!playerIsMoving)
 			return;
 		
 		float horizontalDirection = controller.HorizontalAxis();
@@ -196,14 +194,24 @@ public class PlayerScript : MonoBehaviour
 			sprite.enabled = true;
 			yield return new WaitForSeconds(0.4f);
 		}
-		movementStarted = true;
+		playerIsMoving = true;
 		invincible = false;
+	}
+
+	public void EnableControls()
+	{
+		playerIsMoving = true;
+	}
+
+	public void DisableControls()
+	{
+		playerIsMoving = false;
 	}
 	
 	private IEnumerator InvincibilityBlink()
 	{
 		yield return new WaitForSeconds(0.7f);
-		movementStarted = true;
+		playerIsMoving = true;
 		
 		invincible = true;
 		for (int i = 0; i < 3; i++)
@@ -215,13 +223,13 @@ public class PlayerScript : MonoBehaviour
 			yield return new WaitForSeconds(0.4f);
 		}
 
-		movementStarted = true;
+		playerIsMoving = true;
 		invincible = false;
 	}
 
 	public void ReduceLives()
 	{
-		movementStarted = false;
+		playerIsMoving = false;
 		if (!invincible)
 		{
 			currentLives--;
@@ -246,5 +254,25 @@ public class PlayerScript : MonoBehaviour
 	public bool HasItem(Item.ItemType itemType)
 	{
 		return items.Contains(itemType);
+	}
+
+	public void AfterHit()
+	{
+		StartCoroutine(Blink());
+	}
+
+	private IEnumerator Blink()
+	{
+		var blinkInterval = 0.35f;
+		invincible = true;
+		for (int i = 0; i < 4; i++)
+		{
+			sprite.enabled = false;
+			yield return new WaitForSeconds(blinkInterval);
+		
+			sprite.enabled = true;
+			yield return new WaitForSeconds(blinkInterval);
+		}
+		invincible = false;
 	}
 }

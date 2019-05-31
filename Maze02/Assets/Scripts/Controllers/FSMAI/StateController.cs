@@ -24,11 +24,20 @@ public class StateController : MonoBehaviour
         navAgent = GetComponent<NavigationAgent>();
         playerScript = GetComponent<PlayerScript>();
         targetObject = navAgent.currentCell;
+        
+        wayPointList = new List<Transform>();
+        var waypointsParent = GameObject.Find("Waypoints Parent").transform;
+        for (int i = 0; i < waypointsParent.childCount - 1; i++)
+        {
+            wayPointList.Add(waypointsParent.GetChild(i));
+        }
+
+        runAwayPoint = waypointsParent.GetChild(waypointsParent.childCount - 1);
     }
 
     void Update()
     {
-        if (playerScript.movementStarted)
+        if (playerScript.playerIsMoving)
             aiActive = true;
         
         if (!aiActive)

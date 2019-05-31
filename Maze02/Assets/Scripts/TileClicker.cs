@@ -10,6 +10,8 @@ public class TileClicker : MonoBehaviour
     private PlayerScript playerScript;
     private List<Tile> tileQueue;
     private Tile lastChangedTile;
+
+    private bool enabled;
     
     void Start()
     {
@@ -19,6 +21,9 @@ public class TileClicker : MonoBehaviour
 
     void Update()
     {
+        if (!enabled)
+            return;
+        
         var mousePos = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
         RaycastHit2D hit;
@@ -30,7 +35,6 @@ public class TileClicker : MonoBehaviour
             var moveableWall = tile as MoveableWall; // this is only used so the marker doesn't move to a non-clickable tile
             if (moveableWall != null)
             {
-//                if (Mathf.Approximately((tile.index - playerScript.gridCell).magnitude, 1))
                 if (tile.index == playerScript.gridCell)
                 {
                     marker.SetActive(false);
@@ -118,5 +122,15 @@ public class TileClicker : MonoBehaviour
             wallMarker.SetActive(true);
             wallMarker.transform.position = pos + new Vector3(0, 0, -1);
         }
+    }
+
+    public void EnableControls()
+    {
+        enabled = true;
+    }
+
+    public void DisableControls()
+    {
+        enabled = false;
     }
 }

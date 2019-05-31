@@ -30,7 +30,7 @@ public class FSMAIController : Controller
 
     void FixedUpdate()
     {
-        if (!playerScript.movementStarted)
+        if (!playerScript.playerIsMoving)
             return;
         
         currentCell = playerScript.gridCell;

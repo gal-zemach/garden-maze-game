@@ -68,7 +68,7 @@ public class AIController : Controller
 
     void FixedUpdate()
     {
-        if (!playerScript.movementStarted)
+        if (!playerScript.playerIsMoving)
             return;
         
         // update map memory

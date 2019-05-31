@@ -64,6 +64,7 @@
           <e p="Item.cs" t="Include" />
           <e p="LivesVisualizer.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
+          <e p="RestartButtonScript.cs" t="Include" />
           <e p="Score.cs" t="Include" />
           <e p="TileClicker.cs" t="Include" />
           <e p="Tiles" t="Include">
