@@ -13,6 +13,7 @@ public class StateController : MonoBehaviour
     [HideInInspector] public PlayerScript playerScript;
     
     public List<Transform> wayPointList;
+    public Transform runAwayPoint;
     [HideInInspector] public int nextWayPoint;
     public Vector2 targetObject;
     [HideInInspector] public float stateTimeElapsed;

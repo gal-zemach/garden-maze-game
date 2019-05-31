@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu (menuName = "PluggableAI/Decisions/Look For Tools")]
-public class LookForTools : LookDecision
+public class LookForToolsDecision : LookDecision
 {
     public override bool Decide(StateController controller)
     {

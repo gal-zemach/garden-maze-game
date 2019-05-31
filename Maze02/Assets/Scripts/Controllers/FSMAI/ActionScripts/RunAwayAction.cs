@@ -12,23 +12,25 @@ public class RunAwayAction : Action
 
     private void RunAway(StateController controller)
     {
-        var playerPos = controller.navAgent.currentCell;
-        var targetPos = controller.targetObject;
+        controller.navAgent.UpdateDestination(controller.runAwayPoint.position);
         
-        var largestAnglePoint = controller.wayPointList[0];
-        var largestAnglePointGridPosition = IsoVectors.WorldToIso(largestAnglePoint.position, controller.navAgent.map.actualTileSize);
-        float largestAngle = Vector3.Angle(targetPos - playerPos, largestAnglePointGridPosition - playerPos);
-        
-        for (int i = 1; i < controller.wayPointList.Count; i++)
-        {
-            var pointGridPosition = IsoVectors.WorldToIso(controller.wayPointList[i].position, controller.navAgent.map.actualTileSize);
-            var angle = Vector3.Angle(targetPos - playerPos, pointGridPosition - playerPos);
-            if (angle > largestAngle)
-            {
-                largestAngle = angle;
-                largestAnglePoint = controller.wayPointList[i];
-            }
-        }
-        controller.navAgent.UpdateDestination(largestAnglePoint.position);
+//        var playerPos = controller.navAgent.currentCell;
+//        var targetPos = controller.targetObject;
+//        
+//        var largestAnglePoint = controller.wayPointList[0];
+//        var largestAnglePointGridPosition = IsoVectors.WorldToIso(largestAnglePoint.position, controller.navAgent.map.actualTileSize);
+//        float largestAngle = Vector3.Angle(targetPos - playerPos, largestAnglePointGridPosition - playerPos);
+//        
+//        for (int i = 1; i < controller.wayPointList.Count; i++)
+//        {
+//            var pointGridPosition = IsoVectors.WorldToIso(controller.wayPointList[i].position, controller.navAgent.map.actualTileSize);
+//            var angle = Vector3.Angle(targetPos - playerPos, pointGridPosition - playerPos);
+//            if (angle > largestAngle)
+//            {
+//                largestAngle = angle;
+//                largestAnglePoint = controller.wayPointList[i];
+//            }
+//        }
+//        controller.navAgent.UpdateDestination(largestAnglePoint.position);
     }
 }

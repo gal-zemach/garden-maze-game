@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dcd119cbb7474a7d8e07485d18e2248, type: 3}
   m_Name: TimerDecision RunAway
   m_EditorClassIdentifier: 
-  timeToCount: 300
+  timeToCount: 4

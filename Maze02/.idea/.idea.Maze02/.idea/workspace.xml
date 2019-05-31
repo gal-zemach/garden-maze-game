@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42f579d4-9fb6-406a-b2b7-b079bab9c82b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tiles/moveable_wall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tiles/moveable_wall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Maze02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Maze02/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Maze01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Maze01.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TileClicker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TileClicker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/MoveableWall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/MoveableWall.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/RunAwayAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/RunAwayAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookDecision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookDecision.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForToolsDecision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForToolsDecision.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForTrapsDecision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForTrapsDecision.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForUncutGrassDecision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForUncutGrassDecision.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/Decisions/LookForToolsDecision.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/Decisions/LookForToolsDecision.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/StateController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/StateController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/States/CheckToolsState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/States/CheckToolsState.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/States/GoToTargetState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/States/GoToTargetState.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,10 +25,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScript.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="105">
               <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
               <folding>
-                <marker date="1559238498528" expanded="false" signature="6:104" ph="..." />
+                <marker date="1559238498528" expanded="false" signature="6:126" ph="..." />
                 <marker date="1559238498528" expanded="true" signature="169:5949" ph="{...}" />
                 <marker date="1559238498528" expanded="true" signature="1034:2136" ph="{...}" />
                 <marker date="1559238498528" expanded="true" signature="1435:1506" ph="{...}" />
@@ -59,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <marker date="1559238499782" expanded="false" signature="6:78" ph="..." />
                 <marker date="1559238499782" expanded="true" signature="120:2490" ph="{...}" />
@@ -84,31 +89,102 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/TileClicker.cs">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/StateController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="-407">
+              <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
               <folding>
-                <marker date="1559236248513" expanded="false" signature="6:92" ph="..." />
-                <marker date="1559236248513" expanded="true" signature="134:3729" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="343:481" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="500:1883" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="737:1877" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="979:1867" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="1144:1302" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="1545:1653" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="1734:1853" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="1924:2473" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="2048:2149" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="2151:2467" ph="/* if (tileQueue.Remove(tile)) ... */" />
-                <marker date="1559236248513" expanded="true" signature="2513:3262" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="2726:2846" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="3028:3111" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="3180:3256" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="3333:3727" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="3396:3538" ph="{...}" />
-                <marker date="1559236248513" expanded="true" signature="3551:3721" ph="{...}" />
+                <marker date="1559294495397" expanded="false" signature="6:110" ph="..." />
+                <marker date="1559294495397" expanded="true" signature="156:1885" ph="{...}" />
+                <marker date="1559294495397" expanded="true" signature="594:756" ph="{...}" />
+                <marker date="1559294495397" expanded="true" signature="775:959" ph="{...}" />
+                <marker date="1559294495397" expanded="true" signature="992:1193" ph="{...}" />
+                <marker date="1559294495397" expanded="true" signature="1051:1187" ph="{...}" />
+                <marker date="1559294495397" expanded="true" signature="1245:1380" ph="{...}" />
+                <marker date="1559294495397" expanded="true" signature="1289:1374" ph="{...}" />
+                <marker date="1559294495397" expanded="true" signature="1437:1540" ph="{...}" />
+                <marker date="1559294495397" expanded="true" signature="1572:1614" ph="{...}" />
+                <marker date="1559294495397" expanded="true" signature="1666:1712" ph="{...}" />
+                <marker date="1559294495397" expanded="true" signature="1773:1883" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/RunAwayAction.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="14" column="80" lean-forward="true" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
+              <folding>
+                <marker date="1559294565772" expanded="false" signature="6:78" ph="..." />
+                <marker date="1559294565772" expanded="true" signature="177:1456" ph="{...}" />
+                <marker date="1559294565772" expanded="true" signature="236:277" ph="{...}" />
+                <marker date="1559294565772" expanded="true" signature="331:1454" ph="{...}" />
+                <marker date="1559294565772" expanded="true" signature="428:1448" ph="/* var playerPos = controller.navAgent.currentCell; ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/PatrolAction.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+              <folding>
+                <marker date="1559161506814" expanded="false" signature="6:78" ph="..." />
+                <marker date="1559161506814" expanded="true" signature="174:663" ph="{...}" />
+                <marker date="1559161506814" expanded="true" signature="233:273" ph="{...}" />
+                <marker date="1559161506814" expanded="true" signature="326:661" ph="{...}" />
+                <marker date="1559161506814" expanded="true" signature="534:655" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForTrapsDecision.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+              <folding>
+                <marker date="1559294821603" expanded="false" signature="6:78" ph="..." />
+                <marker date="1559294821603" expanded="true" signature="198:423" ph="{...}" />
+                <marker date="1559294821603" expanded="true" signature="260:421" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookDecision.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+              <folding>
+                <marker date="1559295814338" expanded="false" signature="6:78" ph="..." />
+                <marker date="1559295814338" expanded="true" signature="125:2713" ph="{...}" />
+                <marker date="1559295814338" expanded="true" signature="211:2711" ph="{...}" />
+                <marker date="1559295814338" expanded="true" signature="1535:1753" ph="{...}" />
+                <marker date="1559295814338" expanded="true" signature="1848:2068" ph="{...}" />
+                <marker date="1559295814338" expanded="true" signature="2157:2371" ph="{...}" />
+                <marker date="1559295814338" expanded="true" signature="2464:2682" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/TimerDecision.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding>
+                <marker date="1559227509838" expanded="false" signature="6:78" ph="..." />
+                <marker date="1559227509838" expanded="true" signature="186:361" ph="{...}" />
+                <marker date="1559227509838" expanded="true" signature="281:359" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -129,40 +205,44 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/RunAwayAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tiles/MoveableWall.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../Tutorials/TanksPluggableAI/Assets/PluggableAI/Scripts/StateController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/TileMapEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/TilePickerWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/StateController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForToolsDecision.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForUncutGrassDecision.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookDecision.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../0.HUJI/B/AlgGames/Jam2/Algamedes_Jam2/Assets/scripts/ScoreKeeper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8D6859C0-C32D-4F63-98B8-394916B0D0A3/04/244f4004/Vector2Int.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tiles/ConstWall.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/TimerDecision.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LivesVisualizer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForTrapsDecision.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/AIController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/HoleEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/BulletScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAIController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/ShootingEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/2dTileBasedPathFinding/Node.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tiles/TileMap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/2dTileBasedPathFinding/PathFinding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tiles/Tile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tiles/Trap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/Transition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tiles/TileBrush.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/IsoVectors.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TileClicker.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/PatrolAction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/RunAwayAction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../Tutorials/TanksPluggableAI/Assets/PluggableAI/Scripts/StateController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAIController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/Transition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Item.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TileClicker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/NavigationAgent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/PatrolAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Score.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/State.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/Actions/RunAwayAction.asset" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -187,7 +267,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActiveStateDecision.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/PatrolAction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/NavigationAgent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/StateController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/ShootingEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/HoleEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Item.cs" />
@@ -206,18 +285,24 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/GoToTargetAction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/RunAwayAction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/TimerDecision.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/RunAwayAction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tiles/MoveableWall.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TileClicker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForUncutGrassDecision.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForToolsDecision.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/StateController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/RunAwayAction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForTrapsDecision.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookDecision.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-6" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="877" />
+    <option name="height" value="899" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -225,10 +310,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AssemblyExplorer" />
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
       <pane id="UnityExplorer">
         <subPane>
           <expand>
@@ -246,13 +332,41 @@
               <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
               <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
             </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+              <item name="Controllers" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+              <item name="Controllers" type="1045f7f1:UnityExplorerNode" />
+              <item name="FSMAI" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+              <item name="Controllers" type="1045f7f1:UnityExplorerNode" />
+              <item name="FSMAI" type="1045f7f1:UnityExplorerNode" />
+              <item name="ActionScripts" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="Project" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
+              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
+              <item name="Controllers" type="1045f7f1:UnityExplorerNode" />
+              <item name="FSMAI" type="1045f7f1:UnityExplorerNode" />
+              <item name="DecisionScripts" type="1045f7f1:UnityExplorerNode" />
+            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-hidden-items" value="false" />
         <option name="show-project-names" value="true" />
       </pane>
-      <pane id="AssemblyExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -308,11 +422,12 @@
       <workItem from="1559052550735" duration="6029000" />
       <workItem from="1559067027073" duration="632000" />
       <workItem from="1559123162287" duration="36807000" />
+      <workItem from="1559293170502" duration="2869000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88690000" />
+    <option name="totallyTimeSpent" value="91559000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -327,7 +442,7 @@
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28540772" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28898427" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -371,57 +486,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Tiles/Floor.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Score.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <marker date="1558631395058" expanded="true" signature="6:100" ph="..." />
-            <marker date="1558631395058" expanded="true" signature="136:386" ph="{...}" />
-            <marker date="1558631395058" expanded="true" signature="225:288" ph="{...}" />
-            <marker date="1558631395058" expanded="true" signature="307:384" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/IsoCollider.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Items/Item.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/IsoVectors.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="49" column="33" lean-forward="true" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
-          <folding>
-            <marker date="1558862373561" expanded="false" signature="6:78" ph="..." />
-            <marker date="1558862373561" expanded="true" signature="119:2877" ph="{...}" />
-            <marker date="1558862373561" expanded="true" signature="492:525" ph="{...}" />
-            <marker date="1558862373561" expanded="true" signature="608:854" ph="{...}" />
-            <marker date="1558862373561" expanded="true" signature="944:1079" ph="{...}" />
-            <marker date="1558862373561" expanded="true" signature="1169:1304" ph="{...}" />
-            <marker date="1558862373561" expanded="true" signature="1377:1577" ph="{...}" />
-            <marker date="1558862373561" expanded="true" signature="1663:1890" ph="{...}" />
-            <marker date="1558862373561" expanded="true" signature="1977:2190" ph="{...}" />
-            <marker date="1558862373561" expanded="true" signature="2284:2481" ph="{...}" />
-            <marker date="1558862373561" expanded="true" signature="2522:2875" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../0.HUJI/B/AlgGames/Jam2/Algamedes_Jam2/Assets/scripts/ScoreKeeper.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="30" column="48" lean-forward="true" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/BulletScript.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1245">
@@ -446,13 +510,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/AttackAction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/AttackAction.cs" />
     <entry file="file://$PROJECT_DIR$/../../../Tutorials/TanksPluggableAI/Assets/PluggableAI/Scripts/StateController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -666,20 +724,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ChaseAction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/CutGrassAction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ChaseAction.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/CutGrassAction.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAIController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
@@ -763,13 +809,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActiveStateDecision.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActiveStateDecision.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Tiles/Trap.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -816,20 +856,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ToolCheckAction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/Action.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ToolCheckAction.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/Action.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/Transition.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -841,34 +869,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/Decision.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/LookForUncutGrassDecision.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/LookForTraps.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ReachedTargetDecision.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/Decision.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/LookForUncutGrassDecision.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/LookForTraps.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ReachedTargetDecision.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Item.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -884,13 +888,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/CheckToolsDecision.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/CheckToolsDecision.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/HoleEnemy.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
@@ -908,123 +906,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/LookDecision.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/LookForTrapsDecision.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/LookForToolsDecision.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/PatrolAction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/GoToTargetAction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/TimerDecision.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="4" column="68" lean-forward="true" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/RunAwayAction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/PatrolAction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding>
-            <marker date="1559161506814" expanded="false" signature="6:78" ph="..." />
-            <marker date="1559161506814" expanded="true" signature="174:663" ph="{...}" />
-            <marker date="1559161506814" expanded="true" signature="233:273" ph="{...}" />
-            <marker date="1559161506814" expanded="true" signature="326:661" ph="{...}" />
-            <marker date="1559161506814" expanded="true" signature="534:655" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/RunAwayAction.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <marker date="1559228834169" expanded="false" signature="6:78" ph="..." />
-            <marker date="1559228834169" expanded="true" signature="177:1330" ph="{...}" />
-            <marker date="1559228834169" expanded="true" signature="236:277" ph="{...}" />
-            <marker date="1559228834169" expanded="true" signature="331:1328" ph="{...}" />
-            <marker date="1559228834169" expanded="true" signature="830:1247" ph="{...}" />
-            <marker date="1559228834169" expanded="true" signature="1107:1237" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/StateController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="47" column="28" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="33" />
-          <folding>
-            <marker date="1559223028809" expanded="false" signature="6:110" ph="..." />
-            <marker date="1559223028809" expanded="true" signature="156:1850" ph="{...}" />
-            <marker date="1559223028809" expanded="true" signature="559:721" ph="{...}" />
-            <marker date="1559223028809" expanded="true" signature="740:924" ph="{...}" />
-            <marker date="1559223028809" expanded="true" signature="957:1158" ph="{...}" />
-            <marker date="1559223028809" expanded="true" signature="1016:1152" ph="{...}" />
-            <marker date="1559223028809" expanded="true" signature="1210:1345" ph="{...}" />
-            <marker date="1559223028809" expanded="true" signature="1254:1339" ph="{...}" />
-            <marker date="1559223028809" expanded="true" signature="1402:1505" ph="{...}" />
-            <marker date="1559223028809" expanded="true" signature="1537:1579" ph="{...}" />
-            <marker date="1559223028809" expanded="true" signature="1631:1677" ph="{...}" />
-            <marker date="1559223028809" expanded="true" signature="1738:1848" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/State.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-          <folding>
-            <marker date="1559225089643" expanded="false" signature="6:78" ph="..." />
-            <marker date="1559225089643" expanded="true" signature="167:1095" ph="{...}" />
-            <marker date="1559225089643" expanded="true" signature="343:424" ph="{...}" />
-            <marker date="1559225089643" expanded="true" signature="480:601" ph="{...}" />
-            <marker date="1559225089643" expanded="true" signature="535:595" ph="{...}" />
-            <marker date="1559225089643" expanded="true" signature="664:1093" ph="{...}" />
-            <marker date="1559225089643" expanded="true" signature="723:1087" ph="{...}" />
-            <marker date="1559225089643" expanded="true" signature="843:943" ph="{...}" />
-            <marker date="1559225089643" expanded="true" signature="960:1077" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/LookDecision.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/LookForTrapsDecision.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/LookForToolsDecision.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/PatrolAction.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/GoToTargetAction.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/TimerDecision.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/RunAwayAction.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/NavigationAgent.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39">
@@ -1084,40 +972,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/TileClicker.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <marker date="1559236248513" expanded="false" signature="6:92" ph="..." />
-            <marker date="1559236248513" expanded="true" signature="134:3729" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="343:481" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="500:1883" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="737:1877" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="979:1867" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="1144:1302" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="1545:1653" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="1734:1853" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="1924:2473" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="2048:2149" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="2151:2467" ph="/* if (tileQueue.Remove(tile)) ... */" />
-            <marker date="1559236248513" expanded="true" signature="2513:3262" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="2726:2846" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="3028:3111" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="3180:3256" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="3333:3727" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="3396:3538" ph="{...}" />
-            <marker date="1559236248513" expanded="true" signature="3551:3721" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScript.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="105">
           <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
           <folding>
-            <marker date="1559238498528" expanded="false" signature="6:104" ph="..." />
+            <marker date="1559238498528" expanded="false" signature="6:126" ph="..." />
             <marker date="1559238498528" expanded="true" signature="169:5949" ph="{...}" />
             <marker date="1559238498528" expanded="true" signature="1034:2136" ph="{...}" />
             <marker date="1559238498528" expanded="true" signature="1435:1506" ph="{...}" />
@@ -1152,10 +1012,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForToolsDecision.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding>
+            <marker date="1559294282577" expanded="false" signature="6:78" ph="..." />
+            <marker date="1559294282577" expanded="true" signature="198:319" ph="{...}" />
+            <marker date="1559294282577" expanded="true" signature="260:317" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForUncutGrassDecision.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-29">
+          <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+          <folding>
+            <marker date="1559293882852" expanded="false" signature="6:78" ph="..." />
+            <marker date="1559293882852" expanded="true" signature="205:2904" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="267:354" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="418:1972" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="678:1935" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="837:894" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="921:984" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="1147:1204" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="1231:1295" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="1454:1511" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="1538:1599" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="1760:1817" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="1844:1907" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="2069:2902" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="2259:2335" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="2656:2732" ph="{...}" />
+            <marker date="1559293882852" expanded="true" signature="2768:2873" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/State.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <marker date="1559225089643" expanded="false" signature="6:78" ph="..." />
+            <marker date="1559225089643" expanded="true" signature="167:1095" ph="{...}" />
+            <marker date="1559225089643" expanded="true" signature="343:424" ph="{...}" />
+            <marker date="1559225089643" expanded="true" signature="480:601" ph="{...}" />
+            <marker date="1559225089643" expanded="true" signature="535:595" ph="{...}" />
+            <marker date="1559225089643" expanded="true" signature="664:1093" ph="{...}" />
+            <marker date="1559225089643" expanded="true" signature="723:1087" ph="{...}" />
+            <marker date="1559225089643" expanded="true" signature="843:943" ph="{...}" />
+            <marker date="1559225089643" expanded="true" signature="960:1077" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/TileClicker.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="670">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <marker date="1559236248513" expanded="false" signature="6:92" ph="..." />
+            <marker date="1559236248513" expanded="true" signature="134:3729" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="343:481" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="500:1883" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="737:1877" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="979:1867" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="1144:1302" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="1545:1653" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="1734:1853" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="1924:2473" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="2048:2149" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="2151:2467" ph="/* if (tileQueue.Remove(tile)) ... */" />
+            <marker date="1559236248513" expanded="true" signature="2513:3262" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="2726:2846" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="3028:3111" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="3180:3256" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="3333:3727" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="3396:3538" ph="{...}" />
+            <marker date="1559236248513" expanded="true" signature="3551:3721" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <marker date="1559238499782" expanded="false" signature="6:78" ph="..." />
             <marker date="1559238499782" expanded="true" signature="120:2490" ph="{...}" />
@@ -1171,6 +1115,98 @@
             <marker date="1559238499782" expanded="true" signature="2222:2255" ph="{...}" />
             <marker date="1559238499782" expanded="true" signature="2282:2315" ph="{...}" />
             <marker date="1559238499782" expanded="true" signature="2352:2488" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/Actions/RunAwayAction.asset">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/RunAwayAction.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="80" lean-forward="true" selection-start-line="14" selection-start-column="80" selection-end-line="14" selection-end-column="80" />
+          <folding>
+            <marker date="1559294565772" expanded="false" signature="6:78" ph="..." />
+            <marker date="1559294565772" expanded="true" signature="177:1456" ph="{...}" />
+            <marker date="1559294565772" expanded="true" signature="236:277" ph="{...}" />
+            <marker date="1559294565772" expanded="true" signature="331:1454" ph="{...}" />
+            <marker date="1559294565772" expanded="true" signature="428:1448" ph="/* var playerPos = controller.navAgent.currentCell; ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/ActionScripts/PatrolAction.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding>
+            <marker date="1559161506814" expanded="false" signature="6:78" ph="..." />
+            <marker date="1559161506814" expanded="true" signature="174:663" ph="{...}" />
+            <marker date="1559161506814" expanded="true" signature="233:273" ph="{...}" />
+            <marker date="1559161506814" expanded="true" signature="326:661" ph="{...}" />
+            <marker date="1559161506814" expanded="true" signature="534:655" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookForTrapsDecision.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+          <folding>
+            <marker date="1559294821603" expanded="false" signature="6:78" ph="..." />
+            <marker date="1559294821603" expanded="true" signature="198:423" ph="{...}" />
+            <marker date="1559294821603" expanded="true" signature="260:421" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/LookDecision.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding>
+            <marker date="1559295814338" expanded="false" signature="6:78" ph="..." />
+            <marker date="1559295814338" expanded="true" signature="125:2713" ph="{...}" />
+            <marker date="1559295814338" expanded="true" signature="211:2711" ph="{...}" />
+            <marker date="1559295814338" expanded="true" signature="1535:1753" ph="{...}" />
+            <marker date="1559295814338" expanded="true" signature="1848:2068" ph="{...}" />
+            <marker date="1559295814338" expanded="true" signature="2157:2371" ph="{...}" />
+            <marker date="1559295814338" expanded="true" signature="2464:2682" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/DecisionScripts/TimerDecision.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <marker date="1559227509838" expanded="false" signature="6:78" ph="..." />
+            <marker date="1559227509838" expanded="true" signature="186:361" ph="{...}" />
+            <marker date="1559227509838" expanded="true" signature="281:359" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/FSMAI/StateController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-407">
+          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+          <folding>
+            <marker date="1559294495397" expanded="false" signature="6:110" ph="..." />
+            <marker date="1559294495397" expanded="true" signature="156:1885" ph="{...}" />
+            <marker date="1559294495397" expanded="true" signature="594:756" ph="{...}" />
+            <marker date="1559294495397" expanded="true" signature="775:959" ph="{...}" />
+            <marker date="1559294495397" expanded="true" signature="992:1193" ph="{...}" />
+            <marker date="1559294495397" expanded="true" signature="1051:1187" ph="{...}" />
+            <marker date="1559294495397" expanded="true" signature="1245:1380" ph="{...}" />
+            <marker date="1559294495397" expanded="true" signature="1289:1374" ph="{...}" />
+            <marker date="1559294495397" expanded="true" signature="1437:1540" ph="{...}" />
+            <marker date="1559294495397" expanded="true" signature="1572:1614" ph="{...}" />
+            <marker date="1559294495397" expanded="true" signature="1666:1712" ph="{...}" />
+            <marker date="1559294495397" expanded="true" signature="1773:1883" ph="{...}" />
           </folding>
         </state>
       </provider>

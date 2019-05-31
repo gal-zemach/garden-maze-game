@@ -14,61 +14,53 @@ public class LookForUncutGrassDecision : Decision
     private bool LookForUncutGrass(StateController controller)
     {
         var currentCell = controller.navAgent.currentCell;
-        bool foundWall;
+        bool foundWall = false;
+        bool checkLeft = true, checkRight = true, checkUp = true, checkDown = true;
         
-        int dy = 0;
-        while (dy < controller.navAgent.lookRadius)
+        int d = 0;
+        while (d < controller.navAgent.lookRadius)
         {
-            if (isUncutGrass(controller, new Vector2Int((int) currentCell.x, (int) currentCell.y + dy), out foundWall))
+            if (checkLeft && 
+                isUncutGrass(controller, new Vector2Int((int) currentCell.x, (int) currentCell.y + d), out foundWall))
             {
                 return true;
             }
             if (foundWall)
             {
-                break;
+                checkLeft = false;
             }
-            dy++;
-        }
-        dy = 0;
-        while (dy < controller.navAgent.lookRadius)
-        {
-            if (isUncutGrass(controller, new Vector2Int((int) currentCell.x, (int) currentCell.y - dy), out foundWall))
+            
+            if (checkRight && 
+                isUncutGrass(controller, new Vector2Int((int) currentCell.x, (int) currentCell.y - d), out foundWall))
             {
                 return true;
             }
             if (foundWall)
             {
-                break;
+                checkRight = false;
             }
-            dy++;
-        }
-        
-        int dx = 0;
-        while (dx < controller.navAgent.lookRadius)
-        {
-            if (isUncutGrass(controller, new Vector2Int((int) currentCell.x + dx, (int) currentCell.y), out foundWall))
+            
+            if (checkUp &&
+                isUncutGrass(controller, new Vector2Int((int) currentCell.x + d, (int) currentCell.y), out foundWall))
             {
                 return true;
             }
             if (foundWall)
             {
-                break;
+                checkUp = false;
             }
-            dx++;
-        }
+            
+            if (checkDown &&
+                isUncutGrass(controller, new Vector2Int((int) currentCell.x - d, (int) currentCell.y), out foundWall))
+            {
+                return true;
+            }
+            if (foundWall)
+            {
+                checkDown = false;
+            }
 
-        dx = 0;
-        while (dx < controller.navAgent.lookRadius)
-        {
-            if (isUncutGrass(controller, new Vector2Int((int) currentCell.x - dx, (int) currentCell.y), out foundWall))
-            {
-                return true;
-            }
-            if (foundWall)
-            {
-                break;
-            }
-            dx++;
+            d++;
         }
         
         return false;

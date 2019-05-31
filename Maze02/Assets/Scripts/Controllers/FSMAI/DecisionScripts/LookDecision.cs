@@ -15,10 +15,20 @@ public abstract class LookDecision : Decision
         var playerPos = controller.transform.position;
         var lookRadius = controller.navAgent.lookRadiusInPixels;
 
-        var targetVisibleLeft = Physics2D.Raycast(playerPos, IsoVectors.LEFT, lookRadius, combinedLayerMask);
-        var targetVisibleRight = Physics2D.Raycast(playerPos, IsoVectors.RIGHT, lookRadius, combinedLayerMask);
-        var targetVisibleUp = Physics2D.Raycast(playerPos, IsoVectors.UP, lookRadius, combinedLayerMask);
-        var targetVisibleDown = Physics2D.Raycast(playerPos, IsoVectors.DOWN, lookRadius, combinedLayerMask);
+        var circleRadius = 5;
+        var castOffset = 50;
+        var castPos = playerPos + IsoVectors.LEFT * castOffset;
+        var targetVisibleLeft = Physics2D.CircleCast(castPos, circleRadius, IsoVectors.LEFT, lookRadius, combinedLayerMask);
+        
+        castPos = playerPos + IsoVectors.RIGHT * castOffset;
+        var targetVisibleRight = Physics2D.CircleCast(castPos, circleRadius, IsoVectors.RIGHT, lookRadius, combinedLayerMask);
+        
+        castPos = playerPos + IsoVectors.UP * castOffset;
+        var targetVisibleUp = Physics2D.CircleCast(castPos, circleRadius, IsoVectors.UP, lookRadius, combinedLayerMask);
+        
+        castPos = playerPos + IsoVectors.DOWN * castOffset;
+        var targetVisibleDown = Physics2D.CircleCast(castPos, circleRadius, IsoVectors.DOWN, lookRadius, combinedLayerMask);
+        
         
         if (targetVisibleLeft && targetVisibleLeft.collider.gameObject.layer == targetLayer)
         {
