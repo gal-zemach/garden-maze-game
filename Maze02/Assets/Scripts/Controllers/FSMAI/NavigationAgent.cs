@@ -96,6 +96,18 @@ public class NavigationAgent : Controller
         path = Pathfinding.FindPath(map.pGrid, startPos, endPos, Pathfinding.DistanceType.Manhattan);
         remainingDistance = path.Count;
         reachedDestination = (remainingDistance == 0);
+        if (path.Count == 0)
+        {
+            if (Mathf.Approximately((destination - currentCell).magnitude, 1))
+            {
+                currentDestination = destination;
+            }
+            else
+            {
+                var randomCell = WallFollower();
+                path.Add(new Point((int)randomCell.x, (int)randomCell.y));
+            }
+        }
         
         Resume();
     }
@@ -110,6 +122,7 @@ public class NavigationAgent : Controller
     {
         if (path.Count > 0)
         {
+            reachedDestination = false;
             var p = path[0];
             currentDestination = new Vector2(p.x, p.y);
             path.RemoveAt(0);
@@ -142,7 +155,7 @@ public class NavigationAgent : Controller
             }
         }
     }
-    
+        
     private void OnDrawGizmos()
     {
         if (playerScript != null)
@@ -152,4 +165,159 @@ public class NavigationAgent : Controller
             IsoVectors.drawPoint(destination, Color.red, playerScript.tileSize);
         }
     }
+
+    
+    
+    #region FromOldAIController
+
+    private bool approachingWall;
+    private int currentDirectionIndex;
+
+    private Vector2[] direction = 
+    {
+        Vector2.up, 
+        Vector2.right, 
+        Vector2.down, 
+        Vector2.left, 
+    };
+
+    private Vector2[] allDirections = 
+    {
+        Vector2.up, 
+        new Vector2(1, 1), 
+        Vector2.right, 
+        new Vector2(1, -1),
+        Vector2.down, 
+        new Vector2(-1, -1),
+        Vector2.left, 
+        new Vector2(-1, 1),
+    };
+    
+    private Vector2 RandomNeighbor()
+    {
+        // move to a random neighbor floor tile
+        var i = Random.Range(0, 4);
+        while (!map.IsWalkable(currentCell + direction[i]))
+        {
+            i = Random.Range(0, 4);
+        }
+        return currentCell + direction[i];
+    }
+    
+    private Vector2 WallFollower()
+    {
+        
+        // if not around a wall, go to a random walkable direction
+        if (!TouchingWall())
+        {
+            approachingWall = true;
+            return KeepStraight();
+        }
+
+        // aligning direction so wall is on the left
+        if (approachingWall)
+        {
+            AlignPlayerDirection();
+            approachingWall = false;
+        }
+        
+        // wall follower
+        var directionIndices = DirectionsArray();
+
+        var i = 0;
+        while (i < 4 && !map.IsWalkable(currentCell + direction[directionIndices[i]]))
+        {
+            i++;
+        }
+
+        if (i == 4)
+        {
+            return currentCell;
+        }
+
+        currentDirectionIndex = directionIndices[i];
+        return currentCell + direction[currentDirectionIndex];
+    }
+
+    private int[] DirectionsArray()
+    {
+        int[] directions = new[]
+            {
+                currentDirectionIndex, // same direction
+                Mod(currentDirectionIndex - 1, 4), // left turn
+                // same direction used to be here
+                
+                Mod(currentDirectionIndex + 1, 4), // right turn
+                Mod(currentDirectionIndex + 2, 4) // 180 turn
+            };
+        
+        return directions;
+    }
+    
+    private Vector2 KeepStraight()
+    {
+        return currentCell + direction[currentDirectionIndex];
+    }
+
+    private void AlignPlayerDirection()
+    {
+        var j = 0;
+        var currentDir = currentDirectionIndex;
+
+        // finding direction index in allDirections
+        for (int k = 0; k < allDirections.Length; k++)
+        {
+            if (allDirections[k] == direction[currentDirectionIndex])
+            {
+                currentDir = k;
+                break;
+            }
+        }
+
+        // checking if the player is already oriented correctly
+        if (map.IsWalkable(currentCell + allDirections[currentDir]) ||
+            map.IsWalkable(currentCell + allDirections[Mod(currentDir - 1, 8)]))
+        {
+            return;
+        }
+    
+        // checking all directions for the wall location
+        while (map.IsWalkable(currentCell + allDirections[Mod(currentDir, 8)]))
+        {
+            currentDir++;
+        }
+        currentDir = Mod(currentDir, 8);
+
+        // if wall is diagonal - changing to prev direction (that is not diagonal)
+        if (allDirections[currentDir].magnitude > 1)
+        {
+            currentDir = Mod(currentDir - 1, 8);
+        }
+        
+        // finding direction in the 4 dir array and taking the direction after it
+        for (int k = 0; k < direction.Length; k++)
+        {
+            if (direction[k] == allDirections[currentDir])
+            {
+                currentDirectionIndex = Mod(k + 1, 4);
+                return;
+            }
+        }
+    }
+    
+    int Mod(int x, int m) 
+    {
+        var r = x % m;
+        return r < 0 ? r + m : r;
+    }
+
+    bool TouchingWall()
+    {
+        var i = 0;
+        while (i < 8 && map.IsWalkable(currentCell + allDirections[i]))
+            i++;
+        return i != 8;
+    }
+
+    #endregion  
 }

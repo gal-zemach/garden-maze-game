@@ -5,7 +5,7 @@ using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
-{
+{    
     public GameObject playerPrefab;
     public Vector2 startTile, endTile;
     public int tilesLeft;
@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(GameLoop());
     }
-
     
     
     private IEnumerator GameLoop()
@@ -57,7 +56,7 @@ public class GameManager : MonoBehaviour
     }
     
     private IEnumerator LevelPlaying()
-    {
+    {        
         EnableControls();
 
         while (PlayerIsAlive() && !PlayerReachedEnd())

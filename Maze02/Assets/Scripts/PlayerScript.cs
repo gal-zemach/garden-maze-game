@@ -73,10 +73,10 @@ public class PlayerScript : MonoBehaviour
 
 		animBack = Animator.StringToHash(ANIM_BACK);
 		animRunning = Animator.StringToHash(ANIM_RUNNING);
+		animator.SetBool(animRunning, false);
 		animator.SetBool(animBack, true);
 		sprite.flipX = true;
-		animator.SetBool(animRunning, false);
-		
+
 		movementSpeed = normalMovementSpeed;
 		playerIsMoving = false;
 		changeableTiles = initialChangeableTiles;
