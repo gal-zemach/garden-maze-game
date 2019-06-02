@@ -27,6 +27,11 @@ public class PlayerScript : MonoBehaviour
 	private Controller controller;
 	private GameManager gameManager;
 	private TileMap map;
+	private Animator animator;
+
+	private const string ANIM_RUNNING = "isRunning";
+	private const string ANIM_BACK = "showBack";
+	private int animRunning, animBack;
 
 	private List<Item.ItemType> items;
 	private Vector2 forward, right;
@@ -42,6 +47,7 @@ public class PlayerScript : MonoBehaviour
 		
 		rb2d = GetComponent<Rigidbody2D>();
 		sprite = GetComponentInChildren<SpriteRenderer>();
+		animator = GetComponentInChildren<Animator>();
 		gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 		controller = GetComponent<Controller>();
 		if (ReferenceEquals(controller, null))
@@ -64,8 +70,13 @@ public class PlayerScript : MonoBehaviour
 		gridCell = new Vector2(Mathf.Round(gridPosition.x), Mathf.Round(gridPosition.y));
 		
 		items = new List<Item.ItemType>();
+
+		animBack = Animator.StringToHash(ANIM_BACK);
+		animRunning = Animator.StringToHash(ANIM_RUNNING);
+		animator.SetBool(animBack, true);
+		sprite.flipX = true;
+		animator.SetBool(animRunning, false);
 		
-		sprite.sprite = backSprite;
 		movementSpeed = normalMovementSpeed;
 		playerIsMoving = false;
 		changeableTiles = initialChangeableTiles;
@@ -80,10 +91,12 @@ public class PlayerScript : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
 			movementSpeed = fasterMovementSpeed;
+			animator.SetBool(animRunning, true);
 		}
 		if (Input.GetKeyUp(KeyCode.LeftShift))
 		{
 			movementSpeed = normalMovementSpeed;
+			animator.SetBool(animRunning, false);
 		}
 		
 //		ChangeableTilesGUI.text = changeableTiles.ToString();
@@ -137,24 +150,28 @@ public class PlayerScript : MonoBehaviour
 	{
 		if (horizontalDirection > 0)
 		{
-			sprite.sprite = frontSprite;
-			sprite.flipX = true;
+//			sprite.sprite = frontSprite;
+			animator.SetBool(animBack, false);
+			sprite.flipX = false;
 		}
 		else if (horizontalDirection < 0)
 		{
-			sprite.sprite = backSprite;
-			sprite.flipX = false;
+//			sprite.sprite = backSprite;
+			animator.SetBool(animBack, true);
+			sprite.flipX = true;
 		}
 
 		else if (verticalDirection > 0)
 		{
-			sprite.sprite = backSprite;
-			sprite.flipX = true;
+//			sprite.sprite = backSprite;
+			animator.SetBool(animBack, true);
+			sprite.flipX = false;
 		}
 		else if (verticalDirection < 0)
 		{
-			sprite.sprite = frontSprite;
-			sprite.flipX = false;
+//			sprite.sprite = frontSprite;
+			animator.SetBool(animBack, false);
+			sprite.flipX = true;
 		}
 	}
 
