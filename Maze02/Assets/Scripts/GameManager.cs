@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Vector2 startTile, endTile;
     public int tilesLeft;
     [HideInInspector] public GameObject player;
+//    public Vector2 GrassToTileRatio;
 
     private GameObject camera;
     private TileClicker tileClicker;

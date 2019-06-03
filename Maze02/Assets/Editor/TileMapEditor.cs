@@ -114,7 +114,15 @@ public class TileMapEditor : Editor
             if (map.texture2D != null && mouseOnMap)
             {
                 Event current = Event.current;
-                if (current.shift)
+                if (current.keyCode == KeyCode.A)
+                {
+                    Draw(2);
+                }
+                else if (current.keyCode == KeyCode.S)
+                {
+                    Draw(3);
+                }
+                else if (current.shift)
                 {
                     Draw();
                 }
@@ -240,7 +248,7 @@ public class TileMapEditor : Editor
         brush.transform.position = new Vector3(x, y, map.transform.position.z);
     }
 
-    private void Draw()
+    private void Draw(int prefabIndex=-1)
     {
         var id = brush.tileID.ToString();
 
@@ -256,7 +264,11 @@ public class TileMapEditor : Editor
         
         // create the new tile
         GameObject prefab = null;
-        if (map.tileID - 1 < map.tilePrefabs.Count)
+        if (prefabIndex != -1)
+        {
+            prefab = map.tilePrefabs[prefabIndex - 1];
+        }
+        else if (map.tileID - 1 < map.tilePrefabs.Count)
         {
             prefab = map.tilePrefabs[map.tileID - 1];
         }
