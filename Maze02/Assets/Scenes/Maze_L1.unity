@@ -1498,7 +1498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49621442}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 231.2, z: -21.629208}
+  m_LocalPosition: {x: 575.9, y: 319.9, z: -21.629208}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1126867554}
@@ -2528,7 +2528,7 @@ GameObject:
   m_Component:
   - component: {fileID: 96945022}
   m_Layer: 0
-  m_Name: waypoint3
+  m_Name: waypoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2546,7 +2546,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1126867554}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &100536431
 GameObject:
@@ -9722,6 +9722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 350907928}
   - component: {fileID: 350907929}
+  - component: {fileID: 350907931}
   - component: {fileID: 350907927}
   - component: {fileID: 350907930}
   m_Layer: 0
@@ -9743,9 +9744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b5c702fea4c43149396f13fd1bd44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marker: {fileID: 561830606}
-  wallMarker: {fileID: 1990425325}
-  maxChangedTiles: 5
 --- !u!4 &350907928
 Transform:
   m_ObjectHideFlags: 0
@@ -9793,10 +9791,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 350907926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5feabcf2da064479cb002e7a40b3a974, type: 3}
+  m_Script: {fileID: 11500000, guid: fb9c14442e7fc4b2aad620c63438b57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 684133242}
+  grassTilesLeft: {fileID: 0}
+  changeableTiles: {fileID: 0}
+--- !u!114 &350907931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350907926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9c14442e7fc4b2aad620c63438b57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grassTilesLeft: {fileID: 684133242}
+  changeableTiles: {fileID: 842762055}
 --- !u!1 &351623768
 GameObject:
   m_ObjectHideFlags: 0
@@ -17828,12 +17841,12 @@ GameObject:
   - component: {fileID: 684133243}
   - component: {fileID: 684133242}
   m_Layer: 5
-  m_Name: ScoreText
+  m_Name: grassTilesLeftText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &684133241
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17866,7 +17879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -17886,7 +17899,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Tiles Left: 50'
+  m_Text: 
 --- !u!222 &684133243
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21690,7 +21703,7 @@ GameObject:
   - component: {fileID: 842762056}
   - component: {fileID: 842762055}
   m_Layer: 5
-  m_Name: ChangeableTiles
+  m_Name: ChangeableTilesText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21709,7 +21722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -27095,8 +27108,8 @@ Transform:
   m_Children:
   - {fileID: 49621443}
   - {fileID: 1757225057}
-  - {fileID: 96945022}
   - {fileID: 1615026254}
+  - {fileID: 96945022}
   - {fileID: 303579334}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -39603,7 +39616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1615026254}
   m_Layer: 0
-  m_Name: waypoint4
+  m_Name: waypoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39617,11 +39630,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615026253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -219.1, y: 214.8, z: 0}
+  m_LocalPosition: {x: -576.4, y: 321, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1126867554}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1618334624
 GameObject:
@@ -42760,7 +42773,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757225056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 218.2, y: 215.1, z: 0}
+  m_LocalPosition: {x: -0.2, y: 609, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1126867554}

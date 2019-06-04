@@ -107,7 +107,6 @@ MonoBehaviour:
   gridPosition: {x: 0, y: 0}
   gridCell: {x: 0, y: 0}
   tileSize: {x: 0, y: 0}
-  changeableTiles: 0
 --- !u!50 &3610637950954398029
 Rigidbody2D:
   serializedVersion: 4

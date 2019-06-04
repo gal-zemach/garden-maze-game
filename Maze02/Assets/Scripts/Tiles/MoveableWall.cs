@@ -56,6 +56,8 @@ public class MoveableWall : Tile
         gameObject.layer = LayerMask.NameToLayer("Walls");
 
 //        type = TileMap.TileType.moveableWall;
+
+        MarkAsVisited();
     }
     
     public void Disable()

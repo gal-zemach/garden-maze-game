@@ -30,6 +30,7 @@
                 <e p="GoToTargetAction.cs" t="Include" />
                 <e p="PatrolAction.cs" t="Include" />
                 <e p="RunAwayAction.cs" t="Include" />
+                <e p="WallFollowerAction.cs" t="Include" />
               </e>
               <e p="DecisionScripts" t="Include">
                 <e p="CheckToolsDecision.cs" t="Include" />
@@ -59,6 +60,7 @@
           </e>
           <e p="GameManager.cs" t="Include" />
           <e p="GUI" t="Include">
+            <e p="GUIManager.cs" t="Include" />
             <e p="LargeBar.cs" t="Include" />
           </e>
           <e p="IsoCollider.cs" t="Include" />
@@ -68,7 +70,6 @@
           <e p="LivesVisualizer.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
           <e p="RestartButtonScript.cs" t="Include" />
-          <e p="Score.cs" t="Include" />
           <e p="TileClicker.cs" t="Include" />
           <e p="Tiles" t="Include">
             <e p="ConstWall.cs" t="Include" />

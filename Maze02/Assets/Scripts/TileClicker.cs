@@ -5,13 +5,10 @@ using UnityEngine;
 
 public class TileClicker : MonoBehaviour
 {
-    public GameObject marker, wallMarker;
-    public int maxChangedTiles = 3;
-
     private GameManager gameManager;
     private PlayerScript playerScript;
-    private List<Tile> tileQueue;
     private Tile lastChangedTile;
+    private GameObject marker, wallMarker;
 
     private bool enabled;
     
@@ -19,7 +16,8 @@ public class TileClicker : MonoBehaviour
     {
         gameManager = GetComponent<GameManager>();
         playerScript = gameManager.player.GetComponent<PlayerScript>();
-        tileQueue = new List<Tile>();
+        marker = transform.Find("Marker").gameObject;
+        wallMarker = transform.Find("Wall Marker").gameObject;
     }
 
     void Update()
@@ -72,19 +70,6 @@ public class TileClicker : MonoBehaviour
             if (toggled)
                 gameManager.changeableTiles--;
         }
-
-//        if (tileQueue.Remove(tile))
-//        {
-//            return;
-//        }
-//            
-//        tileQueue.Add(tile);
-//        if (tileQueue.Count > maxChangedTiles)
-//        {
-//            var oldTile = tileQueue[0];
-//            ToggleTile(oldTile);
-//            tileQueue.RemoveAt(0);
-//        }
     }
 
     private bool ToggleTile(Tile tile)
@@ -140,3 +125,20 @@ public class TileClicker : MonoBehaviour
         enabled = false;
     }
 }
+
+
+//private List<Tile> tileQueue;
+//tileQueue = new List<Tile>();
+
+//        if (tileQueue.Remove(tile))
+//        {
+//            return;
+//        }
+//            
+//        tileQueue.Add(tile);
+//        if (tileQueue.Count > maxChangedTiles)
+//        {
+//            var oldTile = tileQueue[0];
+//            ToggleTile(oldTile);
+//            tileQueue.RemoveAt(0);
+//        }

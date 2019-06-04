@@ -47,14 +47,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GameLoop());
     }
 
-    private void Update()
-    {
-        if (playerScript != null)
-        {
-            
-        }
-    }
-
     private IEnumerator GameLoop()
     {
         yield return StartCoroutine(LevelStart());
