@@ -7,6 +7,8 @@ public class TileClicker : MonoBehaviour
 {
     public GameObject marker, wallMarker;
     public int maxChangedTiles = 3;
+
+    private GameManager gameManager;
     private PlayerScript playerScript;
     private List<Tile> tileQueue;
     private Tile lastChangedTile;
@@ -15,7 +17,8 @@ public class TileClicker : MonoBehaviour
     
     void Start()
     {
-        playerScript = GetComponent<GameManager>().player.GetComponent<PlayerScript>();
+        gameManager = GetComponent<GameManager>();
+        playerScript = gameManager.player.GetComponent<PlayerScript>();
         tileQueue = new List<Tile>();
     }
 
@@ -63,10 +66,11 @@ public class TileClicker : MonoBehaviour
     private void OnTileClick(Tile tile)
     {
 //        Debug.Log("TileClicker: clicked on " + tile.gameObject.name);
-        if (playerScript.changeableTiles > 0)
+        if (gameManager.changeableTiles > 0)
         {
-            ToggleTile(tile);
-            playerScript.SubtractChangeableTile();
+            var toggled = ToggleTile(tile);
+            if (toggled)
+                gameManager.changeableTiles--;
         }
 
 //        if (tileQueue.Remove(tile))
@@ -83,16 +87,16 @@ public class TileClicker : MonoBehaviour
 //        }
     }
 
-    private void ToggleTile(Tile tile)
+    private bool ToggleTile(Tile tile)
     {
         if (tile.type != TileMap.TileType.Floor && tile.type != TileMap.TileType.moveableWall)
-            return;
+            return false;
         
         var moveableWall = tile as MoveableWall;
         if (moveableWall == null)
         {
             Debug.LogError("TileClicker: Could not cast tile to MoveableWall");
-            return;
+            return false;
         }
         
         moveableWall.Toggle();
@@ -106,6 +110,8 @@ public class TileClicker : MonoBehaviour
         {
             moveableWall.type = TileMap.TileType.Floor;
         }
+
+        return true;
     }
 
     private void UpdateMarker(MoveableWall moveableWall, Vector3 pos)

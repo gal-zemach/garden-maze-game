@@ -56,7 +56,7 @@ public class NavigationAgent : Controller
         // update position
         currentCell = playerScript.gridCell;
         currentPosition = playerScript.gridPosition;
-        
+                
         SetMoveParameters();
 
         // if reached destination - choose a new one
@@ -94,8 +94,20 @@ public class NavigationAgent : Controller
         var startPos = new Point((int)currentCell.x, (int)currentCell.y);
         var endPos = new Point((int) newDest.x, (int)newDest.y);
         path = Pathfinding.FindPath(map.pGrid, startPos, endPos, Pathfinding.DistanceType.Manhattan);
+
+//        Debug.Log("++++++++++++++++");
+//        Debug.Log("startPos = " + currentCell);
+//        Debug.Log("destination = " + newDest);
+//        Debug.Log("================");
+//        for (int i = 0; i < path.Count; i++)
+//        {
+//            Debug.Log("(" + path[i].x + ", " + path[i].y + ")");
+//        }
+//        Debug.Log("++++++++++++++++");
+        
         remainingDistance = path.Count;
         reachedDestination = (remainingDistance == 0);
+
         if (path.Count == 0)
         {
             if (Mathf.Approximately((destination - currentCell).magnitude, 1))
@@ -107,7 +119,7 @@ public class NavigationAgent : Controller
                 var randomCell = WallFollower();
                 path.Add(new Point((int)randomCell.x, (int)randomCell.y));
             }
-        }
+        }        
         
         Resume();
     }
@@ -165,7 +177,26 @@ public class NavigationAgent : Controller
             IsoVectors.drawPoint(destination, Color.red, playerScript.tileSize);
         }
     }
+    
 
+    private float lastCheckTime = 0f;
+    private Vector2 lastCheckCell;
+    private float stuckCheckTime = 2f;
+    
+    private void ResetIfStuck()
+    {
+        if (Time.time - lastCheckTime > stuckCheckTime)
+        {
+            if (currentCell == lastCheckCell)
+            {
+                Debug.Log("NavigationAgent: stuck for too long");
+                UpdateDestination(destination);
+            }
+
+            lastCheckCell = currentCell;
+            lastCheckTime = Time.time;
+        }
+    }
     
     
     #region FromOldAIController

@@ -16,6 +16,6 @@ public class Score : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = "Tiles Left: " + gameManager.tilesLeft;
+        scoreText.text = "Tiles Left: " + gameManager.grassTilesLeft;
     }
 }

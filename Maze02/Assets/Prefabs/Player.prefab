@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiActive: 0
-  currentState: {fileID: 11400000, guid: 90cb2dcac19a642c886013ab588283b9, type: 2}
+  currentState: {fileID: 11400000, guid: 434029b1791de4e68a56970a99d893ae, type: 2}
   remainState: {fileID: 11400000, guid: 67639371e694f42568204d3051492055, type: 2}
   navAgent: {fileID: 0}
   playerScript: {fileID: 0}

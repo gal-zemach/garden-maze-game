@@ -37,7 +37,6 @@ public class PlayerScript : MonoBehaviour
 	private Vector2 forward, right;
 	private int movementSpeed = 100;
 	private int currentLives = 5;
-	[HideInInspector] public int changeableTiles;
 
 	void Awake ()
 	{
@@ -79,7 +78,6 @@ public class PlayerScript : MonoBehaviour
 
 		movementSpeed = normalMovementSpeed;
 		playerIsMoving = false;
-		changeableTiles = initialChangeableTiles;
 //		StartMovement();
 	}
 
@@ -188,19 +186,7 @@ public class PlayerScript : MonoBehaviour
 		if (moveableWall != null)
 		{
 			var visitedNewTile = moveableWall.MarkAsVisited();
-			if (visitedNewTile)
-				AddChangeableTile();
 		}
-	}
-
-	private void AddChangeableTile()
-	{
-		changeableTiles++;
-	}
-
-	public void SubtractChangeableTile()
-	{
-		changeableTiles--;
 	}
 
 //	private IEnumerator BlinkSpriteAndStartMovement()

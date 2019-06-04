@@ -8,9 +8,18 @@ public class GameManager : MonoBehaviour
 {    
     public GameObject playerPrefab;
     public Vector2 startTile, endTile;
-    public int tilesLeft;
     [HideInInspector] public GameObject player;
-//    public Vector2 GrassToTileRatio;
+    
+    [Space(20)]
+    public Vector2Int GrassToTileRatio = new Vector2Int(3, 1);
+    public int initialChangeableTiles = 0;
+    
+    [Space(20)]
+    public int grassTilesLeft;
+    public int changeableTiles;
+    
+    private int grassCut;
+    
 
     private GameObject camera;
     private TileClicker tileClicker;
@@ -31,13 +40,21 @@ public class GameManager : MonoBehaviour
         tileSize = new Vector2(map.tileSize.x, map.tileSize.y / 2);
 
         tileClicker = GetComponent<TileClicker>();
-        
+
+        changeableTiles = initialChangeableTiles;
         gameEnded = false;
 
         StartCoroutine(GameLoop());
     }
-    
-    
+
+    private void Update()
+    {
+        if (playerScript != null)
+        {
+            
+        }
+    }
+
     private IEnumerator GameLoop()
     {
         yield return StartCoroutine(LevelStart());
@@ -145,12 +162,18 @@ public class GameManager : MonoBehaviour
     
     public void AddTile()
     {
-        tilesLeft++;
+        grassTilesLeft++;
     }
 
     public void SubTile()
     {
-        tilesLeft--;
+        grassTilesLeft--;
+        
+        grassCut++;
+        if (grassCut % GrassToTileRatio.x == 0)
+        {
+            changeableTiles += GrassToTileRatio.y;
+        }
     }
         
     
