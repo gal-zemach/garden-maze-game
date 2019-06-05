@@ -59,6 +59,8 @@ public class NavigationAgent : Controller
         
         SetMoveParameters();
         
+        ResetIfStuck();
+        
         // if reached destination - choose a new one
         if (Mathf.Approximately(horizontalDirection, 0) && Mathf.Approximately(verticalDirection, 0))
         {
@@ -158,22 +160,28 @@ public class NavigationAgent : Controller
     }
 
 
+    private float stuckDistance = 0.2f;
     private float lastCheckTime = 0f;
     private Vector2 lastCheckCell;
-    private float stuckCheckTime = 3f;
+    private float stuckCheckTime = 1f;
     
     private void ResetIfStuck()
     {
         if (Time.time - lastCheckTime > stuckCheckTime)
         {
-            if (currentDestination == lastCheckCell)
+            if ((currentPosition - lastCheckCell).magnitude < stuckDistance)
             {
+                playerScript.playerIsMoving = false;
+                transform.position = IsoVectors.IsoToWorld(currentCell, map.actualTileSize);
+                
                 Debug.Log("NavigationAgent: stuck for too long");
                 currentDestination = currentCell;
                 UpdateDestination(destination);
+
+                playerScript.playerIsMoving = true;
             }
 
-            lastCheckCell = currentDestination;
+            lastCheckCell = currentPosition;
             lastCheckTime = Time.time;
         }
     }

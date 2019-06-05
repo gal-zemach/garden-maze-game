@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TileClicker : MonoBehaviour
 {
+    public bool infiniteTiles;
+    
     private GameManager gameManager;
     private PlayerScript playerScript;
     private Tile lastChangedTile;
@@ -64,12 +66,18 @@ public class TileClicker : MonoBehaviour
     private void OnTileClick(Tile tile)
     {
 //        Debug.Log("TileClicker: clicked on " + tile.gameObject.name);
-        if (gameManager.changeableTiles > 0)
+        if (infiniteTiles)
         {
-            var toggled = ToggleTile(tile);
-            if (toggled)
-                gameManager.changeableTiles--;
+            ToggleTile(tile);
+            return;
         }
+        
+        if (gameManager.changeableTiles <= 0)
+            return;
+        
+        var toggled = ToggleTile(tile);
+        if (toggled)
+            gameManager.changeableTiles--;
     }
 
     private bool ToggleTile(Tile tile)

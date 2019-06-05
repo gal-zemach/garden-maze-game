@@ -81,7 +81,7 @@ MonoBehaviour:
   currentDestination: {x: 0, y: 0}
   reachedDestination: 0
   remainingDistance: 0
-  lookRadius: 3
+  lookRadius: 20
   lookRadiusInPixels: 200
 --- !u!114 &3289980065806227673
 MonoBehaviour:
@@ -101,8 +101,8 @@ MonoBehaviour:
   initialChangeableTiles: 3
   livesVisualizer: {fileID: 0}
   invincible: 0
-  normalMovementSpeed: 50
-  fasterMovementSpeed: 300
+  normalMovementSpeed: 30
+  fasterMovementSpeed: 160
   playerIsMoving: 0
   gridPosition: {x: 0, y: 0}
   gridCell: {x: 0, y: 0}
@@ -121,7 +121,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0

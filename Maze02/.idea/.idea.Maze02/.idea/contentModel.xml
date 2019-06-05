@@ -39,6 +39,7 @@
                 <e p="LookForToolsDecision.cs" t="Include" />
                 <e p="LookForTrapsDecision.cs" t="Include" />
                 <e p="LookForUncutGrassDecision.cs" t="Include" />
+                <e p="MouseClickDecision.cs" t="Include" />
                 <e p="ReachedTargetDecision.cs" t="Include" />
                 <e p="TimerDecision.cs" t="Include" />
               </e>

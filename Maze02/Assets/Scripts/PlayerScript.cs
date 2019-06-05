@@ -133,7 +133,8 @@ public class PlayerScript : MonoBehaviour
 		Vector2 horizontalVector = (horizontalDirection * IsoVectors.RIGHT).normalized;
 		var inputVector = horizontalVector + verticalVector;
 		
-		rb2d.MovePosition(currentPos + inputVector.normalized * movementSpeed * Time.fixedDeltaTime);
+//		rb2d.MovePosition(currentPos + inputVector.normalized * movementSpeed * Time.fixedDeltaTime); // speeds: 50, 300
+		rb2d.velocity = inputVector.normalized * movementSpeed; // speeds: 1100, 8000 with delta time, 30, 160 without
 	}
 
 	private void UpdateZPosition()
