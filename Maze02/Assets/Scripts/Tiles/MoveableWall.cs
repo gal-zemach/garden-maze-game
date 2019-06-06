@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveableWall : Tile
 {
     public bool visited;
+    public bool infected;
     
     private Animator animator;
     private Collider2D wallTrigger;
@@ -134,6 +135,16 @@ public class MoveableWall : Tile
         gameManager.AddTile();
         
         map.UpdateCutGrassGrid(index, false);
+    }
+
+    public void Infect()
+    {
+        infected = true;
+    }
+
+    public void Disinfect()
+    {
+        infected = false;
     }
 
     private void MoveToFront()
