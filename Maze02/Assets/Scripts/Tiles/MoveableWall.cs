@@ -72,6 +72,9 @@ public class MoveableWall : Tile
         gameObject.layer = LayerMask.NameToLayer("Tiles");
 
 //        type = TileMap.TileType.Floor;
+        
+        if (visited)
+            map.UpdateCutGrassGrid(index, true);
     }
 
     public void Toggle()
@@ -112,11 +115,15 @@ public class MoveableWall : Tile
         var retVal = !visited;
         visited = true;
         animator.SetBool("wasVisited", true);
-
+        
         if (retVal)
         {
             gameManager.SubTile();
         }
+        
+        if (type != TileMap.TileType.moveableWall)
+            map.UpdateCutGrassGrid(index, true);
+        
         return retVal;
     }
     
@@ -125,6 +132,8 @@ public class MoveableWall : Tile
         visited = false;
         animator.SetBool("wasVisited", false);
         gameManager.AddTile();
+        
+        map.UpdateCutGrassGrid(index, false);
     }
 
     private void MoveToFront()

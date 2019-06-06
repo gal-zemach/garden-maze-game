@@ -21,10 +21,11 @@ public class TileMap : MonoBehaviour
     public List<GameObject> tilePrefabs;
     
     public Tile[] tiles;
-    public NesScripts.Controls.PathFind.Grid pGrid;
+    public NesScripts.Controls.PathFind.Grid pGrid, pCutGrassGrid;
+    public byte[,] pCutGrassRefGrid;
     
-    private const byte GRID_BLOCKED = 0;
-    private const byte GRID_WALKABLE = 1;
+    [HideInInspector]public byte GRID_BLOCKED = 0;
+    [HideInInspector]public byte GRID_WALKABLE = 1;
 
     public enum TileType
     {
@@ -65,18 +66,7 @@ public class TileMap : MonoBehaviour
 
             if (tileIndex != -1)
             {
-                tiles[tileIndex] = tile.GetComponent<Tile>();
-                
-//                // updating walkability grid
-//                var index = tiles[tileIndex].index;
-//                if (tiles[tileIndex].type == TileType.Floor || tiles[tileIndex].type == TileType.trap)
-//                {
-//                    grid[index.x, index.y] = GRID_WALKABLE;
-//                }
-//                else
-//                {
-//                    grid[index.x, index.y] = GRID_BLOCKED;
-//                } 
+                tiles[tileIndex] = tile.GetComponent<Tile>(); 
             }
             else
             {
@@ -85,6 +75,8 @@ public class TileMap : MonoBehaviour
         }
         
         pGrid = new NesScripts.Controls.PathFind.Grid(grid);
+        pCutGrassGrid = new NesScripts.Controls.PathFind.Grid(grid);
+        pCutGrassRefGrid = new byte[(int)mapSize.x, (int)mapSize.y];
     }
 
     public int TileIndex(int column, int row)
@@ -134,6 +126,18 @@ public class TileMap : MonoBehaviour
         }
         pGrid.nodes[index.x, index.y].Update(GRID_BLOCKED, index.x, index.y);
     }
+    
+    public void UpdateCutGrassGrid(Vector2Int index, bool isCut)
+    {
+        if (isCut)
+        {
+            pCutGrassRefGrid[index.x, index.y] = GRID_WALKABLE;
+            pCutGrassGrid.nodes[index.x, index.y].Update(GRID_WALKABLE, index.x, index.y);
+            return;
+        }
+        pCutGrassRefGrid[index.x, index.y] = GRID_BLOCKED;
+        pCutGrassGrid.nodes[index.x, index.y].Update(GRID_BLOCKED, index.x, index.y);
+    } 
     
     private void OnDrawGizmosSelected()
     {

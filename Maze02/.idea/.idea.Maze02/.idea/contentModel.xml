@@ -27,6 +27,7 @@
               </e>
               <e p="ActionScripts" t="Include">
                 <e p="Action.cs" t="Include" />
+                <e p="GoToPlayerAction.cs" t="Include" />
                 <e p="GoToTargetAction.cs" t="Include" />
                 <e p="PatrolAction.cs" t="Include" />
                 <e p="RunAwayAction.cs" t="Include" />
@@ -35,11 +36,11 @@
               <e p="DecisionScripts" t="Include">
                 <e p="CheckToolsDecision.cs" t="Include" />
                 <e p="Decision.cs" t="Include" />
+                <e p="FollowPlayer.cs" t="Include" />
                 <e p="LookDecision.cs" t="Include" />
                 <e p="LookForToolsDecision.cs" t="Include" />
                 <e p="LookForTrapsDecision.cs" t="Include" />
                 <e p="LookForUncutGrassDecision.cs" t="Include" />
-                <e p="MouseClickDecision.cs" t="Include" />
                 <e p="ReachedTargetDecision.cs" t="Include" />
                 <e p="TimerDecision.cs" t="Include" />
               </e>
@@ -53,6 +54,11 @@
           </e>
           <e p="Enemies" t="Include">
             <e p="BulletScript.cs" t="Include" />
+            <e p="Chasing Enemy" t="Include">
+              <e p="ChasingEnemy.cs" t="Include" />
+              <e p="EnemyNavigationAgent.cs" t="Include" />
+              <e p="EnemyStateController.cs" t="Include" />
+            </e>
             <e p="EnemyScript.cs" t="Include" />
             <e p="HoleEnemy.cs" t="Include" />
             <e p="QuadDirectionAttackingEnemy.cs" t="Include" />

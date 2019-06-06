@@ -6,6 +6,7 @@
  * Since: 2016. 
 */
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace NesScripts.Controls.PathFind
 {
@@ -43,10 +44,10 @@ namespace NesScripts.Controls.PathFind
         /// <param name="distance">The type of distance, Euclidean or Manhattan.</param>
         /// <param name="ignorePrices">If true, will ignore tile price (how much it "cost" to walk on).</param>
         /// <returns>List of points that represent the path to walk.</returns>
-		public static List<Point> FindPath(Grid grid, Point startPos, Point targetPos, DistanceType distance = DistanceType.Euclidean, bool ignorePrices = false)
+		public static List<Point> FindPath(Grid grid, Point startPos, Point targetPos, DistanceType distance = DistanceType.Euclidean, bool ignorePrices = false, bool includeClosest = false)
         {
             // find path
-            List<Node> nodes_path = _ImpFindPath(grid, startPos, targetPos, distance, ignorePrices);
+            List<Node> nodes_path = _ImpFindPath(grid, startPos, targetPos, distance, ignorePrices, includeClosest);
 
             // convert to a list of points and return
             List<Point> ret = new List<Point>();
@@ -69,7 +70,7 @@ namespace NesScripts.Controls.PathFind
         /// <param name="distance">The type of distance, Euclidean or Manhattan.</param>
         /// <param name="ignorePrices">If true, will ignore tile price (how much it "cost" to walk on).</param>
         /// <returns>List of grid nodes that represent the path to walk.</returns>
-        private static List<Node> _ImpFindPath(Grid grid, Point startPos, Point targetPos, DistanceType distance = DistanceType.Euclidean, bool ignorePrices = false)
+        private static List<Node> _ImpFindPath(Grid grid, Point startPos, Point targetPos, DistanceType distance = DistanceType.Euclidean, bool ignorePrices = false, bool includeClosest = false)
         {
             Node startNode = grid.nodes[startPos.x, startPos.y];
             Node targetNode = grid.nodes[targetPos.x, targetPos.y];
@@ -78,6 +79,13 @@ namespace NesScripts.Controls.PathFind
             HashSet<Node> closedSet = new HashSet<Node>();
             openSet.Add(startNode);
 
+            // ******************
+            Vector2 targetNodeIndex = new Vector2(targetNode.gridX, targetNode.gridY);
+            Node closestDistanceNode = startNode;
+            var closestDistanceNodeIndex = new Vector2(closestDistanceNode.gridX, closestDistanceNode.gridY);
+            float closestNodeDistanceToTarget = (targetNodeIndex - closestDistanceNodeIndex).magnitude;
+            // ******************
+            
             while (openSet.Count > 0)
             {
                 Node currentNode = openSet[0];
@@ -96,6 +104,17 @@ namespace NesScripts.Controls.PathFind
                 {
                     return RetracePath(grid, startNode, targetNode);
                 }
+                
+                // ******************
+                Vector2 currentNodeIndex = new Vector2(currentNode.gridX, currentNode.gridY);
+                var currentDistanceToTarget = (targetNodeIndex - currentNodeIndex).magnitude;
+                if (currentDistanceToTarget < closestNodeDistanceToTarget && 
+                    (closestDistanceNode.fCost <= currentNode.fCost && closestDistanceNode.hCost <= currentNode.hCost))
+                {
+                    closestNodeDistanceToTarget = currentDistanceToTarget;
+                    closestDistanceNode = currentNode;
+                }
+                // ******************
 
                 foreach (Node neighbour in grid.GetNeighbours(currentNode, distance))
                 {
@@ -116,7 +135,12 @@ namespace NesScripts.Controls.PathFind
                     }
                 }
             }
-
+            
+            // ******************
+            if (includeClosest)
+                return RetracePath(grid, startNode, closestDistanceNode);
+            // ******************
+            
             return null;
         }
 
