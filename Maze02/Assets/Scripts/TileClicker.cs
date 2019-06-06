@@ -6,12 +6,15 @@ using UnityEngine;
 public class TileClicker : MonoBehaviour
 {
     public bool infiniteTiles;
+    public bool toggleBackTimer;
+    public float secondsToToggleBack = 3;
     
     private GameManager gameManager;
     private PlayerScript playerScript;
     private Tile lastChangedTile;
     private GameObject marker, wallMarker;
 
+    private WaitForSeconds timeToToggleBack;
     private bool enabled;
     
     void Start()
@@ -20,6 +23,8 @@ public class TileClicker : MonoBehaviour
         playerScript = gameManager.player.GetComponent<PlayerScript>();
         marker = transform.Find("Marker").gameObject;
         wallMarker = transform.Find("Wall Marker").gameObject;
+        
+        timeToToggleBack = new WaitForSeconds(secondsToToggleBack);
     }
 
     void Update()
@@ -78,6 +83,9 @@ public class TileClicker : MonoBehaviour
         var toggled = ToggleTile(tile);
         if (toggled)
             gameManager.changeableTiles--;
+        
+        if (toggleBackTimer)
+            StartCoroutine(ToggleTileBack(tile));
     }
 
     private bool ToggleTile(Tile tile)
@@ -105,6 +113,12 @@ public class TileClicker : MonoBehaviour
         }
 
         return true;
+    }
+
+    private IEnumerator ToggleTileBack(Tile tile)
+    {
+        yield return timeToToggleBack;
+        ToggleTile(tile);
     }
 
     private void UpdateMarker(MoveableWall moveableWall, Vector3 pos)
