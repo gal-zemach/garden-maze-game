@@ -334,6 +334,7 @@ MonoBehaviour:
   type: 0
   index: {x: 10, y: 12}
   visited: 1
+  infected: 0
 --- !u!1 &18323238
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +450,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 8}
   visited: 0
+  infected: 0
 --- !u!1 &49621442
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +658,7 @@ MonoBehaviour:
   type: 0
   index: {x: 4, y: 8}
   visited: 1
+  infected: 0
 --- !u!1 &66962570
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +774,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 7}
   visited: 0
+  infected: 0
 --- !u!1 &76771670
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,6 +952,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 14}
   visited: 1
+  infected: 0
 --- !u!1 &78715884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,6 +1130,7 @@ MonoBehaviour:
   type: 0
   index: {x: 11, y: 11}
   visited: 1
+  infected: 0
 --- !u!1 &91122197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1308,7 @@ MonoBehaviour:
   type: 0
   index: {x: 13, y: 1}
   visited: 1
+  infected: 0
 --- !u!1 &96945021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1603,6 +1610,7 @@ MonoBehaviour:
   type: 0
   index: {x: 12, y: 9}
   visited: 1
+  infected: 0
 --- !u!1 &113060294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,6 +1788,7 @@ MonoBehaviour:
   type: 0
   index: {x: 1, y: 7}
   visited: 1
+  infected: 0
 --- !u!1 &126959460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,6 +1966,7 @@ MonoBehaviour:
   type: 0
   index: {x: 13, y: 7}
   visited: 1
+  infected: 0
 --- !u!1 &128928255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,6 +2144,7 @@ MonoBehaviour:
   type: 0
   index: {x: 1, y: 8}
   visited: 1
+  infected: 0
 --- !u!1 &129721896
 GameObject:
   m_ObjectHideFlags: 0
@@ -2311,6 +2322,7 @@ MonoBehaviour:
   type: 0
   index: {x: 5, y: 1}
   visited: 1
+  infected: 0
 --- !u!1 &133406472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,6 +2688,7 @@ MonoBehaviour:
   type: 0
   index: {x: 11, y: 1}
   visited: 1
+  infected: 0
 --- !u!1 &157467436
 GameObject:
   m_ObjectHideFlags: 0
@@ -2791,6 +2804,7 @@ MonoBehaviour:
   type: 0
   index: {x: 2, y: 2}
   visited: 0
+  infected: 0
 --- !u!1 &164236749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,6 +2982,7 @@ MonoBehaviour:
   type: 0
   index: {x: 13, y: 12}
   visited: 1
+  infected: 0
 --- !u!1 &170512094
 GameObject:
   m_ObjectHideFlags: 0
@@ -3145,6 +3160,7 @@ MonoBehaviour:
   type: 0
   index: {x: 9, y: 1}
   visited: 1
+  infected: 0
 --- !u!1 &173103481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3322,6 +3338,7 @@ MonoBehaviour:
   type: 0
   index: {x: 11, y: 7}
   visited: 1
+  infected: 0
 --- !u!1 &183389957
 GameObject:
   m_ObjectHideFlags: 0
@@ -3499,6 +3516,7 @@ MonoBehaviour:
   type: 0
   index: {x: 6, y: 2}
   visited: 1
+  infected: 0
 --- !u!1 &204148564
 GameObject:
   m_ObjectHideFlags: 0
@@ -3777,6 +3795,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  GRID_BLOCKED: 0
+  GRID_WALKABLE: 1
 --- !u!4 &211456310
 Transform:
   m_ObjectHideFlags: 0
@@ -3907,6 +3927,7 @@ MonoBehaviour:
   type: 0
   index: {x: 2, y: 1}
   visited: 0
+  infected: 0
 --- !u!1 &224844608
 GameObject:
   m_ObjectHideFlags: 0
@@ -4272,6 +4293,7 @@ MonoBehaviour:
   type: 0
   index: {x: 10, y: 11}
   visited: 1
+  infected: 0
 --- !u!1 &250931822
 GameObject:
   m_ObjectHideFlags: 0
@@ -4449,6 +4471,7 @@ MonoBehaviour:
   type: 0
   index: {x: 3, y: 8}
   visited: 1
+  infected: 0
 --- !u!1 &255270790
 GameObject:
   m_ObjectHideFlags: 0
@@ -4626,6 +4649,7 @@ MonoBehaviour:
   type: 0
   index: {x: 12, y: 1}
   visited: 1
+  infected: 0
 --- !u!1 &270549764
 GameObject:
   m_ObjectHideFlags: 0
@@ -4880,6 +4904,7 @@ MonoBehaviour:
   type: 0
   index: {x: 1, y: 1}
   visited: 0
+  infected: 0
 --- !u!1 &276827110
 GameObject:
   m_ObjectHideFlags: 0
@@ -5057,6 +5082,7 @@ MonoBehaviour:
   type: 0
   index: {x: 13, y: 6}
   visited: 1
+  infected: 0
 --- !u!1 &290999230
 GameObject:
   m_ObjectHideFlags: 0
@@ -5172,6 +5198,7 @@ MonoBehaviour:
   type: 0
   index: {x: 10, y: 5}
   visited: 0
+  infected: 0
 --- !u!1 &303579333
 GameObject:
   m_ObjectHideFlags: 0
@@ -5379,6 +5406,7 @@ MonoBehaviour:
   type: 0
   index: {x: 13, y: 3}
   visited: 1
+  infected: 0
 --- !u!1 &323037592
 GameObject:
   m_ObjectHideFlags: 0
@@ -5591,6 +5619,7 @@ MonoBehaviour:
   type: 0
   index: {x: 3, y: 9}
   visited: 1
+  infected: 0
 --- !u!1 &349270039
 GameObject:
   m_ObjectHideFlags: 0
@@ -5706,6 +5735,7 @@ MonoBehaviour:
   type: 0
   index: {x: 4, y: 4}
   visited: 0
+  infected: 0
 --- !u!1 &350398068
 GameObject:
   m_ObjectHideFlags: 0
@@ -5821,6 +5851,7 @@ MonoBehaviour:
   type: 0
   index: {x: 5, y: 9}
   visited: 0
+  infected: 0
 --- !u!1 &350907926
 GameObject:
   m_ObjectHideFlags: 0
@@ -5854,6 +5885,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infiniteTiles: 1
+  toggleBackTimer: 0
+  secondsToToggleBack: 3
 --- !u!4 &350907928
 Transform:
   m_ObjectHideFlags: 0
@@ -5888,6 +5921,7 @@ MonoBehaviour:
   startTile: {x: 7, y: 7}
   endTile: {x: 7, y: 29}
   player: {fileID: 0}
+  percentageToCompletion: 0.75
   GrassToTileRatio: {x: 3, y: 1}
   initialChangeableTiles: 0
   grassTilesLeft: 0
@@ -6129,6 +6163,7 @@ MonoBehaviour:
   type: 0
   index: {x: 9, y: 9}
   visited: 0
+  infected: 0
 --- !u!1 &367596742
 GameObject:
   m_ObjectHideFlags: 0
@@ -6306,6 +6341,7 @@ MonoBehaviour:
   type: 0
   index: {x: 12, y: 6}
   visited: 1
+  infected: 0
 --- !u!1 &371998164
 GameObject:
   m_ObjectHideFlags: 0
@@ -6483,6 +6519,7 @@ MonoBehaviour:
   type: 0
   index: {x: 11, y: 6}
   visited: 1
+  infected: 0
 --- !u!1 &375431463
 GameObject:
   m_ObjectHideFlags: 0
@@ -6598,6 +6635,7 @@ MonoBehaviour:
   type: 0
   index: {x: 10, y: 7}
   visited: 0
+  infected: 0
 --- !u!1 &389021804
 GameObject:
   m_ObjectHideFlags: 0
@@ -6775,6 +6813,7 @@ MonoBehaviour:
   type: 0
   index: {x: 13, y: 2}
   visited: 1
+  infected: 0
 --- !u!1 &390843920
 GameObject:
   m_ObjectHideFlags: 0
@@ -6952,6 +6991,7 @@ MonoBehaviour:
   type: 0
   index: {x: 1, y: 10}
   visited: 1
+  infected: 0
 --- !u!1 &395331375
 GameObject:
   m_ObjectHideFlags: 0
@@ -7129,6 +7169,7 @@ MonoBehaviour:
   type: 0
   index: {x: 5, y: 2}
   visited: 1
+  infected: 0
 --- !u!1 &397852852
 GameObject:
   m_ObjectHideFlags: 0
@@ -7306,6 +7347,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 12}
   visited: 1
+  infected: 0
 --- !u!1 &398270410
 GameObject:
   m_ObjectHideFlags: 0
@@ -7483,6 +7525,7 @@ MonoBehaviour:
   type: 0
   index: {x: 4, y: 1}
   visited: 1
+  infected: 0
 --- !u!1 &431977047
 GameObject:
   m_ObjectHideFlags: 0
@@ -7598,6 +7641,7 @@ MonoBehaviour:
   type: 0
   index: {x: 1, y: 12}
   visited: 0
+  infected: 0
 --- !u!1 &432682053
 GameObject:
   m_ObjectHideFlags: 0
@@ -7775,6 +7819,7 @@ MonoBehaviour:
   type: 0
   index: {x: 10, y: 3}
   visited: 1
+  infected: 0
 --- !u!1 &433056743
 GameObject:
   m_ObjectHideFlags: 0
@@ -7890,6 +7935,7 @@ MonoBehaviour:
   type: 0
   index: {x: 11, y: 9}
   visited: 0
+  infected: 0
 --- !u!1 &445440673
 GameObject:
   m_ObjectHideFlags: 0
@@ -8005,6 +8051,7 @@ MonoBehaviour:
   type: 0
   index: {x: 5, y: 4}
   visited: 0
+  infected: 0
 --- !u!1 &450117434
 GameObject:
   m_ObjectHideFlags: 0
@@ -8182,6 +8229,7 @@ MonoBehaviour:
   type: 0
   index: {x: 12, y: 8}
   visited: 1
+  infected: 0
 --- !u!1 &465196919
 GameObject:
   m_ObjectHideFlags: 0
@@ -8391,6 +8439,7 @@ MonoBehaviour:
   type: 0
   index: {x: 10, y: 8}
   visited: 0
+  infected: 0
 --- !u!1 &471618368
 GameObject:
   m_ObjectHideFlags: 0
@@ -8506,6 +8555,7 @@ MonoBehaviour:
   type: 0
   index: {x: 8, y: 5}
   visited: 0
+  infected: 0
 --- !u!1 &473491725
 GameObject:
   m_ObjectHideFlags: 0
@@ -8683,6 +8733,7 @@ MonoBehaviour:
   type: 0
   index: {x: 1, y: 3}
   visited: 1
+  infected: 0
 --- !u!1 &473941543
 GameObject:
   m_ObjectHideFlags: 0
@@ -8860,6 +8911,7 @@ MonoBehaviour:
   type: 0
   index: {x: 2, y: 9}
   visited: 1
+  infected: 0
 --- !u!1 &491607866
 GameObject:
   m_ObjectHideFlags: 0
@@ -9037,6 +9089,7 @@ MonoBehaviour:
   type: 0
   index: {x: 10, y: 4}
   visited: 1
+  infected: 0
 --- !u!1 &492357718
 GameObject:
   m_ObjectHideFlags: 0
@@ -9214,6 +9267,7 @@ MonoBehaviour:
   type: 0
   index: {x: 9, y: 13}
   visited: 1
+  infected: 0
 --- !u!1 &505391353
 GameObject:
   m_ObjectHideFlags: 0
@@ -9391,6 +9445,7 @@ MonoBehaviour:
   type: 0
   index: {x: 12, y: 3}
   visited: 1
+  infected: 0
 --- !u!1 &516971144
 GameObject:
   m_ObjectHideFlags: 0
@@ -9568,6 +9623,7 @@ MonoBehaviour:
   type: 0
   index: {x: 3, y: 3}
   visited: 1
+  infected: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -9938,6 +9994,7 @@ MonoBehaviour:
   type: 0
   index: {x: 2, y: 8}
   visited: 1
+  infected: 0
 --- !u!1 &554635127
 GameObject:
   m_ObjectHideFlags: 0
@@ -10147,6 +10204,7 @@ MonoBehaviour:
   type: 0
   index: {x: 9, y: 8}
   visited: 0
+  infected: 0
 --- !u!1 &561830606
 GameObject:
   m_ObjectHideFlags: 0
@@ -10403,6 +10461,7 @@ MonoBehaviour:
   type: 0
   index: {x: 5, y: 12}
   visited: 1
+  infected: 0
 --- !u!1 &614032839
 GameObject:
   m_ObjectHideFlags: 0
@@ -10518,6 +10577,7 @@ MonoBehaviour:
   type: 0
   index: {x: 10, y: 9}
   visited: 0
+  infected: 0
 --- !u!1 &618172187
 GameObject:
   m_ObjectHideFlags: 0
@@ -10695,6 +10755,7 @@ MonoBehaviour:
   type: 0
   index: {x: 8, y: 11}
   visited: 1
+  infected: 0
 --- !u!1 &633591568
 GameObject:
   m_ObjectHideFlags: 0
@@ -10872,6 +10933,7 @@ MonoBehaviour:
   type: 0
   index: {x: 12, y: 13}
   visited: 1
+  infected: 0
 --- !u!1 &635263932
 GameObject:
   m_ObjectHideFlags: 0
@@ -11081,6 +11143,7 @@ MonoBehaviour:
   type: 0
   index: {x: 6, y: 7}
   visited: 0
+  infected: 0
 --- !u!1 &658270339
 GameObject:
   m_ObjectHideFlags: 0
@@ -11600,6 +11663,7 @@ MonoBehaviour:
   type: 0
   index: {x: 8, y: 9}
   visited: 0
+  infected: 0
 --- !u!1 &684133240
 GameObject:
   m_ObjectHideFlags: 0
@@ -11888,6 +11952,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 6}
   visited: 0
+  infected: 0
 --- !u!1 &699075264
 GameObject:
   m_ObjectHideFlags: 0
@@ -12421,6 +12486,7 @@ MonoBehaviour:
   type: 0
   index: {x: 1, y: 4}
   visited: 1
+  infected: 0
 --- !u!1 &741035330
 GameObject:
   m_ObjectHideFlags: 0
@@ -12598,6 +12664,7 @@ MonoBehaviour:
   type: 0
   index: {x: 8, y: 3}
   visited: 1
+  infected: 0
 --- !u!1 &747051290
 GameObject:
   m_ObjectHideFlags: 0
@@ -12869,6 +12936,7 @@ MonoBehaviour:
   type: 0
   index: {x: 8, y: 12}
   visited: 1
+  infected: 0
 --- !u!1 &751617619
 GameObject:
   m_ObjectHideFlags: 0
@@ -13078,6 +13146,7 @@ MonoBehaviour:
   type: 0
   index: {x: 6, y: 4}
   visited: 0
+  infected: 0
 --- !u!1 &766758028
 GameObject:
   m_ObjectHideFlags: 0
@@ -13193,6 +13262,7 @@ MonoBehaviour:
   type: 0
   index: {x: 1, y: 13}
   visited: 0
+  infected: 0
 --- !u!1 &774780213
 GameObject:
   m_ObjectHideFlags: 0
@@ -13370,6 +13440,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 13}
   visited: 1
+  infected: 0
 --- !u!1 &781714933
 GameObject:
   m_ObjectHideFlags: 0
@@ -13641,6 +13712,7 @@ MonoBehaviour:
   type: 0
   index: {x: 13, y: 9}
   visited: 1
+  infected: 0
 --- !u!1 &800462324
 GameObject:
   m_ObjectHideFlags: 0
@@ -13818,6 +13890,7 @@ MonoBehaviour:
   type: 0
   index: {x: 13, y: 4}
   visited: 1
+  infected: 0
 --- !u!1 &801073251
 GameObject:
   m_ObjectHideFlags: 0
@@ -13995,6 +14068,7 @@ MonoBehaviour:
   type: 0
   index: {x: 12, y: 7}
   visited: 1
+  infected: 0
 --- !u!1 &821295731
 GameObject:
   m_ObjectHideFlags: 0
@@ -14266,6 +14340,7 @@ MonoBehaviour:
   type: 0
   index: {x: 8, y: 2}
   visited: 1
+  infected: 0
 --- !u!1 &831592366
 GameObject:
   m_ObjectHideFlags: 0
@@ -14616,6 +14691,7 @@ MonoBehaviour:
   type: 0
   index: {x: 2, y: 11}
   visited: 1
+  infected: 0
 --- !u!1 &873460433
 GameObject:
   m_ObjectHideFlags: 0
@@ -14825,6 +14901,7 @@ MonoBehaviour:
   type: 0
   index: {x: 5, y: 6}
   visited: 0
+  infected: 0
 --- !u!1 &885986317
 GameObject:
   m_ObjectHideFlags: 0
@@ -15221,6 +15298,7 @@ MonoBehaviour:
   type: 0
   index: {x: 2, y: 4}
   visited: 1
+  infected: 0
 --- !u!1 &925034475
 GameObject:
   m_ObjectHideFlags: 0
@@ -15492,6 +15570,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 1}
   visited: 1
+  infected: 0
 --- !u!1 &940428304
 GameObject:
   m_ObjectHideFlags: 0
@@ -15638,6 +15717,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 9}
   visited: 0
+  infected: 0
 --- !u!1 &968070532
 GameObject:
   m_ObjectHideFlags: 0
@@ -15909,6 +15989,7 @@ MonoBehaviour:
   type: 0
   index: {x: 9, y: 12}
   visited: 1
+  infected: 0
 --- !u!1 &1000537965
 GameObject:
   m_ObjectHideFlags: 0
@@ -16024,6 +16105,7 @@ MonoBehaviour:
   type: 0
   index: {x: 5, y: 8}
   visited: 0
+  infected: 0
 --- !u!1 &1006905489
 GameObject:
   m_ObjectHideFlags: 0
@@ -16233,6 +16315,7 @@ MonoBehaviour:
   type: 0
   index: {x: 1, y: 2}
   visited: 0
+  infected: 0
 --- !u!1 &1013348019
 GameObject:
   m_ObjectHideFlags: 0
@@ -16410,6 +16493,7 @@ MonoBehaviour:
   type: 0
   index: {x: 6, y: 3}
   visited: 1
+  infected: 0
 --- !u!1 &1014403993
 GameObject:
   m_ObjectHideFlags: 0
@@ -16681,6 +16765,7 @@ MonoBehaviour:
   type: 0
   index: {x: 4, y: 9}
   visited: 1
+  infected: 0
 --- !u!1 &1025902269
 GameObject:
   m_ObjectHideFlags: 0
@@ -16952,6 +17037,7 @@ MonoBehaviour:
   type: 0
   index: {x: 1, y: 5}
   visited: 1
+  infected: 0
 --- !u!1 &1064379200
 GameObject:
   m_ObjectHideFlags: 0
@@ -17129,6 +17215,7 @@ MonoBehaviour:
   type: 0
   index: {x: 2, y: 7}
   visited: 1
+  infected: 0
 --- !u!1 &1064926391
 GameObject:
   m_ObjectHideFlags: 0
@@ -17306,6 +17393,7 @@ MonoBehaviour:
   type: 0
   index: {x: 9, y: 3}
   visited: 1
+  infected: 0
 --- !u!1 &1065939694
 GameObject:
   m_ObjectHideFlags: 0
@@ -17609,6 +17697,7 @@ MonoBehaviour:
   type: 0
   index: {x: 9, y: 7}
   visited: 0
+  infected: 0
 --- !u!1 &1084440019
 GameObject:
   m_ObjectHideFlags: 0
@@ -17786,6 +17875,7 @@ MonoBehaviour:
   type: 0
   index: {x: 5, y: 13}
   visited: 1
+  infected: 0
 --- !u!1 &1095347279
 GameObject:
   m_ObjectHideFlags: 0
@@ -17963,6 +18053,7 @@ MonoBehaviour:
   type: 0
   index: {x: 5, y: 11}
   visited: 1
+  infected: 0
 --- !u!1 &1098645018
 GameObject:
   m_ObjectHideFlags: 0
@@ -18172,6 +18263,7 @@ MonoBehaviour:
   type: 0
   index: {x: 11, y: 8}
   visited: 0
+  infected: 0
 --- !u!1 &1119235331
 GameObject:
   m_ObjectHideFlags: 0
@@ -18287,6 +18379,7 @@ MonoBehaviour:
   type: 0
   index: {x: 9, y: 6}
   visited: 0
+  infected: 0
 --- !u!1 &1120644468
 GameObject:
   m_ObjectHideFlags: 0
@@ -18464,6 +18557,7 @@ MonoBehaviour:
   type: 0
   index: {x: 4, y: 12}
   visited: 1
+  infected: 0
 --- !u!1 &1121751912
 GameObject:
   m_ObjectHideFlags: 0
@@ -18641,6 +18735,7 @@ MonoBehaviour:
   type: 0
   index: {x: 3, y: 10}
   visited: 1
+  infected: 0
 --- !u!1 &1126867553
 GameObject:
   m_ObjectHideFlags: 0
@@ -18853,6 +18948,7 @@ MonoBehaviour:
   type: 0
   index: {x: 13, y: 8}
   visited: 1
+  infected: 0
 --- !u!1 &1139040806
 GameObject:
   m_ObjectHideFlags: 0
@@ -19062,6 +19158,7 @@ MonoBehaviour:
   type: 0
   index: {x: 2, y: 12}
   visited: 0
+  infected: 0
 --- !u!1 &1143455271
 GameObject:
   m_ObjectHideFlags: 0
@@ -19239,6 +19336,7 @@ MonoBehaviour:
   type: 0
   index: {x: 3, y: 13}
   visited: 1
+  infected: 0
 --- !u!1 &1146322118
 GameObject:
   m_ObjectHideFlags: 0
@@ -19416,6 +19514,7 @@ MonoBehaviour:
   type: 0
   index: {x: 5, y: 3}
   visited: 1
+  infected: 0
 --- !u!1 &1154359781
 GameObject:
   m_ObjectHideFlags: 0
@@ -19593,6 +19692,7 @@ MonoBehaviour:
   type: 0
   index: {x: 13, y: 11}
   visited: 1
+  infected: 0
 --- !u!1 &1167765014
 GameObject:
   m_ObjectHideFlags: 0
@@ -19899,6 +19999,7 @@ MonoBehaviour:
   type: 0
   index: {x: 10, y: 1}
   visited: 1
+  infected: 0
 --- !u!1 &1184200939
 GameObject:
   m_ObjectHideFlags: 0
@@ -20076,6 +20177,7 @@ MonoBehaviour:
   type: 0
   index: {x: 13, y: 10}
   visited: 1
+  infected: 0
 --- !u!1 &1198333534
 GameObject:
   m_ObjectHideFlags: 0
@@ -20347,6 +20449,7 @@ MonoBehaviour:
   type: 0
   index: {x: 2, y: 6}
   visited: 1
+  infected: 0
 --- !u!1 &1222354539
 GameObject:
   m_ObjectHideFlags: 0
@@ -20524,6 +20627,76 @@ MonoBehaviour:
   type: 0
   index: {x: 12, y: 10}
   visited: 1
+  infected: 0
+--- !u!1001 &1224563886
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4275884527009071679, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_Name
+      value: TileSpreadingEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 254
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f719e82eb2268488388cdf0fd6e645dc, type: 3}
 --- !u!1 &1229392337
 GameObject:
   m_ObjectHideFlags: 0
@@ -20701,6 +20874,7 @@ MonoBehaviour:
   type: 0
   index: {x: 12, y: 4}
   visited: 1
+  infected: 0
 --- !u!1 &1231693084
 GameObject:
   m_ObjectHideFlags: 0
@@ -20972,6 +21146,7 @@ MonoBehaviour:
   type: 0
   index: {x: 9, y: 11}
   visited: 1
+  infected: 0
 --- !u!1 &1240886375
 GameObject:
   m_ObjectHideFlags: 0
@@ -21149,6 +21324,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 3}
   visited: 1
+  infected: 0
 --- !u!1 &1251661828
 GameObject:
   m_ObjectHideFlags: 0
@@ -21264,6 +21440,7 @@ MonoBehaviour:
   type: 0
   index: {x: 10, y: 10}
   visited: 0
+  infected: 0
 --- !u!1 &1252551322
 GameObject:
   m_ObjectHideFlags: 0
@@ -21452,6 +21629,75 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   index: {x: 8, y: 14}
+--- !u!1001 &1273097039
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4275884527009071679, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_Name
+      value: TileSpreadingEnemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 286
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 208
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f719e82eb2268488388cdf0fd6e645dc, type: 3}
 --- !u!1 &1276328126
 GameObject:
   m_ObjectHideFlags: 0
@@ -21629,6 +21875,7 @@ MonoBehaviour:
   type: 0
   index: {x: 2, y: 5}
   visited: 1
+  infected: 0
 --- !u!1 &1296201925
 GameObject:
   m_ObjectHideFlags: 0
@@ -21806,6 +22053,7 @@ MonoBehaviour:
   type: 0
   index: {x: 3, y: 5}
   visited: 1
+  infected: 0
 --- !u!1 &1299540181
 GameObject:
   m_ObjectHideFlags: 0
@@ -21983,6 +22231,7 @@ MonoBehaviour:
   type: 0
   index: {x: 11, y: 13}
   visited: 1
+  infected: 0
 --- !u!1 &1313609097
 GameObject:
   m_ObjectHideFlags: 0
@@ -22328,6 +22577,7 @@ MonoBehaviour:
   type: 0
   index: {x: 3, y: 4}
   visited: 1
+  infected: 0
 --- !u!1 &1370931049
 GameObject:
   m_ObjectHideFlags: 0
@@ -22505,6 +22755,7 @@ MonoBehaviour:
   type: 0
   index: {x: 3, y: 6}
   visited: 1
+  infected: 0
 --- !u!1 &1374720963
 GameObject:
   m_ObjectHideFlags: 0
@@ -22682,6 +22933,7 @@ MonoBehaviour:
   type: 0
   index: {x: 13, y: 5}
   visited: 1
+  infected: 0
 --- !u!1 &1375241085
 GameObject:
   m_ObjectHideFlags: 0
@@ -22859,6 +23111,7 @@ MonoBehaviour:
   type: 0
   index: {x: 11, y: 5}
   visited: 1
+  infected: 0
 --- !u!1 &1377469530
 GameObject:
   m_ObjectHideFlags: 0
@@ -22974,6 +23227,7 @@ MonoBehaviour:
   type: 0
   index: {x: 8, y: 4}
   visited: 0
+  infected: 0
 --- !u!1 &1385536348
 GameObject:
   m_ObjectHideFlags: 0
@@ -23151,6 +23405,7 @@ MonoBehaviour:
   type: 0
   index: {x: 3, y: 7}
   visited: 1
+  infected: 0
 --- !u!1 &1385575017
 GameObject:
   m_ObjectHideFlags: 0
@@ -23422,6 +23677,7 @@ MonoBehaviour:
   type: 0
   index: {x: 6, y: 12}
   visited: 1
+  infected: 0
 --- !u!1 &1394273952
 GameObject:
   m_ObjectHideFlags: 0
@@ -23631,6 +23887,7 @@ MonoBehaviour:
   type: 0
   index: {x: 9, y: 10}
   visited: 0
+  infected: 0
 --- !u!1 &1405250852
 GameObject:
   m_ObjectHideFlags: 0
@@ -23808,6 +24065,7 @@ MonoBehaviour:
   type: 0
   index: {x: 3, y: 2}
   visited: 1
+  infected: 0
 --- !u!1 &1428882978
 GameObject:
   m_ObjectHideFlags: 0
@@ -23923,6 +24181,7 @@ MonoBehaviour:
   type: 0
   index: {x: 2, y: 13}
   visited: 0
+  infected: 0
 --- !u!1 &1429165020
 GameObject:
   m_ObjectHideFlags: 0
@@ -24100,6 +24359,7 @@ MonoBehaviour:
   type: 0
   index: {x: 12, y: 12}
   visited: 1
+  infected: 0
 --- !u!1 &1439198228
 GameObject:
   m_ObjectHideFlags: 0
@@ -24277,6 +24537,7 @@ MonoBehaviour:
   type: 0
   index: {x: 12, y: 2}
   visited: 1
+  infected: 0
 --- !u!1 &1451307486
 GameObject:
   m_ObjectHideFlags: 0
@@ -24454,6 +24715,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 2}
   visited: 1
+  infected: 0
 --- !u!1 &1456741244
 GameObject:
   m_ObjectHideFlags: 0
@@ -24631,6 +24893,7 @@ MonoBehaviour:
   type: 0
   index: {x: 11, y: 2}
   visited: 1
+  infected: 0
 --- !u!1 &1461140092
 GameObject:
   m_ObjectHideFlags: 0
@@ -24887,6 +25150,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 11}
   visited: 1
+  infected: 0
 --- !u!1 &1465686946
 GameObject:
   m_ObjectHideFlags: 0
@@ -25064,6 +25328,7 @@ MonoBehaviour:
   type: 0
   index: {x: 11, y: 4}
   visited: 1
+  infected: 0
 --- !u!1 &1481707356
 GameObject:
   m_ObjectHideFlags: 0
@@ -25241,6 +25506,7 @@ MonoBehaviour:
   type: 0
   index: {x: 12, y: 11}
   visited: 1
+  infected: 0
 --- !u!1 &1484651960
 GameObject:
   m_ObjectHideFlags: 0
@@ -25492,6 +25758,86 @@ MonoBehaviour:
   type: 0
   index: {x: 3, y: 12}
   visited: 1
+  infected: 0
+--- !u!1001 &1497575513
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4275884527009071679, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_Name
+      value: TileSpreadingEnemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 381
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071665, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071678, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: bodyStart.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071678, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: bodyStart.y
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f719e82eb2268488388cdf0fd6e645dc, type: 3}
 --- !u!1 &1537503833
 GameObject:
   m_ObjectHideFlags: 0
@@ -25669,6 +26015,7 @@ MonoBehaviour:
   type: 0
   index: {x: 4, y: 3}
   visited: 1
+  infected: 0
 --- !u!1 &1539337131
 GameObject:
   m_ObjectHideFlags: 0
@@ -25878,6 +26225,7 @@ MonoBehaviour:
   type: 0
   index: {x: 5, y: 5}
   visited: 0
+  infected: 0
 --- !u!1 &1543773568
 GameObject:
   m_ObjectHideFlags: 0
@@ -25993,6 +26341,7 @@ MonoBehaviour:
   type: 0
   index: {x: 9, y: 5}
   visited: 0
+  infected: 0
 --- !u!1 &1545371868
 GameObject:
   m_ObjectHideFlags: 0
@@ -26108,6 +26457,7 @@ MonoBehaviour:
   type: 0
   index: {x: 5, y: 7}
   visited: 0
+  infected: 0
 --- !u!1 &1553442687
 GameObject:
   m_ObjectHideFlags: 0
@@ -26317,6 +26667,7 @@ MonoBehaviour:
   type: 0
   index: {x: 6, y: 5}
   visited: 0
+  infected: 0
 --- !u!1 &1564471026
 GameObject:
   m_ObjectHideFlags: 0
@@ -26432,6 +26783,7 @@ MonoBehaviour:
   type: 0
   index: {x: 4, y: 5}
   visited: 0
+  infected: 0
 --- !u!1 &1565175013
 GameObject:
   m_ObjectHideFlags: 0
@@ -26609,6 +26961,7 @@ MonoBehaviour:
   type: 0
   index: {x: 10, y: 13}
   visited: 1
+  infected: 0
 --- !u!1 &1571817667
 GameObject:
   m_ObjectHideFlags: 0
@@ -26724,6 +27077,7 @@ MonoBehaviour:
   type: 0
   index: {x: 11, y: 10}
   visited: 0
+  infected: 0
 --- !u!1 &1575221439
 GameObject:
   m_ObjectHideFlags: 0
@@ -26901,6 +27255,7 @@ MonoBehaviour:
   type: 0
   index: {x: 3, y: 11}
   visited: 1
+  infected: 0
 --- !u!1 &1578366758
 GameObject:
   m_ObjectHideFlags: 0
@@ -27172,6 +27527,7 @@ MonoBehaviour:
   type: 0
   index: {x: 6, y: 13}
   visited: 1
+  infected: 0
 --- !u!1 &1606919593
 GameObject:
   m_ObjectHideFlags: 0
@@ -27287,6 +27643,7 @@ MonoBehaviour:
   type: 0
   index: {x: 6, y: 9}
   visited: 0
+  infected: 0
 --- !u!1 &1615026253
 GameObject:
   m_ObjectHideFlags: 0
@@ -27714,6 +28071,7 @@ MonoBehaviour:
   type: 0
   index: {x: 10, y: 6}
   visited: 0
+  infected: 0
 --- !u!1 &1700243724
 GameObject:
   m_ObjectHideFlags: 0
@@ -27983,6 +28341,7 @@ MonoBehaviour:
   type: 0
   index: {x: 9, y: 4}
   visited: 0
+  infected: 0
 --- !u!4 &1771473583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7500581979551311463, guid: a6b767250fa6c40658eb150bd4d31798,
@@ -28136,6 +28495,7 @@ MonoBehaviour:
   type: 0
   index: {x: 4, y: 6}
   visited: 0
+  infected: 0
 --- !u!1 &1787551978
 GameObject:
   m_ObjectHideFlags: 0
@@ -28501,6 +28861,7 @@ MonoBehaviour:
   type: 0
   index: {x: 2, y: 10}
   visited: 1
+  infected: 0
 --- !u!1 &1824220767
 GameObject:
   m_ObjectHideFlags: 0
@@ -28678,6 +29039,7 @@ MonoBehaviour:
   type: 0
   index: {x: 8, y: 1}
   visited: 1
+  infected: 0
 --- !u!1 &1830041562
 GameObject:
   m_ObjectHideFlags: 0
@@ -28855,6 +29217,7 @@ MonoBehaviour:
   type: 0
   index: {x: 4, y: 10}
   visited: 1
+  infected: 0
 --- !u!1 &1833588122
 GameObject:
   m_ObjectHideFlags: 0
@@ -29062,6 +29425,7 @@ MonoBehaviour:
   type: 0
   index: {x: 4, y: 13}
   visited: 1
+  infected: 0
 --- !u!1 &1843656679
 GameObject:
   m_ObjectHideFlags: 0
@@ -29271,6 +29635,7 @@ MonoBehaviour:
   type: 0
   index: {x: 8, y: 8}
   visited: 0
+  infected: 0
 --- !u!1 &1860125118
 GameObject:
   m_ObjectHideFlags: 0
@@ -29448,6 +29813,7 @@ MonoBehaviour:
   type: 0
   index: {x: 6, y: 11}
   visited: 1
+  infected: 0
 --- !u!1 &1878985778
 GameObject:
   m_ObjectHideFlags: 0
@@ -29625,6 +29991,7 @@ MonoBehaviour:
   type: 0
   index: {x: 1, y: 9}
   visited: 1
+  infected: 0
 --- !u!1 &1883969197
 GameObject:
   m_ObjectHideFlags: 0
@@ -29802,6 +30169,7 @@ MonoBehaviour:
   type: 0
   index: {x: 12, y: 5}
   visited: 1
+  infected: 0
 --- !u!1 &1897194965
 GameObject:
   m_ObjectHideFlags: 0
@@ -30011,6 +30379,7 @@ MonoBehaviour:
   type: 0
   index: {x: 11, y: 3}
   visited: 1
+  infected: 0
 --- !u!1 &1910331274
 GameObject:
   m_ObjectHideFlags: 0
@@ -30126,6 +30495,7 @@ MonoBehaviour:
   type: 0
   index: {x: 8, y: 10}
   visited: 0
+  infected: 0
 --- !u!1 &1919031168
 GameObject:
   m_ObjectHideFlags: 0
@@ -30397,6 +30767,7 @@ MonoBehaviour:
   type: 0
   index: {x: 13, y: 13}
   visited: 1
+  infected: 0
 --- !u!1 &1925913328
 GameObject:
   m_ObjectHideFlags: 0
@@ -30574,6 +30945,7 @@ MonoBehaviour:
   type: 0
   index: {x: 4, y: 11}
   visited: 1
+  infected: 0
 --- !u!1 &1931109680
 GameObject:
   m_ObjectHideFlags: 0
@@ -30825,6 +31197,7 @@ MonoBehaviour:
   type: 0
   index: {x: 9, y: 2}
   visited: 1
+  infected: 0
 --- !u!1 &1935952175
 GameObject:
   m_ObjectHideFlags: 0
@@ -31002,6 +31375,7 @@ MonoBehaviour:
   type: 0
   index: {x: 8, y: 13}
   visited: 1
+  infected: 0
 --- !u!1 &1947920410
 GameObject:
   m_ObjectHideFlags: 0
@@ -31183,6 +31557,7 @@ MonoBehaviour:
   type: 0
   index: {x: 8, y: 7}
   visited: 0
+  infected: 0
 --- !u!1 &1951454906
 GameObject:
   m_ObjectHideFlags: 0
@@ -31298,6 +31673,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 5}
   visited: 0
+  infected: 0
 --- !u!1 &1954089400
 GameObject:
   m_ObjectHideFlags: 0
@@ -31475,6 +31851,7 @@ MonoBehaviour:
   type: 0
   index: {x: 1, y: 6}
   visited: 1
+  infected: 0
 --- !u!1 &1955056794
 GameObject:
   m_ObjectHideFlags: 0
@@ -31684,6 +32061,7 @@ MonoBehaviour:
   type: 0
   index: {x: 6, y: 10}
   visited: 0
+  infected: 0
 --- !u!1 &1960825742
 GameObject:
   m_ObjectHideFlags: 0
@@ -31861,6 +32239,7 @@ MonoBehaviour:
   type: 0
   index: {x: 4, y: 2}
   visited: 1
+  infected: 0
 --- !u!1 &1967026268
 GameObject:
   m_ObjectHideFlags: 0
@@ -32038,6 +32417,7 @@ MonoBehaviour:
   type: 0
   index: {x: 10, y: 2}
   visited: 1
+  infected: 0
 --- !u!1 &1977482725
 GameObject:
   m_ObjectHideFlags: 0
@@ -32153,6 +32533,7 @@ MonoBehaviour:
   type: 0
   index: {x: 4, y: 7}
   visited: 0
+  infected: 0
 --- !u!1 &1984194853
 GameObject:
   m_ObjectHideFlags: 0
@@ -32268,6 +32649,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 10}
   visited: 0
+  infected: 0
 --- !u!1 &1990425325
 GameObject:
   m_ObjectHideFlags: 0
@@ -32462,6 +32844,7 @@ MonoBehaviour:
   type: 0
   index: {x: 7, y: 4}
   visited: 0
+  infected: 0
 --- !u!1 &2033009070
 GameObject:
   m_ObjectHideFlags: 0
@@ -32639,6 +33022,7 @@ MonoBehaviour:
   type: 0
   index: {x: 3, y: 1}
   visited: 1
+  infected: 0
 --- !u!1 &2034693430
 GameObject:
   m_ObjectHideFlags: 0
@@ -32876,6 +33260,7 @@ MonoBehaviour:
   type: 0
   index: {x: 2, y: 3}
   visited: 1
+  infected: 0
 --- !u!1 &2053510609
 GameObject:
   m_ObjectHideFlags: 0
@@ -33237,6 +33622,7 @@ MonoBehaviour:
   type: 0
   index: {x: 6, y: 1}
   visited: 1
+  infected: 0
 --- !u!1001 &2074007126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33644,6 +34030,7 @@ MonoBehaviour:
   type: 0
   index: {x: 6, y: 8}
   visited: 0
+  infected: 0
 --- !u!1 &2094534281
 GameObject:
   m_ObjectHideFlags: 0
@@ -33821,6 +34208,7 @@ MonoBehaviour:
   type: 0
   index: {x: 1, y: 11}
   visited: 1
+  infected: 0
 --- !u!1 &2109914245
 GameObject:
   m_ObjectHideFlags: 0
@@ -33998,6 +34386,7 @@ MonoBehaviour:
   type: 0
   index: {x: 11, y: 12}
   visited: 1
+  infected: 0
 --- !u!1 &2110023529
 GameObject:
   m_ObjectHideFlags: 0
@@ -34175,6 +34564,7 @@ MonoBehaviour:
   type: 0
   index: {x: 5, y: 10}
   visited: 1
+  infected: 0
 --- !u!1 &2117076198
 GameObject:
   m_ObjectHideFlags: 0
@@ -34290,6 +34680,7 @@ MonoBehaviour:
   type: 0
   index: {x: 6, y: 6}
   visited: 0
+  infected: 0
 --- !u!1 &2132682825
 GameObject:
   m_ObjectHideFlags: 0
@@ -34405,3 +34796,4 @@ MonoBehaviour:
   type: 0
   index: {x: 8, y: 6}
   visited: 0
+  infected: 0

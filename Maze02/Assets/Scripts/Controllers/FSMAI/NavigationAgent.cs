@@ -174,7 +174,7 @@ public class NavigationAgent : Controller
                 playerScript.playerIsMoving = false;
                 transform.position = IsoVectors.IsoToWorld(currentCell, map.actualTileSize);
                 
-                Debug.Log("NavigationAgent: stuck for too long");
+//                Debug.Log("NavigationAgent: stuck for too long");
                 currentDestination = currentCell;
                 UpdateDestination(destination);
 

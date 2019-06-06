@@ -43,7 +43,7 @@ public class TileClicker : MonoBehaviour
             var moveableWall = tile as MoveableWall; // this is only used so the marker doesn't move to a non-clickable tile
             if (moveableWall != null)
             {
-                if (tile.index == playerScript.gridCell)
+                if (tile.index == playerScript.gridCell || moveableWall.infected)
                 {
                     marker.SetActive(false);
                     wallMarker.SetActive(false);
@@ -58,6 +58,10 @@ public class TileClicker : MonoBehaviour
                 if (tile.index == playerScript.gridCell)
                 {
                     Debug.Log("TileClicker: clicked on player's tile");
+                }
+                else if (moveableWall.infected)
+                {
+                    Debug.Log("TileClicker: clicked on infected tile");
                 }
                 else if (Input.GetMouseButtonDown(0) || lastChangedTile != tile)
                 {

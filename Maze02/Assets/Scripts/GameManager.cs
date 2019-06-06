@@ -9,17 +9,19 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
     public Vector2 startTile, endTile;
     [HideInInspector] public GameObject player;
-    
-    [Space(20)]
+
+    [Space(20)] 
+    public float percentageToCompletion = 0.75f;
     public Vector2Int GrassToTileRatio = new Vector2Int(3, 1);
     public int initialChangeableTiles = 0;
     
     [Space(20)]
     public int grassTilesLeft;
     public int changeableTiles;
-    
+
+    private int totalGrassToCut;
     private int grassCut;
-    
+    private bool gatesOpen = false;
 
     private GameObject camera;
     private TileClicker tileClicker;
@@ -67,6 +69,9 @@ public class GameManager : MonoBehaviour
     
     private IEnumerator LevelPlaying()
     {        
+        totalGrassToCut = grassTilesLeft;
+        Debug.Log("total tiles: " + totalGrassToCut);
+        
         EnableControls();
 
         while (PlayerIsAlive() && !PlayerReachedEnd())
@@ -132,6 +137,7 @@ public class GameManager : MonoBehaviour
         }
         Vector3 playerStartPosition = IsoVectors.IsoToWorld(startTile, tileSize);
         player = (GameObject)Instantiate(playerPrefab);
+        playerStartPosition.z = startTile.x + startTile.y;
         player.transform.position = playerStartPosition;
 
         var cameraStartPosition = playerStartPosition;
@@ -165,6 +171,12 @@ public class GameManager : MonoBehaviour
         if (grassCut % GrassToTileRatio.x == 0)
         {
             changeableTiles += GrassToTileRatio.y;
+        }
+
+        if (!gatesOpen && grassCut >= totalGrassToCut * percentageToCompletion)
+        {
+            Debug.Log("GameManager: Gates Open");
+            gatesOpen = true;
         }
     }
         

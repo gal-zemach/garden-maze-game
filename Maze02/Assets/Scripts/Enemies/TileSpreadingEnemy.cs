@@ -7,13 +7,14 @@ using NesScripts.Controls.PathFind;
 public class TileSpreadingEnemy : MonoBehaviour
 {
     public GameObject bodyElementPrefab;
-    public float timeToSpread;
+    public Vector2Int bodyStart;
+    public float timeToStart, timeToNextSpread;
     public bool isSpreading = true;
-        
+    public int bodySize = 0;
+    
     private GameObject[,] body;
     private Transform bodyElementsParent;
-    public Vector2Int bodyStart;
-    private WaitForSeconds timeToNextSpread;
+    private WaitForSeconds secondsToNextSpread;
     
     private GameManager gameManager;
     private TileMap map;
@@ -26,14 +27,17 @@ public class TileSpreadingEnemy : MonoBehaviour
         playerScript = gameManager.player.GetComponent<PlayerScript>();
 
         bodyElementsParent = transform.Find("Body Elements Parent");
-        timeToNextSpread = new WaitForSeconds(timeToSpread);
+        secondsToNextSpread = new WaitForSeconds(timeToNextSpread);
 
         // align bodyStart & Position
-        var pos = transform.position;
-        var index = IsoVectors.WorldToIsoRounded(pos, map.actualTileSize);
-        bodyStart = new Vector2Int((int)index.x, (int)index.y);
-        pos = IsoVectors.IsoToWorld(index, map.actualTileSize);
-        pos.z = index.x + index.y;
+        if (bodyStart == Vector2Int.zero)
+        {
+            var goPos = transform.position;
+            var index = IsoVectors.WorldToIsoRounded(goPos, map.actualTileSize);
+            bodyStart = new Vector2Int((int)index.x, (int)index.y);
+        }
+        Vector3 pos = IsoVectors.IsoToWorld(bodyStart, map.actualTileSize);
+        pos.z = bodyStart.x + bodyStart.y;
         transform.position = pos;
         
         // initializing body array
@@ -47,6 +51,12 @@ public class TileSpreadingEnemy : MonoBehaviour
         }
         body[bodyStart.x, bodyStart.y] = gameObject;
 
+        StartCoroutine(BeforeSpread());
+    }
+
+    private IEnumerator BeforeSpread()
+    {
+        yield return new WaitForSeconds(timeToStart);
         StartCoroutine(SpreadLoop());
     }
 
@@ -84,7 +94,7 @@ public class TileSpreadingEnemy : MonoBehaviour
             CreateNewBodyElement(index);
         }
         
-        yield return timeToNextSpread;
+        yield return secondsToNextSpread;
     }
 
 
@@ -94,6 +104,7 @@ public class TileSpreadingEnemy : MonoBehaviour
         newElement.name = "be_" + index.x + "_" + index.y;
         newElement.transform.position = IsoVectors.IsoToWorld(index, map.actualTileSize);
         body[index.x, index.y] = newElement;
+        bodySize++;
     }
     
     
@@ -149,5 +160,16 @@ public class TileSpreadingEnemy : MonoBehaviour
         perCell.index = start;
         perCell.distanceToTarget = (end - start).magnitude;
         result.Add(perCell);
+    }
+
+    public bool Contains(Vector2 index)
+    {
+        return (body[(int) index.x, (int) index.y] != null);
+    }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log("TileSpreadingEnemy: Hit Player");
+        playerScript.ReduceLives();
     }
 }

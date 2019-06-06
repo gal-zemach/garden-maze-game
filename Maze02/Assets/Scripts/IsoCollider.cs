@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class IsoCollider : MonoBehaviour
 {
+    public bool isTrigger = true;
     public float tileSize;
     public Vector2 colliderSize, colliderCenter;
     public int rotation = 0;
@@ -17,7 +18,7 @@ public class IsoCollider : MonoBehaviour
     void Start()
     {
         baseCollider = gameObject.AddComponent<BoxCollider2D>();
-        baseCollider.isTrigger = true;
+        baseCollider.isTrigger = isTrigger;
         transform.rotation = Quaternion.Euler(60, 0, 45);
         transform.localScale = new Vector3(tileSize, tileSize);
         
