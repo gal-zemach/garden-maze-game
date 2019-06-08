@@ -128,9 +128,11 @@ public class WallFollowerAction : Action
         int[] directions = new[]
             {
                 // left, same, right, 180                
-                currentDirectionIndex, // same direction
+                
                 
                 Mod(currentDirectionIndex - 1, 4), // left turn
+                
+                currentDirectionIndex, // same direction
                 
                 Mod(currentDirectionIndex + 1, 4), // right turn
                 Mod(currentDirectionIndex + 2, 4) // 180 turn

@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {    
     public GameObject playerPrefab;
-    public Vector2 startTile, endTile;
+    public Vector2 startTile;
+    [HideInInspector] public List<Vector2> endTiles;
     [HideInInspector] public GameObject player;
 
     [Space(20)] 
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
     public int grassTilesLeft;
     public int changeableTiles;
 
+    [HideInInspector] public List<Gate> gates;
+    
     private int totalGrassToCut;
     private int grassCut;
     private bool gatesOpen = false;
@@ -70,6 +73,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator LevelPlaying()
     {        
         totalGrassToCut = grassTilesLeft;
+        AddGatesAsEndTiles();
         Debug.Log("total tiles: " + totalGrassToCut);
         
         EnableControls();
@@ -149,7 +153,7 @@ public class GameManager : MonoBehaviour
 
     private bool PlayerReachedEnd()
     {
-        return playerScript.gridCell == endTile;
+        return gatesOpen && endTiles.Contains(playerScript.gridCell);
     }
 
     private bool PlayerIsAlive()
@@ -177,6 +181,18 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("GameManager: Gates Open");
             gatesOpen = true;
+            foreach (var gate in gates)
+            {
+                gate.Open();
+            }
+        }
+    }
+
+    public void AddGatesAsEndTiles()
+    {
+        foreach (var gate in gates)
+        {
+            endTiles.Add(gate.index);
         }
     }
         
@@ -184,6 +200,6 @@ public class GameManager : MonoBehaviour
     private void OnDrawGizmos()
     {
         IsoVectors.drawPoint(startTile, Color.cyan, tileSize);
-        IsoVectors.drawPoint(endTile, Color.blue, tileSize);
+//        IsoVectors.drawPoint(endTile, Color.blue, tileSize);
     }
 }

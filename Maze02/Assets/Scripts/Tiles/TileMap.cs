@@ -29,7 +29,7 @@ public class TileMap : MonoBehaviour
 
     public enum TileType
     {
-        Floor, constWall, moveableWall, trap
+        Floor, constWall, moveableWall, trap, Gate
     }
     
     public Sprite currentTileBrush

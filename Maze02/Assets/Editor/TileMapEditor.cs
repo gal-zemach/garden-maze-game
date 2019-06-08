@@ -116,7 +116,7 @@ public class TileMapEditor : Editor
                 Event current = Event.current;
                 if (current.keyCode == KeyCode.A)
                 {
-                    Draw(2);
+                    Draw(1);
                 }
                 else if (current.keyCode == KeyCode.S)
                 {

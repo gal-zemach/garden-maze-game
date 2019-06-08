@@ -12870,6 +12870,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraStep: 3
+  cameraZoomChangeStep: 5
+  initialCameraZoom: 200
+  minCameraZoom: 100
+  maxCameraZoom: 400
   levelBottomLeft: {fileID: 1833588123}
   levelTopRight: {fileID: 1700243725}
 --- !u!20 &519420031
@@ -54057,7 +54061,7 @@ PrefabInstance:
     - target: {fileID: 2139048864127940453, guid: a38d5db4ddb62410ba38fcd64ec44835,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3416493189131571573, guid: a38d5db4ddb62410ba38fcd64ec44835,
         type: 3}

@@ -8,8 +8,12 @@ public class TileSpreadingEnemy : MonoBehaviour
 {
     public GameObject bodyElementPrefab;
     public Vector2Int bodyStart;
-    public float timeToStart, timeToNextSpread;
+    [Space(20)]
+    public float timeToStart;
+    public float timeToNextSpread;
+    public int cellsPerSpread = 1;
     public bool isSpreading = true;
+    [Space(20)]
     public int bodySize = 0;
     
     private GameObject[,] body;
@@ -77,21 +81,31 @@ public class TileSpreadingEnemy : MonoBehaviour
         // find closest walkable tile
         var perimeterCells = GetPerimeterCellsList(bodyStart, playerIndex);
         var sortedCells = perimeterCells.OrderBy(x => x.distanceToTarget).ToList();
-        
-        // choose random index
-        // using function that favors low values
-        // https://stackoverflow.com/questions/1589321/adjust-items-chance-to-be-selected-from-a-list
-        var r = Random.Range(0f, 1f);
-        var chosenIndex = Mathf.FloorToInt(sortedCells.Count * (1 - Mathf.Pow(r, 0.5f))); 
-        
-        var index = new Vector2Int((int)sortedCells[chosenIndex].index.x, (int)sortedCells[chosenIndex].index.y);
-        var tile = map.tiles[map.TileIndex(index.x, index.y)];
-        var moveableWall = tile as MoveableWall;
-        if (moveableWall != null)
+
+        var chosenList = new List<int>();
+        for (int i = 0; i < Mathf.Min(cellsPerSpread, sortedCells.Count); i++)
         {
-            // create body element in this index
-            moveableWall.Infect();
-            CreateNewBodyElement(index);
+            // choose random index
+            // using function that favors low values
+            // https://stackoverflow.com/questions/1589321/adjust-items-chance-to-be-selected-from-a-list
+            var r = Random.Range(0f, 1f);
+            var chosenIndex = Mathf.FloorToInt(sortedCells.Count * (1 - Mathf.Pow(r, 0.5f)));
+            while (chosenList.Contains(chosenIndex))
+            {
+                r = Random.Range(0f, 1f);
+                chosenIndex = Mathf.FloorToInt(sortedCells.Count * (1 - Mathf.Pow(r, 0.5f)));
+            }
+            chosenList.Add(chosenIndex);
+        
+            var index = new Vector2Int((int)sortedCells[chosenIndex].index.x, (int)sortedCells[chosenIndex].index.y);
+            var tile = map.tiles[map.TileIndex(index.x, index.y)];
+            var moveableWall = tile as MoveableWall;
+            if (moveableWall != null)
+            {
+                // create body element in this index
+                moveableWall.Infect();
+                CreateNewBodyElement(index);
+            }
         }
         
         yield return secondsToNextSpread;
