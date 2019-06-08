@@ -18,6 +18,7 @@ public class Gate : Tile
     void Start()
     {
         base.Start();
+        collider.isTrigger = false;
         
         var gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         gameManager.gates.Add(this);
@@ -49,8 +50,13 @@ public class Gate : Tile
     public void Open()
     {
         open = true;
-        collider.enabled = false;
+        collider.isTrigger = true;
         
         animator.SetBool(isOpenVar, true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        throw new System.NotImplementedException();
     }
 }

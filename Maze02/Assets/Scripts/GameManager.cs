@@ -25,10 +25,11 @@ public class GameManager : MonoBehaviour
     
     [HideInInspector] public List<Gate> gates;
     
-    private int totalGrassToCut;
+    [HideInInspector] public int totalGrassToCut;
     private int grassCut;
     private bool gatesOpen = false;
 
+    private GUIManager guiManager;
     private GameObject camera;
     private TileClicker tileClicker;
     private PlayerScript playerScript;
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
+        guiManager = GetComponent<GUIManager>();
         camera = GameObject.Find("Main Camera");
         map = GameObject.Find("Tile Map").GetComponent<TileMap>();
         tileSize = new Vector2(map.tileSize.x, map.tileSize.y / 2);
@@ -83,12 +85,15 @@ public class GameManager : MonoBehaviour
     {        
         totalGrassToCut = grassTilesLeft;
         AddGatesAsEndTiles();
+        guiManager.StartGUI();
+        
         Debug.Log("total tiles: " + totalGrassToCut);
         
         EnableControls();
 
         while (PlayerIsAlive() && !PlayerReachedEnd())
         {
+            guiManager.UpdateGUI();
             yield return null;
         }
     }

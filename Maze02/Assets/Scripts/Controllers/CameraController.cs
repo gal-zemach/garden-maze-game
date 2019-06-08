@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
 		cameraExtents.y = cam.orthographicSize;
 		cameraExtents.x = cameraExtents.y * cam.aspect;
 
-		cam.orthographicSize = initialCameraZoom;
+		cameraZoom = initialCameraZoom;
 	}
 	
 	void Update ()

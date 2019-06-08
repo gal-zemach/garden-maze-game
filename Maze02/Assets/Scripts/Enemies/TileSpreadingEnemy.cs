@@ -122,7 +122,6 @@ public class TileSpreadingEnemy : MonoBehaviour
         newElement.name = "be_" + index.x + "_" + index.y;
         Vector3 pos = IsoVectors.IsoToWorld(index, map.actualTileSize);
         pos.z = index.x + index.y - 0.1f;
-        Debug.Log(pos);
         newElement.transform.position = pos; 
         
         body[index.x, index.y] = newElement;
