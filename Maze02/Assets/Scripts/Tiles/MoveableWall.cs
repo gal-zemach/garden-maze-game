@@ -6,6 +6,7 @@ public class MoveableWall : Tile
 {
     public bool visited;
     public bool infected;
+    public bool halfInfected;
     
     private Animator animator;
     private Collider2D wallTrigger;
@@ -74,8 +75,8 @@ public class MoveableWall : Tile
 
 //        type = TileMap.TileType.Floor;
         
-        if (visited)
-            map.UpdateCutGrassGrid(index, true);
+//        if (visited)
+//            map.UpdateCutGrassGrid(index, true);
     }
 
     public void Toggle()
@@ -121,9 +122,8 @@ public class MoveableWall : Tile
         {
             gameManager.SubTile();
         }
-        
-        if (type != TileMap.TileType.moveableWall)
-            map.UpdateCutGrassGrid(index, true);
+            
+        map.UpdateCutGrassGrid(index, true);
         
         return retVal;
     }
@@ -139,7 +139,18 @@ public class MoveableWall : Tile
 
     public void Infect()
     {
+        if (infected)
+            return;
+        
+        if (!halfInfected && type == TileMap.TileType.moveableWall)
+        {
+            halfInfected = true;
+            animator.SetBool("isHalfInfected", true);
+            return;
+        }
+        
         infected = true;
+        animator.SetBool("isInfected", true);
     }
 
     public void Disinfect()

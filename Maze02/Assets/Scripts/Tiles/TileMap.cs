@@ -96,7 +96,17 @@ public class TileMap : MonoBehaviour
     public bool IsWalkable(Vector2 tile)
     {
         var tileType = GetTileType((int) tile.x, (int) tile.y);
-        return tileType == TileType.Floor || tileType == TileType.trap;
+
+        var isOpenGate = false;
+        if (tileType == TileType.Gate)
+        {
+            var tileScript = tiles[TileIndex((int) tile.x, (int) tile.y)];
+            var gate = tileScript as Gate;
+            if (gate != null)
+                isOpenGate = gate.open;
+        }
+        
+        return tileType == TileType.Floor || tileType == TileType.trap || isOpenGate;
     }
 
     public bool IsValidIndex(Vector2 index)

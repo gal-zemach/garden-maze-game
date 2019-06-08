@@ -96,7 +96,10 @@ public class TileSpreadingEnemy : MonoBehaviour
                 chosenIndex = Mathf.FloorToInt(sortedCells.Count * (1 - Mathf.Pow(r, 0.5f)));
             }
             chosenList.Add(chosenIndex);
-        
+        }
+
+        foreach (var chosenIndex in chosenList)
+        {
             var index = new Vector2Int((int)sortedCells[chosenIndex].index.x, (int)sortedCells[chosenIndex].index.y);
             var tile = map.tiles[map.TileIndex(index.x, index.y)];
             var moveableWall = tile as MoveableWall;
@@ -104,7 +107,8 @@ public class TileSpreadingEnemy : MonoBehaviour
             {
                 // create body element in this index
                 moveableWall.Infect();
-                CreateNewBodyElement(index);
+                if (moveableWall.infected)
+                    CreateNewBodyElement(index);
             }
         }
         
@@ -116,7 +120,11 @@ public class TileSpreadingEnemy : MonoBehaviour
     {
         var newElement = Instantiate(bodyElementPrefab, bodyElementsParent);
         newElement.name = "be_" + index.x + "_" + index.y;
-        newElement.transform.position = IsoVectors.IsoToWorld(index, map.actualTileSize);
+        Vector3 pos = IsoVectors.IsoToWorld(index, map.actualTileSize);
+        pos.z = index.x + index.y - 0.1f;
+        Debug.Log(pos);
+        newElement.transform.position = pos; 
+        
         body[index.x, index.y] = newElement;
         bodySize++;
     }
@@ -152,8 +160,8 @@ public class TileSpreadingEnemy : MonoBehaviour
         if (moveableWall == null)
             return;
 
-        if (moveableWall.type == TileMap.TileType.moveableWall)
-            return;
+//        if (moveableWall.type == TileMap.TileType.moveableWall)
+//            return;
 
         if (!moveableWall.visited)
             return;

@@ -244,7 +244,6 @@ public class PlayerScript : MonoBehaviour
 			currentLives--;
 			livesVisualizer.decreaseLife();
 		}
-//		StartCoroutine(InvincibilityBlink());
 		StartCoroutine(Blink());
 	}
 	
