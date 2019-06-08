@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public int grassTilesLeft;
     public int changeableTiles;
 
+    [Space(20)] 
+    public bool forceOpenGates;
+    
     [HideInInspector] public List<Gate> gates;
     
     private int totalGrassToCut;
@@ -50,6 +53,12 @@ public class GameManager : MonoBehaviour
         gameEnded = false;
 
         StartCoroutine(GameLoop());
+    }
+
+    private void Update()
+    {
+        if (!gatesOpen && forceOpenGates)
+            OpenGates();
     }
 
     private IEnumerator GameLoop()
@@ -179,12 +188,17 @@ public class GameManager : MonoBehaviour
 
         if (!gatesOpen && grassCut >= totalGrassToCut * percentageToCompletion)
         {
-            Debug.Log("GameManager: Gates Open");
-            gatesOpen = true;
-            foreach (var gate in gates)
-            {
-                gate.Open();
-            }
+            OpenGates();
+        }
+    }
+
+    public void OpenGates()
+    {
+        Debug.Log("GameManager: Gates Open");
+        gatesOpen = true;
+        foreach (var gate in gates)
+        {
+            gate.Open();
         }
     }
 

@@ -17,14 +17,11 @@ public class Gate : Tile
     
     void Start()
     {
+        base.Start();
+        
         var gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         gameManager.gates.Add(this);
 
-        // manually offsetting tile location
-        var pos = transform.position;
-        pos.y += 4;
-        transform.position = pos;
-        
         animator = GetComponent<Animator>();
         type = TileMap.TileType.Gate;
 
