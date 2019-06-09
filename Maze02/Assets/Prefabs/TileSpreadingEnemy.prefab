@@ -131,8 +131,8 @@ MonoBehaviour:
   spriteUpdater: {fileID: 11400000, guid: ed53ba2f0644a460db20f65af70d5fdf, type: 2}
   bodyStart: {x: 0, y: 0}
   timeToStart: 5
-  timeToNextSpread: 2
-  cellsPerSpread: 1
+  timeToNextSpread: 1
+  cellsPerSpread: 2
   isSpreading: 1
   bodySize: 0
 --- !u!50 &8230837134319306726

@@ -24,9 +24,24 @@ public class GUIManager : MonoBehaviour
             return;
         
         grassTilesLeft.text = "Tiles Left: " + gameManager.grassTilesLeft;
-        changeableTiles.text = gameManager.changeableTiles.ToString();
+        UpdateChangeableTiles();
+        
         
         mainFillbar.SetValue(gameManager.totalGrassToCut - gameManager.grassTilesLeft);
 //        Debug.Log("updating to " + (gameManager.totalGrassToCut - gameManager.grassTilesLeft));
+    }
+
+    private void UpdateChangeableTiles()
+    {
+        var changeableTilesValue = gameManager.changeableTiles;
+        if (changeableTilesValue == 0)
+        {
+            changeableTiles.color = Color.red;
+        }
+        else
+        {
+            changeableTiles.color = Color.white;
+        }
+        changeableTiles.text = changeableTilesValue.ToString();
     }
 }

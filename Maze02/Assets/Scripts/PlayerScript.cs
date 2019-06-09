@@ -11,7 +11,6 @@ public class PlayerScript : MonoBehaviour
 	
 	public int MaxLives = 3;
 	public int initialChangeableTiles = 3;
-	public LivesVisualizer livesVisualizer;
 	public bool invincible;
 	public int normalMovementSpeed = 100;
 	public int fasterMovementSpeed = 200;
@@ -41,8 +40,6 @@ public class PlayerScript : MonoBehaviour
 	void Awake ()
 	{
 		currentLives = MaxLives;
-		livesVisualizer = GameObject.Find("Lives").GetComponent<LivesVisualizer>();
-		livesVisualizer.setLives(MaxLives);
 		
 		rb2d = GetComponent<Rigidbody2D>();
 		sprite = GetComponentInChildren<SpriteRenderer>();
@@ -242,7 +239,6 @@ public class PlayerScript : MonoBehaviour
 		if (!invincible)
 		{
 			currentLives--;
-			livesVisualizer.decreaseLife();
 		}
 		StartCoroutine(Blink());
 	}

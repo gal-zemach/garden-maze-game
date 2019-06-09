@@ -95,11 +95,11 @@ public class TileSpreadingEnemy : MonoBehaviour
             // using function that favors low values
             // https://stackoverflow.com/questions/1589321/adjust-items-chance-to-be-selected-from-a-list
             var r = Random.Range(0f, 1f);
-            var chosenIndex = Mathf.FloorToInt(sortedCells.Count * (1 - Mathf.Pow(r, 0.5f)));
+            var chosenIndex = Mathf.FloorToInt(sortedCells.Count * (1 - Mathf.Pow(r, 0.25f)));
             while (chosenList.Contains(chosenIndex))
             {
                 r = Random.Range(0f, 1f);
-                chosenIndex = Mathf.FloorToInt(sortedCells.Count * (1 - Mathf.Pow(r, 0.5f)));
+                chosenIndex = Mathf.FloorToInt(sortedCells.Count * (1 - Mathf.Pow(r, 0.25f)));
             }
             chosenList.Add(chosenIndex);
         }
