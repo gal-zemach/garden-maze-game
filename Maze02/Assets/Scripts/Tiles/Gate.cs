@@ -12,6 +12,7 @@ public class Gate : Tile
     public GateDirection gateDirection;
     public bool open;
 
+    private GameManager gameManager;
     private Animator animator;
     private int isOpenVar, isLeftGateVar;
     
@@ -20,7 +21,7 @@ public class Gate : Tile
         base.Start();
         collider.isTrigger = false;
         
-        var gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         gameManager.gates.Add(this);
 
         animator = GetComponent<Animator>();
@@ -52,11 +53,13 @@ public class Gate : Tile
         open = true;
         collider.isTrigger = true;
         
+        map.UpdateWalkabilityGrid(index, true);
+        
         animator.SetBool(isOpenVar, true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        throw new System.NotImplementedException();
+        gameManager.PlayerReachedGate();
     }
 }

@@ -38,6 +38,7 @@
                 <e p="Decision.cs" t="Include" />
                 <e p="FollowPlayer.cs" t="Include" />
                 <e p="LookDecision.cs" t="Include" />
+                <e p="LookForGatesDecision.cs" t="Include" />
                 <e p="LookForToolsDecision.cs" t="Include" />
                 <e p="LookForTrapsDecision.cs" t="Include" />
                 <e p="LookForUncutGrassDecision.cs" t="Include" />

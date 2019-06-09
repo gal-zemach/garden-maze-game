@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2946a7ce50524181b229dac171b2a62, type: 3}
-  m_Name: 01AlwaysLookForGrassState
+  m_Name: 01LookForGates AlwaysGrass
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: 0632e5bfe705a4aa89f43473168fc083, type: 2}
   transitions:
-  - decision: {fileID: 11400000, guid: 0912869cf14b94e7aa929fb28c1549f5, type: 2}
+  - decision: {fileID: 11400000, guid: aa03b15dbc3704663bb7e5ca867d7c9b, type: 2}
     trueState: {fileID: 11400000, guid: b9f74cf1f8f104faca3b84a06d49c69a, type: 2}
-    falseState: {fileID: 11400000, guid: 876bf2aa85d4f4bac86d65b0b41fca6c, type: 2}
-  sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    falseState: {fileID: 11400000, guid: 434029b1791de4e68a56970a99d893ae, type: 2}
+  sceneGizmoColor: {r: 0, g: 0.9804163, b: 1, a: 1}

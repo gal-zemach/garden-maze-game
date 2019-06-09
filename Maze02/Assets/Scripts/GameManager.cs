@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 {    
     public GameObject playerPrefab;
     public Vector2 startTile;
-    [HideInInspector] public List<Vector2> endTiles;
     [HideInInspector] public GameObject player;
 
     [Space(20)] 
@@ -37,6 +36,7 @@ public class GameManager : MonoBehaviour
     private Vector2 tileSize;
 
     private bool gameEnded;
+    private bool reachedGate;
 
     private WaitForSeconds startWait = new WaitForSeconds(2.5f);
     private WaitForSeconds endWait;
@@ -84,8 +84,8 @@ public class GameManager : MonoBehaviour
     private IEnumerator LevelPlaying()
     {        
         totalGrassToCut = grassTilesLeft;
-        AddGatesAsEndTiles();
-        guiManager.StartGUI();
+        if (guiManager != null)
+            guiManager.StartGUI();
         
         Debug.Log("total tiles: " + totalGrassToCut);
         
@@ -93,7 +93,9 @@ public class GameManager : MonoBehaviour
 
         while (PlayerIsAlive() && !PlayerReachedEnd())
         {
-            guiManager.UpdateGUI();
+            if (guiManager != null)
+                guiManager.UpdateGUI();
+            
             yield return null;
         }
     }
@@ -167,7 +169,13 @@ public class GameManager : MonoBehaviour
 
     private bool PlayerReachedEnd()
     {
-        return gatesOpen && endTiles.Contains(playerScript.gridCell);
+        return reachedGate;
+    }
+
+    public void PlayerReachedGate()
+    {
+        Debug.Log("GameManager: Player reached gate.");
+        reachedGate = true;
     }
 
     private bool PlayerIsAlive()
@@ -207,15 +215,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddGatesAsEndTiles()
-    {
-        foreach (var gate in gates)
-        {
-            endTiles.Add(gate.index);
-        }
-    }
-        
-    
     private void OnDrawGizmos()
     {
         IsoVectors.drawPoint(startTile, Color.cyan, tileSize);
