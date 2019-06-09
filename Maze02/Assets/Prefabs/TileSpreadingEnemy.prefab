@@ -68,7 +68,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300018, guid: f5540f2cc34b54427a628b8e363045e3, type: 3}
+  m_Sprite: {fileID: 21300054, guid: 53b8be811826044928f3bf511591f870, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,9 +128,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyElementPrefab: {fileID: 460875454222061524, guid: 542530086592748adb80f75cd285952a,
     type: 3}
+  spriteUpdater: {fileID: 11400000, guid: ed53ba2f0644a460db20f65af70d5fdf, type: 2}
   bodyStart: {x: 0, y: 0}
   timeToStart: 5
   timeToNextSpread: 2
+  cellsPerSpread: 1
   isSpreading: 1
   bodySize: 0
 --- !u!50 &8230837134319306726

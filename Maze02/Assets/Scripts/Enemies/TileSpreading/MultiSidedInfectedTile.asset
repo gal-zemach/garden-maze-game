@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161dda19d54b94e92a456c42a330034b, type: 3}
+  m_Name: MultiSidedInfectedTile
+  m_EditorClassIdentifier: 
+  zeroSided: {fileID: 21300054, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  oneSidedN: {fileID: 21300020, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  oneSidedS: {fileID: 21300016, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  oneSidedE: {fileID: 21300018, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  oneSidedW: {fileID: 21300022, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  twoSidedNE: {fileID: 21300010, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  twoSidedNW: {fileID: 21300012, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  twoSidedSE: {fileID: 21300008, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  twoSidedSW: {fileID: 21300014, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  twoSidedNS: {fileID: 21300028, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  twoSidedEW: {fileID: 21300030, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  threeSidedN: {fileID: 21300000, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  threeSidedS: {fileID: 21300006, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  threeSidedE: {fileID: 21300004, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  threeSidedW: {fileID: 21300002, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  fourSided: {fileID: 21300052, guid: 53b8be811826044928f3bf511591f870, type: 3}

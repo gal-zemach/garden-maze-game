@@ -7,6 +7,7 @@ using NesScripts.Controls.PathFind;
 public class TileSpreadingEnemy : MonoBehaviour
 {
     public GameObject bodyElementPrefab;
+    public MultiSidedTile spriteUpdater;
     public Vector2Int bodyStart;
     [Space(20)]
     public float timeToStart;
@@ -21,6 +22,7 @@ public class TileSpreadingEnemy : MonoBehaviour
     private WaitForSeconds secondsToNextSpread;
     
     private GameManager gameManager;
+    private SpriteRenderer spriteRenderer;
     private TileMap map;
     private PlayerScript playerScript;
 
@@ -55,6 +57,9 @@ public class TileSpreadingEnemy : MonoBehaviour
         }
         body[bodyStart.x, bodyStart.y] = gameObject;
 
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer.sprite = spriteUpdater.zeroSided;
+        
         StartCoroutine(BeforeSpread());
     }
 
@@ -68,7 +73,8 @@ public class TileSpreadingEnemy : MonoBehaviour
     private IEnumerator SpreadLoop()
     {
         yield return StartCoroutine(Spread());
-
+        spriteRenderer.sprite = spriteUpdater.UpdateSprite(map, bodyStart);
+        
         if (isSpreading)
             StartCoroutine(SpreadLoop());
     }
@@ -119,10 +125,18 @@ public class TileSpreadingEnemy : MonoBehaviour
     private void CreateNewBodyElement(Vector2Int index)
     {
         var newElement = Instantiate(bodyElementPrefab, bodyElementsParent);
+        newElement.SetActive(false);
+        
         newElement.name = "be_" + index.x + "_" + index.y;
         Vector3 pos = IsoVectors.IsoToWorld(index, map.actualTileSize);
         pos.z = index.x + index.y - 0.1f;
-        newElement.transform.position = pos; 
+        newElement.transform.position = pos;
+
+        var elementScript = newElement.GetComponent<TileSpreadingEnemyElement>();
+        elementScript.index = index;
+        elementScript.map = map;
+        
+        newElement.SetActive(true);
         
         body[index.x, index.y] = newElement;
         bodySize++;

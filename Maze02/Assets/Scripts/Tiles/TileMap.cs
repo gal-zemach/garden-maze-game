@@ -93,6 +93,14 @@ public class TileMap : MonoBehaviour
         return tiles[TileIndex(column, row)].type;
     }
 
+    public Tile GetTile(Vector2 index)
+    {
+        if (!IsValidIndex(index))
+            return null;
+
+        return tiles[TileIndex((int) index.x, (int) index.y)];
+    }
+
     public bool IsWalkable(Vector2 tile)
     {
         var tileType = GetTileType((int) tile.x, (int) tile.y);

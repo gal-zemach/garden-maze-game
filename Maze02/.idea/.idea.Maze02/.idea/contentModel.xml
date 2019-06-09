@@ -65,8 +65,11 @@
             <e p="RotatingAttackingEnemy.cs" t="Include" />
             <e p="ShootingEnemy.cs" t="Include" />
             <e p="SpreadingEnemy.cs" t="Include" />
-            <e p="TileSpreadingEnemy.cs" t="Include" />
-            <e p="TileSpreadingEnemyElement.cs" t="Include" />
+            <e p="TileSpreading" t="Include">
+              <e p="MultiSidedTIle.cs" t="Include" />
+              <e p="TileSpreadingEnemy.cs" t="Include" />
+              <e p="TileSpreadingEnemyElement.cs" t="Include" />
+            </e>
           </e>
           <e p="GameManager.cs" t="Include" />
           <e p="GUI" t="Include">

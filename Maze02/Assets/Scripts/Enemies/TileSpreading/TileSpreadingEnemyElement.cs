@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class TileSpreadingEnemyElement : MonoBehaviour
 {
+    public MultiSidedTile tileUpdater;
+    public Vector2 index;
+    public TileMap map;
+    
     private TileSpreadingEnemy parentEnemy;
+    private SpriteRenderer spriteRenderer;
+    
     
     void Start()
     {
         parentEnemy = transform.parent.parent.GetComponent<TileSpreadingEnemy>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void LateUpdate()
     {
-        if (parentEnemy == null)
-            return;
-        
-        parentEnemy.OnCollisionEnter2D(other);
+        spriteRenderer.sprite = tileUpdater.UpdateSprite(map, index);
     }
 }
