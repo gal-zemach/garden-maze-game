@@ -156,6 +156,16 @@ public class NavigationAgent : Controller
             IsoVectors.drawPoint(currentPosition, Color.green, playerScript.tileSize);
             IsoVectors.drawPoint(currentDestination, Color.yellow, playerScript.tileSize);
             IsoVectors.drawPoint(destination, Color.red, playerScript.tileSize);
+
+//            if (path.Count > 0)
+//            {
+//                for (int i = 0; i < path.Count - 1; i++)
+//                {
+//                    var start = new Vector2(path[i].x, path[i].y);
+//                    var end = new Vector2(path[i + 1].x, path[i + 1].y);
+//                    IsoVectors.drawLine(start, end, Color.yellow, playerScript.tileSize);
+//                }
+//            }
         }
     }
 

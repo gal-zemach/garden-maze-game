@@ -17,6 +17,8 @@ public class TileMap : MonoBehaviour
     public int pixelsToUnits = 100;
     public int tileID = 0;
     public GameObject tilesParent;
+    
+    public bool avoidInfectedTiles;
 
     public List<GameObject> tilePrefabs;
     
@@ -113,8 +115,17 @@ public class TileMap : MonoBehaviour
             if (gate != null)
                 isOpenGate = gate.open;
         }
+
+        var floorCheck = tileType == TileType.Floor;
+        if (avoidInfectedTiles && tileType == TileType.Floor)
+        {
+            var tileScript = tiles[TileIndex((int) tile.x, (int) tile.y)];
+            var moveableWall = tileScript as MoveableWall;
+            if (moveableWall != null)
+                floorCheck = floorCheck && !moveableWall.infected;
+        }
         
-        return tileType == TileType.Floor || tileType == TileType.trap || isOpenGate;
+        return floorCheck || tileType == TileType.trap || isOpenGate;
     }
 
     public bool IsValidIndex(Vector2 index)

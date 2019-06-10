@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GUIManager : MonoBehaviour
 {
-    public Text grassTilesLeft, changeableTiles;
+    public Text changeableTiles;
     public FillBar mainFillbar;
     
     private GameManager gameManager;
@@ -13,22 +13,25 @@ public class GUIManager : MonoBehaviour
     public void StartGUI()
     {
         gameManager = GetComponent<GameManager>();
-        
-        mainFillbar.SetMax(gameManager.totalGrassToCut);
-        mainFillbar.SetThreshold(gameManager.percentageToCompletion);
+
+        if (mainFillbar != null)
+        {
+            mainFillbar.SetMax(gameManager.totalGrassToCut);
+            mainFillbar.SetThreshold(gameManager.percentageToCompletion);
+        }
     }
 
     public void UpdateGUI()
     {
-        if (grassTilesLeft == null || changeableTiles == null)
-            return;
-        
-        grassTilesLeft.text = "Tiles Left: " + gameManager.grassTilesLeft;
-        UpdateChangeableTiles();
-        
-        
-        mainFillbar.SetValue(gameManager.totalGrassToCut - gameManager.grassTilesLeft);
-//        Debug.Log("updating to " + (gameManager.totalGrassToCut - gameManager.grassTilesLeft));
+        if (changeableTiles != null)
+        {
+            UpdateChangeableTiles();
+        }
+
+        if (mainFillbar != null)
+        {
+            mainFillbar.SetValue(gameManager.totalGrassToCut - gameManager.grassTilesLeft);
+        }
     }
 
     private void UpdateChangeableTiles()

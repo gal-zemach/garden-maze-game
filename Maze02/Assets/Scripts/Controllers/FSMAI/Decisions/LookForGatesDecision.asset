@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a9d86adb709418d86e9c863e71e947, type: 3}
   m_Name: LookForGatesDecision
   m_EditorClassIdentifier: 
+  seeThroughWalls: 1

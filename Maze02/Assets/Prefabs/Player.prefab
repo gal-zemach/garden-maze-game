@@ -81,7 +81,7 @@ MonoBehaviour:
   currentDestination: {x: 0, y: 0}
   reachedDestination: 0
   remainingDistance: 0
-  lookRadius: 2
+  lookRadius: 3
   lookRadiusInPixels: 200
 --- !u!114 &3289980065806227673
 MonoBehaviour:
@@ -99,7 +99,6 @@ MonoBehaviour:
   backSprite: {fileID: 21300002, guid: 9848331af841848e49753e791e2d2cc5, type: 3}
   MaxLives: 1
   initialChangeableTiles: 3
-  livesVisualizer: {fileID: 0}
   invincible: 0
   normalMovementSpeed: 30
   fasterMovementSpeed: 160

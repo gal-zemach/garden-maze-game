@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77e2dd7a695a4f3690b7e4362a58152, type: 3}
   m_Name: LookForUncutGrassDecision
   m_EditorClassIdentifier: 
+  seeThroughWalls: 1

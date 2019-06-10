@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using NesScripts.Controls.PathFind;
+using Random = UnityEngine.Random;
 
 public class TileSpreadingEnemy : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class TileSpreadingEnemy : MonoBehaviour
     public float timeToStart;
     public float timeToNextSpread;
     public int cellsPerSpread = 1;
+    public int directionality = 1;
     public bool isSpreading = true;
     [Space(20)]
     public int bodySize = 0;
@@ -25,6 +28,8 @@ public class TileSpreadingEnemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private TileMap map;
     private PlayerScript playerScript;
+
+    private float directionalityFactor;
 
     void Start()
     {
@@ -59,6 +64,8 @@ public class TileSpreadingEnemy : MonoBehaviour
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.sprite = spriteUpdater.zeroSided;
+
+        directionalityFactor = 1 / (Mathf.Pow(2, directionality));
         
         StartCoroutine(BeforeSpread());
     }
@@ -95,11 +102,11 @@ public class TileSpreadingEnemy : MonoBehaviour
             // using function that favors low values
             // https://stackoverflow.com/questions/1589321/adjust-items-chance-to-be-selected-from-a-list
             var r = Random.Range(0f, 1f);
-            var chosenIndex = Mathf.FloorToInt(sortedCells.Count * (1 - Mathf.Pow(r, 0.25f)));
+            var chosenIndex = Mathf.FloorToInt(sortedCells.Count * (1 - Mathf.Pow(r, directionalityFactor)));
             while (chosenList.Contains(chosenIndex))
             {
                 r = Random.Range(0f, 1f);
-                chosenIndex = Mathf.FloorToInt(sortedCells.Count * (1 - Mathf.Pow(r, 0.25f)));
+                chosenIndex = Mathf.FloorToInt(sortedCells.Count * (1 - Mathf.Pow(r, directionalityFactor)));
             }
             chosenList.Add(chosenIndex);
         }

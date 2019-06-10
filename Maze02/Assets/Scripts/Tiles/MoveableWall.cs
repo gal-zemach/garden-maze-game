@@ -151,6 +151,9 @@ public class MoveableWall : Tile
         
         infected = true;
         animator.SetBool("isInfected", true);
+        
+        if (gameManager.avoidInfectedTiles)
+            map.UpdateWalkabilityGrid(index, false);
     }
 
     public void Disinfect()

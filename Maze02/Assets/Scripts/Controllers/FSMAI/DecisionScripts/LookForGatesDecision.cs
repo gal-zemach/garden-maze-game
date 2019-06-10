@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/Decisions/Look For Gates")]
 public class LookForGatesDecision : Decision
 {
+
+    public bool seeThroughWalls;
+    
     public override bool Decide(StateController controller)
     {
         var target = LookForGates(controller);
@@ -81,7 +84,7 @@ public class LookForGatesDecision : Decision
         var tile = controller.navAgent.map.tiles[tileIndex];
 
         var moveableWall = tile as MoveableWall;
-        if (moveableWall != null)
+        if (!seeThroughWalls && moveableWall != null)
         {
             if (moveableWall.type == TileMap.TileType.moveableWall)
             {

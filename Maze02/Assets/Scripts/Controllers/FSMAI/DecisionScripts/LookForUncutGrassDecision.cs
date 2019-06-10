@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/Decisions/Look For Uncut Grass")]
 public class LookForUncutGrassDecision : Decision
 {
+    public bool seeThroughWalls;
+    
     public override bool Decide(StateController controller)
     {
         var target = LookForUncutGrass(controller);
@@ -83,7 +85,7 @@ public class LookForUncutGrassDecision : Decision
         if (moveableWall == null)
             return false;
 
-        if (moveableWall.type == TileMap.TileType.moveableWall)
+        if (!seeThroughWalls && moveableWall.type == TileMap.TileType.moveableWall)
         {
             foundWall = true;
             return false;

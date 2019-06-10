@@ -240,6 +240,7 @@ public class PlayerScript : MonoBehaviour
 		{
 			currentLives--;
 		}
+		DisableControls();
 		StartCoroutine(Blink());
 	}
 	

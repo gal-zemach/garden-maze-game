@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public int grassTilesLeft;
     public int changeableTiles;
 
+    public bool avoidInfectedTiles;
+    
     [Space(20)] 
     public bool forceOpenGates;
     
@@ -53,6 +55,8 @@ public class GameManager : MonoBehaviour
 
         changeableTiles = initialChangeableTiles;
         gameEnded = false;
+
+        map.avoidInfectedTiles = avoidInfectedTiles;
 
         StartCoroutine(GameLoop());
     }
