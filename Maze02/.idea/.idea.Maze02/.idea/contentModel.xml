@@ -74,9 +74,11 @@
           </e>
           <e p="GameManager.cs" t="Include" />
           <e p="GUI" t="Include">
+            <e p="EndGameMenu.cs" t="Include" />
             <e p="FillBar.cs" t="Include" />
             <e p="GUIManager.cs" t="Include" />
             <e p="LargeBar.cs" t="Include" />
+            <e p="RestartButtonScript.cs" t="Include" />
           </e>
           <e p="IsoCollider.cs" t="Include" />
           <e p="IsometricPlayerMovementController.cs" t="Include" />
@@ -84,7 +86,6 @@
           <e p="Item.cs" t="Include" />
           <e p="LivesVisualizer.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
-          <e p="RestartButtonScript.cs" t="Include" />
           <e p="TileClicker.cs" t="Include" />
           <e p="Tiles" t="Include">
             <e p="ConstWall.cs" t="Include" />

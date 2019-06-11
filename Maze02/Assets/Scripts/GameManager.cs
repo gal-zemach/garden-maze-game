@@ -5,7 +5,7 @@ using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
-{    
+{
     public GameObject playerPrefab;
     public Vector2 startTile;
     [HideInInspector] public GameObject player;
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     private PlayerScript playerScript;
     private TileMap map;
     private Vector2 tileSize;
+    private TileSpreadingEnemy tileSpreadingEnemy;
 
     private bool gameEnded;
     private bool reachedGate;
@@ -58,6 +59,8 @@ public class GameManager : MonoBehaviour
 
         map.avoidInfectedTiles = avoidInfectedTiles;
 
+        tileSpreadingEnemy = GameObject.Find("TileSpreadingEnemy").GetComponent<TileSpreadingEnemy>();
+        
         StartCoroutine(GameLoop());
     }
 
@@ -106,7 +109,7 @@ public class GameManager : MonoBehaviour
     
     private IEnumerator LevelEnding()
     {
-        DisableControls();
+        StopPlayerAndEnemy();
 
         if (PlayerReachedEnd())
         {
@@ -125,8 +128,10 @@ public class GameManager : MonoBehaviour
     private IEnumerator winGame()
     {
         Debug.Log("GameManager: you Win!");
+        yield return new WaitForSeconds(2);
+        
         gameEnded = true;
-        Time.timeScale = 0;
+        guiManager.ShowEndGameMenu(grassCut / totalGrassToCut);
 
         yield return null;
     }
@@ -151,6 +156,14 @@ public class GameManager : MonoBehaviour
     {
         tileClicker.DisableControls();
         playerScript.DisableControls();
+        
+    }
+    
+    private void StopPlayerAndEnemy()
+    {
+        tileClicker.DisableControls();
+        playerScript.DisableControls();
+        tileSpreadingEnemy.isSpreading = false;
     }
 
     private void SpawnPlayer()
@@ -167,6 +180,7 @@ public class GameManager : MonoBehaviour
         var cameraStartPosition = playerStartPosition;
         cameraStartPosition.z = -10;
         camera.transform.position = cameraStartPosition;
+        camera.GetComponent<CameraController>().target = player;
 
         playerScript = player.GetComponent<PlayerScript>();
     }

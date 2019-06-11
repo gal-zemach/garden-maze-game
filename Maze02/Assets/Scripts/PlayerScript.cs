@@ -101,6 +101,7 @@ public class PlayerScript : MonoBehaviour
 	{
 		if (!playerIsMoving)
 		{
+			StopPlayer();
 			UpdatePositionParameters();
 			return;
 		}
@@ -121,6 +122,11 @@ public class PlayerScript : MonoBehaviour
 		var worldPosition = transform.position;
 		gridPosition = IsoVectors.WorldToIso(worldPosition, tileSize);
 		gridCell = new Vector2(Mathf.Round(gridPosition.x), Mathf.Round(gridPosition.y)); // changed from Floor to Round because of AIController not recognizing it got to a destination cell
+	}
+
+	private void StopPlayer()
+	{
+		rb2d.velocity = Vector2.zero;
 	}
 
 	private void MovePlayer(float horizontalDirection, float verticalDirection)
