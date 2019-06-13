@@ -79,6 +79,7 @@
             <e p="FillBar.cs" t="Include" />
             <e p="GUIManager.cs" t="Include" />
             <e p="HighlightButton.cs" t="Include" />
+            <e p="IconAnimator.cs" t="Include" />
             <e p="LargeBar.cs" t="Include" />
             <e p="RestartButtonScript.cs" t="Include" />
           </e>

@@ -9,8 +9,7 @@ public class GUIManager : MonoBehaviour
     public float mockPercentage;
     
     [Space(20)]
-    public Text changeableTiles;
-    public FillBar mainFillbar;
+    public Text score;
     
     private GameManager gameManager;
     private Canvas canvas;
@@ -22,6 +21,7 @@ public class GUIManager : MonoBehaviour
     {
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         endGameMenu = canvas.transform.Find("End Game Menu").gameObject;
+        endGameMenu.SetActive(false);
     }
     
     private void Update()
@@ -36,41 +36,14 @@ public class GUIManager : MonoBehaviour
     public void StartGUI()
     {
         gameManager = GetComponent<GameManager>();
-
-        if (mainFillbar != null)
-        {
-            mainFillbar.SetMax(gameManager.totalGrassToCut);
-            mainFillbar.SetThreshold(gameManager.percentageToCompletion);
-        }
+        score.text = gameManager.score.ToString();
     }
 
     public void UpdateGUI()
     {
-        if (changeableTiles != null)
-        {
-            UpdateChangeableTiles();
-        }
-
-        if (mainFillbar != null)
-        {
-            mainFillbar.SetValue(gameManager.totalGrassToCut - gameManager.grassTilesLeft);
-        }
+        score.text = gameManager.score.ToString();
     }
 
-    private void UpdateChangeableTiles()
-    {
-        var changeableTilesValue = gameManager.changeableTiles;
-        if (changeableTilesValue == 0)
-        {
-            changeableTiles.color = Color.red;
-        }
-        else
-        {
-            changeableTiles.color = Color.white;
-        }
-        changeableTiles.text = changeableTilesValue.ToString();
-    }
-    
     public void ShowEndGameMenu(float completionPercentage)
     {
         foreach (Transform t in canvas.gameObject.transform)

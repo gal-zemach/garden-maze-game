@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public GameObject player;
 
     [Space(20)] 
-    public float percentageToCompletion = 0.75f;
+    public Vector3 completionPercentages;
+    public float currentCompletionPercentage;
     public Vector2Int GrassToTileRatio = new Vector2Int(3, 1);
     public int initialChangeableTiles = 0;
+    public int score;
     
     [Space(20)]
     public int grassTilesLeft;
@@ -84,6 +86,7 @@ public class GameManager : MonoBehaviour
         SpawnPlayer();
         DisableControls();
         playerScript.AfterHit();
+        score = 0;
         
         yield return startWait;
     }
@@ -91,6 +94,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator LevelPlaying()
     {        
         totalGrassToCut = grassTilesLeft;
+        OpenGates();
         if (guiManager != null)
             guiManager.StartGUI();
         
@@ -131,7 +135,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         
         gameEnded = true;
-        guiManager.ShowEndGameMenu(grassCut / totalGrassToCut);
+        guiManager.ShowEndGameMenu(currentCompletionPercentage);
 
         yield return null;
     }
@@ -140,9 +144,13 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("GameManager: you Lose!");
 
-        var currentScene = SceneManager.GetActiveScene();
-
         yield return reloadWait;
+        RestartLevel();
+    }
+
+    public void RestartLevel()
+    {
+        var currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
     }
 
@@ -217,11 +225,15 @@ public class GameManager : MonoBehaviour
         {
             changeableTiles += GrassToTileRatio.y;
         }
+        
+        currentCompletionPercentage = ((float)grassCut) / ((float)totalGrassToCut);
 
-        if (!gatesOpen && grassCut >= totalGrassToCut * percentageToCompletion)
-        {
-            OpenGates();
-        }
+        score += 5;
+
+//        if (!gatesOpen && grassCut >= totalGrassToCut * percentageToCompletion)
+//        {
+//            OpenGates();
+//        }
     }
 
     public void OpenGates()

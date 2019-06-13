@@ -12,7 +12,8 @@ public class EndGameMenu : MonoBehaviour
     [Space(20)]
     public Text messageText;
     public GameObject icon1, icon2, icon3;
-    
+
+    private GameManager gameManager;
     private Animator animator1, animator2, animator3;
     private WaitForSeconds timeToNextAnim;
     
@@ -23,6 +24,9 @@ public class EndGameMenu : MonoBehaviour
 
     private void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        percentages = gameManager.completionPercentages;
+        
         animator1 = icon1.GetComponent<Animator>();
         animator2 = icon2.GetComponent<Animator>();
         animator3 = icon3.GetComponent<Animator>();
