@@ -177,8 +177,9 @@ public class GameManager : MonoBehaviour
         playerStartPosition.z = startTile.x + startTile.y;
         player.transform.position = playerStartPosition;
 
+        var currentCameraPos = camera.transform.position;
         var cameraStartPosition = playerStartPosition;
-        cameraStartPosition.z = -10;
+        cameraStartPosition.z = currentCameraPos.z;
         camera.transform.position = cameraStartPosition;
         camera.GetComponent<CameraController>().target = player;
 

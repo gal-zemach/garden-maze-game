@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
 	private Vector2 levelTopRightPosition;
 	private Vector2 cameraExtents;
 	private int cameraZoom;
-	private float cameraZ = -10;
+	private float cameraZ = -400;
 	
 	void Start ()
 	{
@@ -43,8 +43,6 @@ public class CameraController : MonoBehaviour
 		{
 			UpdatePositionToTarget();
 		}
-			
-			
 	}
 	
 	void Update ()
@@ -99,7 +97,8 @@ public class CameraController : MonoBehaviour
 
 			cameraPos.x = Mathf.Clamp(cameraPos.x, levelBottomLeftPosition.x + cameraExtents.x, levelTopRightPosition.x - cameraExtents.x);
 			cameraPos.y = Mathf.Clamp(cameraPos.y, levelBottomLeftPosition.y + cameraExtents.y, levelTopRightPosition.y - cameraExtents.y);
-	
+
+			cameraPos.z = cameraZ;
 			transform.position = cameraPos;
 		}
 	}
