@@ -14,6 +14,7 @@
           <e p="TilePickerWindow.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
+          <e p="AudioManager.cs" t="Include" />
           <e p="ChangeSortingOrder.cs" t="Include" />
           <e p="Controllers" t="Include">
             <e p="AIController.cs" t="Include" />

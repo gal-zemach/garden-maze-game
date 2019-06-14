@@ -25,6 +25,7 @@ public class PlayerScript : MonoBehaviour
 	private SpriteRenderer sprite;
 	private Controller controller;
 	private GameManager gameManager;
+	private AudioManager audioManager;
 	private TileMap map;
 	private Animator animator;
 
@@ -45,6 +46,7 @@ public class PlayerScript : MonoBehaviour
 		sprite = GetComponentInChildren<SpriteRenderer>();
 		animator = GetComponentInChildren<Animator>();
 		gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+		audioManager = gameManager.gameObject.GetComponent<AudioManager>();
 		controller = GetComponent<Controller>();
 		if (ReferenceEquals(controller, null))
 		{
@@ -85,6 +87,7 @@ public class PlayerScript : MonoBehaviour
 		
 		if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
+			audioManager.PlaySpeedUp();
 			movementSpeed = fasterMovementSpeed;
 			animator.SetBool(animRunning, true);
 		}
@@ -131,7 +134,7 @@ public class PlayerScript : MonoBehaviour
 
 	private void MovePlayer(float horizontalDirection, float verticalDirection)
 	{
-		Vector2 currentPos = rb2d.position;
+//		Vector2 currentPos = rb2d.position;
 		Vector2 verticalVector = (verticalDirection * IsoVectors.UP).normalized;
 		Vector2 horizontalVector = (horizontalDirection * IsoVectors.RIGHT).normalized;
 		var inputVector = horizontalVector + verticalVector;
@@ -187,26 +190,12 @@ public class PlayerScript : MonoBehaviour
 	{
 		var tile = map.tiles[map.TileIndex((int)gridCell.x, (int)gridCell.y)].GetComponent<Tile>();
 		var moveableWall = tile as MoveableWall;
-		if (moveableWall != null)
+		if (moveableWall != null && !moveableWall.visited)
 		{
+			audioManager.PlayGrassCut();
 			var visitedNewTile = moveableWall.MarkAsVisited();
 		}
 	}
-
-//	private IEnumerator BlinkSpriteAndStartMovement()
-//	{
-//		invincible = true;
-//		for (int i = 0; i < 4; i++)
-//		{
-//			sprite.enabled = false;
-//			yield return new WaitForSeconds(0.4f);
-//		
-//			sprite.enabled = true;
-//			yield return new WaitForSeconds(0.4f);
-//		}
-//		playerIsMoving = true;
-//		invincible = false;
-//	}
 
 	public void EnableControls()
 	{
@@ -219,35 +208,20 @@ public class PlayerScript : MonoBehaviour
 	{
 		playerIsMoving = false;
 	}
-	
-//	private IEnumerator InvincibilityBlink()
-//	{
-//		yield return new WaitForSeconds(0.7f);
-//		playerIsMoving = true;
-//		
-//		invincible = true;
-//		for (int i = 0; i < 3; i++)
-//		{
-//			sprite.enabled = false;
-//			yield return new WaitForSeconds(0.4f);
-//		
-//			sprite.enabled = true;
-//			yield return new WaitForSeconds(0.4f);
-//		}
-//
-//		playerIsMoving = true;
-//		invincible = false;
-//	}
 
 	public void ReduceLives()
 	{
 		playerIsMoving = false;
 		if (!invincible)
 		{
-			currentLives--;
+//			currentLives--;
+			currentLives = 0;
 		}
 		DisableControls();
-		StartCoroutine(Blink());
+		audioManager.PlayHitPlayer();
+		animator.SetBool("death", true);
+		
+//		StartCoroutine(Blink());
 	}
 	
 	public bool IsDead()
@@ -286,5 +260,10 @@ public class PlayerScript : MonoBehaviour
 			yield return new WaitForSeconds(blinkInterval);
 		}
 		invincible = false;
+	}
+
+	public void PlayerWon()
+	{
+		animator.SetBool("win", true);
 	}
 }

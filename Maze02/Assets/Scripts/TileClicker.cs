@@ -10,6 +10,7 @@ public class TileClicker : MonoBehaviour
     public float secondsToToggleBack = 3;
     
     private GameManager gameManager;
+    private AudioManager audioManager;
     private PlayerScript playerScript;
     private Tile lastChangedTile;
     private GameObject marker, wallMarker;
@@ -20,6 +21,7 @@ public class TileClicker : MonoBehaviour
     void Start()
     {
         gameManager = GetComponent<GameManager>();
+        audioManager = gameManager.gameObject.GetComponent<AudioManager>();
         playerScript = gameManager.player.GetComponent<PlayerScript>();
         marker = transform.Find("Marker").gameObject;
         wallMarker = transform.Find("Wall Marker").gameObject;
@@ -104,6 +106,7 @@ public class TileClicker : MonoBehaviour
             return false;
         }
         
+        audioManager.PlayTileUp();
         moveableWall.Toggle();
                 
         // should be in Tile class but it doesn't work from there!!

@@ -14904,7 +14904,7 @@ MonoBehaviour:
   - {fileID: 21300054, guid: 028b7e4a9f5a34794a33cbb1f67ac122, type: 3}
   gridSize: {x: 2240, y: 960}
   pixelsToUnits: 1
-  tileID: 3
+  tileID: 9
   tilesParent: {fileID: 660532034}
   avoidInfectedTiles: 0
   tilePrefabs:
@@ -25241,6 +25241,8 @@ GameObject:
   - component: {fileID: 350907929}
   - component: {fileID: 350907927}
   - component: {fileID: 350907931}
+  - component: {fileID: 350907932}
+  - component: {fileID: 350907930}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -25307,6 +25309,102 @@ MonoBehaviour:
   forceOpenGates: 0
   gates: []
   totalGrassToCut: 0
+--- !u!82 &350907930
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350907926}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &350907931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25322,6 +25420,23 @@ MonoBehaviour:
   showEndGameMenu: 0
   mockPercentage: 0.7
   score: {fileID: 326582934}
+--- !u!114 &350907932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350907926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb532b4d99f14bacbd6c148fc8cfa4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutGrassSound: {fileID: 8300000, guid: 4caa08ba4dd8e47f7ab4ede2030910e2, type: 3}
+  tileUpSound: {fileID: 8300000, guid: 50f8e76787c7c45e0a86360e59869984, type: 3}
+  speedUpSound: {fileID: 8300000, guid: b6dab2286201b4deeabc4be2b90daf2b, type: 3}
+  hitPlayerSound: {fileID: 8300000, guid: 402f8950d96204ad59f423723d3a04fa, type: 3}
+  levelClearSound: {fileID: 8300000, guid: 7326cde4598804460827b3c6022a2879, type: 3}
 --- !u!1 &355711079
 GameObject:
   m_ObjectHideFlags: 0
@@ -35252,7 +35367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followMouse: 0
-  followTarget: 1
+  followTarget: 0
   target: {fileID: 0}
   cameraStep: 3
   cameraZoomChangeStep: 5
@@ -150010,6 +150125,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -154
       objectReference: {fileID: 0}
+    - target: {fileID: 7618274383571649020, guid: 45eb482c1e8034a42b016f79a861f752,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 407
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618274383571649020, guid: 45eb482c1e8034a42b016f79a861f752,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -670
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618274383571649020, guid: 45eb482c1e8034a42b016f79a861f752,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 309
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45eb482c1e8034a42b016f79a861f752, type: 3}
 --- !u!4 &3867300301585966815 stripped
@@ -150143,6 +150273,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708007573481528495, guid: 709b99f8be5664d88893543078775c4e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 169
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585101645045243421, guid: 709b99f8be5664d88893543078775c4e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 159
+      objectReference: {fileID: 0}
+    - target: {fileID: 225395716812563244, guid: 709b99f8be5664d88893543078775c4e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 69
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709b99f8be5664d88893543078775c4e, type: 3}
@@ -150501,6 +150646,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1521628469514985054, guid: 22505d2b1e7d744539fac0b3cb76d54c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -113
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22505d2b1e7d744539fac0b3cb76d54c, type: 3}

@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     private bool gatesOpen = false;
 
     private GUIManager guiManager;
+    private AudioManager audioManager;
     private GameObject camera;
     private TileClicker tileClicker;
     private PlayerScript playerScript;
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         guiManager = GetComponent<GUIManager>();
+        audioManager = GetComponent<AudioManager>();
         camera = GameObject.Find("Main Camera");
         map = GameObject.Find("Tile Map").GetComponent<TileMap>();
         tileSize = new Vector2(map.tileSize.x, map.tileSize.y / 2);
@@ -132,7 +134,9 @@ public class GameManager : MonoBehaviour
     private IEnumerator winGame()
     {
         Debug.Log("GameManager: you Win!");
-        yield return new WaitForSeconds(2);
+        audioManager.PlayLevelClear();
+        playerScript.PlayerWon();
+        yield return new WaitForSeconds(1);
         
         gameEnded = true;
         guiManager.ShowEndGameMenu(currentCompletionPercentage);
