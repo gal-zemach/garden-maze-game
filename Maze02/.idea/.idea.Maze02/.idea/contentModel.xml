@@ -8,8 +8,15 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Auto Letterbox" t="Include">
+          <e p="Editor" t="Include">
+            <e p="ForceCameraRatioEditor.cs" t="Include" />
+          </e>
+          <e p="ForceCameraRatio.cs" t="Include" />
+        </e>
         <e p="Editor" t="Include">
           <e p="NewTileMapMenu.cs" t="Include" />
+          <e p="PopulateField.cs" t="Include" />
           <e p="TileMapEditor.cs" t="Include" />
           <e p="TilePickerWindow.cs" t="Include" />
         </e>
@@ -83,13 +90,16 @@
             <e p="IconAnimator.cs" t="Include" />
             <e p="LargeBar.cs" t="Include" />
             <e p="RestartButtonScript.cs" t="Include" />
+            <e p="TextFlash.cs" t="Include" />
           </e>
           <e p="IsoCollider.cs" t="Include" />
           <e p="IsometricPlayerMovementController.cs" t="Include" />
           <e p="IsoVectors.cs" t="Include" />
           <e p="Item.cs" t="Include" />
           <e p="LivesVisualizer.cs" t="Include" />
+          <e p="OpeningScreenInputScript.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
+          <e p="SceneLoader.cs" t="Include" />
           <e p="TileClicker.cs" t="Include" />
           <e p="Tiles" t="Include">
             <e p="ConstWall.cs" t="Include" />

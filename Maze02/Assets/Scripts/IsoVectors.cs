@@ -11,7 +11,7 @@ public class IsoVectors : MonoBehaviour
     public static Vector3 RIGHT = Quaternion.Euler(new Vector3(0, 0, -ROT_ANGLE)) * Vector3.right;
     public static Vector3 LEFT = -RIGHT;
     
-    public static Color GAME_RED = new Color(224, 0, 27);
+    public static Color GAME_RED = new Color32(224, 0, 27, 255);
 
     public static Vector2 Opposite(Vector2 dir)
     {
