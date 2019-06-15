@@ -150200,6 +150200,12 @@ PrefabInstance:
       propertyPath: directionality
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4275884527009071678, guid: f719e82eb2268488388cdf0fd6e645dc,
+        type: 3}
+      propertyPath: bodyElementPrefab
+      value: 
+      objectReference: {fileID: 460875454222061524, guid: 542530086592748adb80f75cd285952a,
+        type: 3}
     - target: {fileID: 4275884528239514455, guid: f719e82eb2268488388cdf0fd6e645dc,
         type: 3}
       propertyPath: m_IsActive

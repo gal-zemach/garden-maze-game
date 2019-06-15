@@ -28,6 +28,7 @@ public class TileSpreadingEnemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private TileMap map;
     private PlayerScript playerScript;
+    private Animator animator;
 
     private float directionalityFactor;
 
@@ -65,6 +66,9 @@ public class TileSpreadingEnemy : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.sprite = spriteUpdater.zeroSided;
 
+//        animator = GetComponentInChildren<Animator>();
+//        animator.runtimeAnimatorController = spriteUpdater.zeroSidedAnim;
+
         directionalityFactor = 1 / (Mathf.Pow(2, directionality));
         
         StartCoroutine(BeforeSpread());
@@ -80,7 +84,10 @@ public class TileSpreadingEnemy : MonoBehaviour
     private IEnumerator SpreadLoop()
     {
         yield return StartCoroutine(Spread());
+        
         spriteRenderer.sprite = spriteUpdater.UpdateSprite(map, bodyStart);
+//        animator.runtimeAnimatorController = spriteUpdater.UpdateAnimator(map, bodyStart);
+//        animator.Play(spriteUpdater.SPRITE_NAME);
         
         if (isSpreading)
             StartCoroutine(SpreadLoop());

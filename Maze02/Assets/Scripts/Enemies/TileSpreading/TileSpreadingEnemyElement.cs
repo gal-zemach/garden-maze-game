@@ -11,17 +11,39 @@ public class TileSpreadingEnemyElement : MonoBehaviour
     private TileSpreadingEnemy parentEnemy;
     private SpriteRenderer spriteRenderer;
     private Transform spriteTransform;
-    
+    private Animator animator;
+
+    private bool ranAnimation;
+    private int updateCycles;
     
     void Start()
     {
         parentEnemy = transform.parent.parent.GetComponent<TileSpreadingEnemy>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        spriteTransform = transform.Find("Sprite");
+//        spriteTransform = transform.Find("Sprite");
+
+        animator = GetComponentInChildren<Animator>();
+        ranAnimation = true;
+        updateCycles = 0;
     }
 
     private void LateUpdate()
     {
+//        updateCycles++;
+//        if (ranAnimation && updateCycles < 60)
+//            return;
+//                
+//        var newAnimator = tileUpdater.UpdateAnimator(map, index);
+//        animator.enabled = false;
+//        animator.runtimeAnimatorController = newAnimator;
+//        if (ranAnimation)
+//        {
+//            animator.Play(tileUpdater.SPRITE_NAME);
+//        }
+//
+//        ranAnimation = true;
+//        animator.enabled = true;
+
         spriteRenderer.sprite = tileUpdater.UpdateSprite(map, index);
     }
 

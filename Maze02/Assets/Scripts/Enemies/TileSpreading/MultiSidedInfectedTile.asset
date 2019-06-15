@@ -28,3 +28,22 @@ MonoBehaviour:
   threeSidedE: {fileID: 21300004, guid: 53b8be811826044928f3bf511591f870, type: 3}
   threeSidedW: {fileID: 21300002, guid: 53b8be811826044928f3bf511591f870, type: 3}
   fourSided: {fileID: 21300052, guid: 53b8be811826044928f3bf511591f870, type: 3}
+  a: 
+  zeroSidedAnim: {fileID: 9100000, guid: 87b8e98215477438db2fceaca87f15ee, type: 2}
+  oneSidedNAnim: {fileID: 9100000, guid: 977075562fcc646558e21768284c2b00, type: 2}
+  oneSidedSAnim: {fileID: 9100000, guid: 4a48924af04144b11b1fc0992ecf1d09, type: 2}
+  oneSidedEAnim: {fileID: 9100000, guid: 1f43db9be751146908f3d0dd0c75da07, type: 2}
+  oneSidedWAnim: {fileID: 9100000, guid: 1c95929f46c7d4ac1806e88d44518fb2, type: 2}
+  twoSidedNEAnim: {fileID: 9100000, guid: 346fd220ed6c346a2a00373ed4a856be, type: 2}
+  twoSidedNWAnim: {fileID: 9100000, guid: 50198481ee95745e7b12c2eb84a5ad5e, type: 2}
+  twoSidedSEAnim: {fileID: 9100000, guid: 8e14a6cffb02c4012b9f465ef92b9078, type: 2}
+  twoSidedSWAnim: {fileID: 9100000, guid: 055038423d6f04a8ab5834f79726fa40, type: 2}
+  twoSidedNSAnim: {fileID: 9100000, guid: 859a76163506948959cc7dfe086322ae, type: 2}
+  twoSidedEWAnim: {fileID: 9100000, guid: e8f9b2999e3084064a96f845c69b861e, type: 2}
+  threeSidedNAnim: {fileID: 9100000, guid: 6d4d10b49433e488fbfe580d4cdd92d2, type: 2}
+  threeSidedSAnim: {fileID: 9100000, guid: 44149012f3a5748ad915f36512b42b41, type: 2}
+  threeSidedEAnim: {fileID: 9100000, guid: f48db78acdc4948dbb2f77efde23661d, type: 2}
+  threeSidedWAnim: {fileID: 9100000, guid: ac71012fcb3df44f4956d3c5b79817bf, type: 2}
+  fourSidedAnim: {fileID: 9100000, guid: 5ed7509f0983948b9a17eebbadd615a1, type: 2}
+  ANIM_NAME: anim
+  SPRITE_NAME: sprite
