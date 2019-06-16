@@ -87,13 +87,13 @@ public class PlayerScript : MonoBehaviour
 		if (!playerIsMoving)
 			return;
 		
-		if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetMouseButtonDown(1)) //todo: keep this?
+		if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetMouseButtonDown(1)) //todo: keep the extra buttons?
 		{
 			audioManager.PlaySpeedUp();
 			movementSpeed = fasterMovementSpeed;
 			animator.SetBool(animRunning, true);
 		}
-		if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetMouseButtonDown(1))
+		if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift) || Input.GetMouseButtonUp(1))
 		{
 			movementSpeed = normalMovementSpeed;
 			animator.SetBool(animRunning, false);

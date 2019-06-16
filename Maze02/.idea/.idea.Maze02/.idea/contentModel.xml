@@ -86,6 +86,7 @@
             <e p="IconAnimator.cs" t="Include" />
             <e p="LargeBar.cs" t="Include" />
             <e p="OpeningScreenInputScript.cs" t="Include" />
+            <e p="QuitScript.cs" t="Include" />
             <e p="RestartButtonScript.cs" t="Include" />
             <e p="SoundLoader.cs" t="Include" />
             <e p="TextFlash.cs" t="Include" />
