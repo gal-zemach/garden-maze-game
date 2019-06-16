@@ -73,17 +73,21 @@
               <e p="MultiSidedTIle.cs" t="Include" />
               <e p="TileSpreadingEnemy.cs" t="Include" />
               <e p="TileSpreadingEnemyElement.cs" t="Include" />
+              <e p="TSEOnAnimationEnd.cs" t="Include" />
             </e>
           </e>
           <e p="GameManager.cs" t="Include" />
           <e p="GUI" t="Include">
+            <e p="ChangeableTilesGUI.cs" t="Include" />
             <e p="EndGameMenu.cs" t="Include" />
             <e p="FillBar.cs" t="Include" />
             <e p="GUIManager.cs" t="Include" />
             <e p="HighlightButton.cs" t="Include" />
             <e p="IconAnimator.cs" t="Include" />
             <e p="LargeBar.cs" t="Include" />
+            <e p="OpeningScreenInputScript.cs" t="Include" />
             <e p="RestartButtonScript.cs" t="Include" />
+            <e p="SoundLoader.cs" t="Include" />
             <e p="TextFlash.cs" t="Include" />
           </e>
           <e p="IsoCollider.cs" t="Include" />
@@ -91,7 +95,6 @@
           <e p="IsoVectors.cs" t="Include" />
           <e p="Item.cs" t="Include" />
           <e p="LivesVisualizer.cs" t="Include" />
-          <e p="OpeningScreenInputScript.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
           <e p="SceneLoader.cs" t="Include" />
           <e p="TileClicker.cs" t="Include" />

@@ -11,12 +11,17 @@ public class TileSpreadingEnemy : MonoBehaviour
     public GameObject bodyElementPrefab;
     public MultiSidedTile spriteUpdater;
     public Vector2Int bodyStart;
+    
+    [Space(20)] 
+    public bool tileTrigger;
+    public Vector2 triggerIndex;
+    
     [Space(20)]
     public float timeToStart;
     public float timeToNextSpread;
     public int cellsPerSpread = 1;
     public int directionality = 1;
-    public bool isSpreading = true;
+    public bool isSpreading;
     [Space(20)]
     public int bodySize = 0;
     
@@ -66,17 +71,45 @@ public class TileSpreadingEnemy : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.sprite = spriteUpdater.zeroSided;
 
-//        animator = GetComponentInChildren<Animator>();
-//        animator.runtimeAnimatorController = spriteUpdater.zeroSidedAnim;
-
-        directionalityFactor = 1 / (Mathf.Pow(2, directionality));
+        animator = GetComponentInChildren<Animator>();
+        animator.enabled = false;
+        spriteRenderer.enabled = false;
         
+        directionalityFactor = 1 / (Mathf.Pow(2, directionality));
+
+        isSpreading = false;
+        if (!tileTrigger)
+        {
+            StartSpreading();
+        }   
+    }
+
+    private void Update()
+    {
+        if (!tileTrigger)
+            return;
+
+        if (!isSpreading && playerScript!= null && playerScript.gridCell == triggerIndex)
+        {
+            StartSpreading();
+        }
+    }
+
+    private void StartSpreading()
+    {
+        Debug.Log("TileSpreadingEnemy: starting to spread");
+        isSpreading = true;
         StartCoroutine(BeforeSpread());
     }
 
     private IEnumerator BeforeSpread()
     {
         yield return new WaitForSeconds(timeToStart);
+        
+        animator.runtimeAnimatorController = spriteUpdater.zeroSidedAnim;
+        spriteRenderer.enabled = true;
+        animator.enabled = true;
+        
         StartCoroutine(SpreadLoop());
     }
 
@@ -220,5 +253,11 @@ public class TileSpreadingEnemy : MonoBehaviour
     {
         Debug.Log("TileSpreadingEnemy: Hit Player");
         playerScript.ReduceLives();
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (tileTrigger && map != null)
+            IsoVectors.drawPoint(triggerIndex, Color.cyan, map.actualTileSize);
     }
 }

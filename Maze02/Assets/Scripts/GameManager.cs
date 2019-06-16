@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public List<Gate> gates;
     
     [HideInInspector] public int totalGrassToCut;
-    private int grassCut;
+    [HideInInspector] public int grassCut;
     private bool gatesOpen = false;
 
     private GUIManager guiManager;

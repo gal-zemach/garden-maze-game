@@ -28,6 +28,7 @@ public class PlayerScript : MonoBehaviour
 	private AudioManager audioManager;
 	private TileMap map;
 	private Animator animator;
+	private AudioSource audioSource;
 
 	private const string ANIM_RUNNING = "isRunning";
 	private const string ANIM_BACK = "showBack";
@@ -48,6 +49,7 @@ public class PlayerScript : MonoBehaviour
 		gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 		audioManager = gameManager.gameObject.GetComponent<AudioManager>();
 		controller = GetComponent<Controller>();
+		audioSource = GetComponent<AudioSource>();
 		if (ReferenceEquals(controller, null))
 		{
 			Debug.LogError("player is missing a Controller component");
@@ -85,13 +87,13 @@ public class PlayerScript : MonoBehaviour
 		if (!playerIsMoving)
 			return;
 		
-		if (Input.GetKeyDown(KeyCode.LeftShift))
+		if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetMouseButtonDown(1)) //todo: keep this?
 		{
 			audioManager.PlaySpeedUp();
 			movementSpeed = fasterMovementSpeed;
 			animator.SetBool(animRunning, true);
 		}
-		if (Input.GetKeyUp(KeyCode.LeftShift))
+		if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetMouseButtonDown(1))
 		{
 			movementSpeed = normalMovementSpeed;
 			animator.SetBool(animRunning, false);
@@ -192,7 +194,7 @@ public class PlayerScript : MonoBehaviour
 		var moveableWall = tile as MoveableWall;
 		if (moveableWall != null && !moveableWall.visited)
 		{
-			audioManager.PlayGrassCut();
+			audioManager.PlayGrassCut(audioSource);
 			var visitedNewTile = moveableWall.MarkAsVisited();
 		}
 	}

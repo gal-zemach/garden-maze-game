@@ -23,8 +23,11 @@ public class TileSpreadingEnemyElement : MonoBehaviour
 //        spriteTransform = transform.Find("Sprite");
 
         animator = GetComponentInChildren<Animator>();
-        ranAnimation = true;
-        updateCycles = 0;
+        ranAnimation = false;
+//        updateCycles = 0;
+
+        var newAnimator = tileUpdater.UpdateAnimator(map, index);
+        animator.runtimeAnimatorController = newAnimator;
     }
 
     private void LateUpdate()
@@ -32,7 +35,12 @@ public class TileSpreadingEnemyElement : MonoBehaviour
 //        updateCycles++;
 //        if (ranAnimation && updateCycles < 60)
 //            return;
-//                
+                
+          if (!ranAnimation)
+            return;
+          
+          animator.enabled = false;
+          
 //        var newAnimator = tileUpdater.UpdateAnimator(map, index);
 //        animator.enabled = false;
 //        animator.runtimeAnimatorController = newAnimator;
@@ -45,6 +53,12 @@ public class TileSpreadingEnemyElement : MonoBehaviour
 //        animator.enabled = true;
 
         spriteRenderer.sprite = tileUpdater.UpdateSprite(map, index);
+    }
+
+    public void OnAnimationEnd()
+    {
+//        Debug.Log("animation event called");
+        ranAnimation = true;
     }
 
 
