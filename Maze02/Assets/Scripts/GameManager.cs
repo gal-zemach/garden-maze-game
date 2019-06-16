@@ -11,11 +11,13 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public GameObject player;
 
     [Space(20)] 
+    public float percentageToOpenGates;
     public Vector3 completionPercentages;
     public float currentCompletionPercentage;
     public Vector2Int GrassToTileRatio = new Vector2Int(3, 1);
     public int initialChangeableTiles = 0;
     public int score;
+    public bool enemyExists = true;
     
     [Space(20)]
     public int grassTilesLeft;
@@ -63,7 +65,8 @@ public class GameManager : MonoBehaviour
 
         map.avoidInfectedTiles = avoidInfectedTiles;
 
-        tileSpreadingEnemy = GameObject.Find("TileSpreadingEnemy").GetComponent<TileSpreadingEnemy>();
+        if (enemyExists)
+            tileSpreadingEnemy = GameObject.Find("TileSpreadingEnemy").GetComponent<TileSpreadingEnemy>();
         
         StartCoroutine(GameLoop());
     }
@@ -96,7 +99,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator LevelPlaying()
     {        
         totalGrassToCut = grassTilesLeft;
-        OpenGates();
+//        OpenGates();
         if (guiManager != null)
             guiManager.StartGUI();
         
@@ -175,7 +178,8 @@ public class GameManager : MonoBehaviour
     {
         tileClicker.DisableControls();
         playerScript.DisableControls();
-        tileSpreadingEnemy.isSpreading = false;
+        if (enemyExists)
+            tileSpreadingEnemy.isSpreading = false;
     }
 
     private void SpawnPlayer()
@@ -234,15 +238,16 @@ public class GameManager : MonoBehaviour
 
         score += 5;
 
-//        if (!gatesOpen && grassCut >= totalGrassToCut * percentageToCompletion)
-//        {
-//            OpenGates();
-//        }
+        if (!gatesOpen && grassCut >= totalGrassToCut * percentageToOpenGates)
+        {
+            OpenGates();
+        }
     }
 
     public void OpenGates()
     {
         Debug.Log("GameManager: Gates Open");
+        audioManager.PlayOpenGates();
         gatesOpen = true;
         foreach (var gate in gates)
         {

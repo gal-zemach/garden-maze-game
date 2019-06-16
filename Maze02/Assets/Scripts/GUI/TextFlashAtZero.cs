@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TextFlash : MonoBehaviour
+public class TextFlashAtZero : MonoBehaviour
 {
     public List<Color> colors;
     public float timeForEachColor;
@@ -11,6 +11,9 @@ public class TextFlash : MonoBehaviour
     private Text text;
     private WaitForSeconds changeTime;
     private int colorIndex;
+
+    private GameManager gameManager;
+    private bool currentlyFlashing;
 
     void Start()
     {
@@ -21,21 +24,30 @@ public class TextFlash : MonoBehaviour
         if (colors == null || colors.Count == 0)
         {
             colors = new List<Color>();
-//            colors.Add(Color.white);
-//            colors.Add(IsoVectors.GAME_RED);
-            colors.Add(Color.yellow);
-            colors.Add(Color.black);
+            colors.Add(Color.white);
+            colors.Add(IsoVectors.GAME_RED);
+//            colors.Add(Color.black);
         }
-        
+
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
         StartCoroutine(ChangeColor());
     }
 
     private IEnumerator ChangeColor()
     {
-        text.color = colors[colorIndex];
+        if (gameManager.changeableTiles != 0)
+        {
+            text.color = Color.white;
+        }
+        else
+        {
+            text.color = colors[colorIndex];
+        }
+        
         yield return changeTime;
-
         colorIndex = (colorIndex + 1) % colors.Count;
+        
         StartCoroutine(ChangeColor());
     }
 }
