@@ -142,7 +142,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         
         gameEnded = true;
-        guiManager.ShowEndGameMenu(currentCompletionPercentage);
+        if (guiManager != null)
+            guiManager.ShowEndGameMenu(currentCompletionPercentage);
 
         yield return null;
     }

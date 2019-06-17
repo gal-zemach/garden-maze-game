@@ -84,6 +84,7 @@
           </e>
           <e p="GameManager.cs" t="Include" />
           <e p="GUI" t="Include">
+            <e p="AnyKeyToContinue.cs" t="Include" />
             <e p="ChangeableTilesGUI.cs" t="Include" />
             <e p="EndGameMenu.cs" t="Include" />
             <e p="FillBar.cs" t="Include" />
@@ -95,6 +96,7 @@
             <e p="QuitScript.cs" t="Include" />
             <e p="RestartButtonScript.cs" t="Include" />
             <e p="SoundLoader.cs" t="Include" />
+            <e p="StreamVideo.cs" t="Include" />
             <e p="TextFlash.cs" t="Include" />
             <e p="TextFlashAtZero.cs" t="Include" />
           </e>

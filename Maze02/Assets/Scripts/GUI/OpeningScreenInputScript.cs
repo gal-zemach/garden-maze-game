@@ -17,7 +17,7 @@ public class OpeningScreenInputScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKey || Input.GetMouseButtonDown(0))
+        if (Input.anyKey)
         {
             soundsAudioSource.Play();
             StartCoroutine(WaitThenLoad(0.75f));

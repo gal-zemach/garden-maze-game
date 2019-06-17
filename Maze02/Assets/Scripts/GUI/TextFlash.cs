@@ -21,9 +21,9 @@ public class TextFlash : MonoBehaviour
         if (colors == null || colors.Count == 0)
         {
             colors = new List<Color>();
-//            colors.Add(Color.white);
+            colors.Add(Color.white);
 //            colors.Add(IsoVectors.GAME_RED);
-            colors.Add(Color.yellow);
+//            colors.Add(Color.yellow);
             colors.Add(Color.black);
         }
         
