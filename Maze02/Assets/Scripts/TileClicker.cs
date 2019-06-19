@@ -82,9 +82,12 @@ public class TileClicker : MonoBehaviour
             ToggleTile(tile);
             return;
         }
-        
+
         if (gameManager.changeableTiles <= 0)
+        {
+            InvalidMarker();
             return;
+        }
         
         var toggled = ToggleTile(tile);
         if (toggled)
@@ -92,6 +95,24 @@ public class TileClicker : MonoBehaviour
         
         if (toggleBackTimer)
             StartCoroutine(ToggleTileBack(tile));
+    }
+
+    private void InvalidMarker()
+    {
+        var srMarker = marker.GetComponent<SpriteRenderer>();
+        var srWallMarker = wallMarker.GetComponent<SpriteRenderer>();
+
+        Color currentColor = srMarker.color;
+        Color red = IsoVectors.GAME_RED_TRANSPARENT;
+
+        audioManager.PlayCantGrow();
+        srMarker.color = red;
+        srWallMarker.color = red;
+//        yield return new WaitForSeconds(0.05f);
+//        
+//        srMarker.color = currentColor;
+//        srWallMarker.color = currentColor;
+//        yield return null;
     }
 
     private bool ToggleTile(Tile tile)

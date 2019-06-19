@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip hitPlayerSound;
     public AudioClip levelClearSound;
     public AudioClip openGatesSound;
+    public AudioClip cantGrowSound;
     
     private AudioSource ownAudioSource;
 
@@ -69,6 +70,15 @@ public class AudioManager : MonoBehaviour
             audioSource = ownAudioSource;
 
         audioSource.clip = openGatesSound;
+        audioSource.Play();
+    }
+    
+    public void PlayCantGrow(AudioSource audioSource=null)
+    {
+        if (audioSource == null)
+            audioSource = ownAudioSource;
+
+        audioSource.clip = cantGrowSound;
         audioSource.Play();
     }
 }

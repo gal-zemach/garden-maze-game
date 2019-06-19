@@ -12,6 +12,7 @@ public class IsoVectors : MonoBehaviour
     public static Vector3 LEFT = -RIGHT;
     
     public static Color GAME_RED = new Color32(224, 0, 27, 255);
+    public static Color GAME_RED_TRANSPARENT = new Color32(224, 0, 27, 66);
 
     public static Vector2 Opposite(Vector2 dir)
     {
