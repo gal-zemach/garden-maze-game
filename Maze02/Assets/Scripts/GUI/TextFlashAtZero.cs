@@ -38,7 +38,10 @@ public class TextFlashAtZero : MonoBehaviour
     {
         if (gameManager.changeableTiles != 0)
         {
-            text.color = Color.white;
+            if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(0))
+                text.color = IsoVectors.GAME_RED;
+            else
+                text.color = Color.white;
         }
         else
         {

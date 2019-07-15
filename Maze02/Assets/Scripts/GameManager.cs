@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [Space(20)]
     public int grassTilesLeft;
     public int changeableTiles;
+    public int scorePerGrassTile = 5;
 
     public bool avoidInfectedTiles;
     
@@ -143,7 +144,7 @@ public class GameManager : MonoBehaviour
         
         gameEnded = true;
         if (guiManager != null)
-            guiManager.ShowEndGameMenu(currentCompletionPercentage);
+            guiManager.ShowEndGameMenu(score);
 
         yield return null;
     }
@@ -230,14 +231,17 @@ public class GameManager : MonoBehaviour
         grassTilesLeft--;
         
         grassCut++;
+        guiManager.IncrementGrassCut();
+        
         if (grassCut % GrassToTileRatio.x == 0)
         {
             changeableTiles += GrassToTileRatio.y;
+//            audioManager.PlayNewChangeableTile();
         }
         
         currentCompletionPercentage = ((float)grassCut) / ((float)totalGrassToCut);
 
-        score += 5;
+        score += scorePerGrassTile;
 
         if (!gatesOpen && grassCut >= totalGrassToCut * percentageToOpenGates)
         {

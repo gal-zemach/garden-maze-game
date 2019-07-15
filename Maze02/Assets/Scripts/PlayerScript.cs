@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
 	public bool invincible;
 	public int normalMovementSpeed = 100;
 	public int fasterMovementSpeed = 200;
+	public bool isRunning;
 	
 	// used for positioning and controller
 	[HideInInspector] public bool playerIsMoving;
@@ -29,6 +30,7 @@ public class PlayerScript : MonoBehaviour
 	private TileMap map;
 	private Animator animator;
 	private AudioSource audioSource;
+	private GameObject canvas;
 
 	private const string ANIM_RUNNING = "isRunning";
 	private const string ANIM_BACK = "showBack";
@@ -80,6 +82,8 @@ public class PlayerScript : MonoBehaviour
 		movementSpeed = normalMovementSpeed;
 		playerIsMoving = false;
 //		StartMovement();
+
+		canvas = transform.Find("Canvas").gameObject;
 	}
 
 	private void Update()
@@ -89,12 +93,14 @@ public class PlayerScript : MonoBehaviour
 		
 		if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetMouseButtonDown(1)) //todo: keep the extra buttons?
 		{
+			isRunning = true;
 			audioManager.PlaySpeedUp();
 			movementSpeed = fasterMovementSpeed;
 			animator.SetBool(animRunning, true);
 		}
 		if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift) || Input.GetMouseButtonUp(1))
 		{
+			isRunning = false;
 			movementSpeed = normalMovementSpeed;
 			animator.SetBool(animRunning, false);
 		}
@@ -256,9 +262,11 @@ public class PlayerScript : MonoBehaviour
 		for (int i = 0; i < 4; i++)
 		{
 			sprite.enabled = false;
+			canvas.SetActive(false);
 			yield return new WaitForSeconds(blinkInterval);
 		
 			sprite.enabled = true;
+			canvas.SetActive(true);
 			yield return new WaitForSeconds(blinkInterval);
 		}
 		invincible = false;

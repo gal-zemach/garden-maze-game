@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip levelClearSound;
     public AudioClip openGatesSound;
     public AudioClip cantGrowSound;
+    public AudioClip newChangeableTile;
     
     private AudioSource ownAudioSource;
 
@@ -79,6 +80,15 @@ public class AudioManager : MonoBehaviour
             audioSource = ownAudioSource;
 
         audioSource.clip = cantGrowSound;
+        audioSource.Play();
+    }
+    
+    public void PlayNewChangeableTile(AudioSource audioSource=null)
+    {
+        if (audioSource == null)
+            audioSource = ownAudioSource;
+
+        audioSource.clip = newChangeableTile;
         audioSource.Play();
     }
 }

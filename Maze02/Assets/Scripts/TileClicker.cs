@@ -10,6 +10,7 @@ public class TileClicker : MonoBehaviour
     public float secondsToToggleBack = 3;
     
     private GameManager gameManager;
+    private GUIManager guiManager;
     private AudioManager audioManager;
     private PlayerScript playerScript;
     private Tile lastChangedTile;
@@ -21,6 +22,7 @@ public class TileClicker : MonoBehaviour
     void Start()
     {
         gameManager = GetComponent<GameManager>();
+        guiManager = GetComponent<GUIManager>();
         audioManager = gameManager.gameObject.GetComponent<AudioManager>();
         playerScript = gameManager.player.GetComponent<PlayerScript>();
         marker = transform.Find("Marker").gameObject;
@@ -91,7 +93,10 @@ public class TileClicker : MonoBehaviour
         
         var toggled = ToggleTile(tile);
         if (toggled)
+        {
             gameManager.changeableTiles--;
+            guiManager.UpdateChangeableTiles();
+        }
         
         if (toggleBackTimer)
             StartCoroutine(ToggleTileBack(tile));

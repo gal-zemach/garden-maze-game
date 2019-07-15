@@ -7,71 +7,111 @@ using UnityEngine.UI;
 public class EndGameMenu : MonoBehaviour
 {
     public float timeBetweenAnimations;
-    public Vector3 percentages;
+    public Vector3 scoreLevels;
     
     [Space(20)]
     public Text messageText;
     public GameObject icon1, icon2, icon3;
+    public AudioClip scoreCountSound, grassSound, textSound;
 
     private GameManager gameManager;
+    private AudioSource audioSource1, audioSource2;
     private Animator animator1, animator2, animator3;
-    private WaitForSeconds timeToNextAnim;
+    private float totalScoreAnimTime = 2f;
+    private float timeBetweenIncs = 0.005f;
     
     private const string MSG1 = "You can do better";
     private const string MSG2 = "Meh...";
     private const string MSG3 = "Well Done!";
     private const string MSG4 = "Mowing Genius!";
 
+    private bool anim1Ran, anim2Ran, anim3Ran;
+
     private void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        percentages = gameManager.completionPercentages;
-        
         animator1 = icon1.GetComponent<Animator>();
         animator2 = icon2.GetComponent<Animator>();
         animator3 = icon3.GetComponent<Animator>();
-        
-        timeToNextAnim = new WaitForSeconds(timeBetweenAnimations);
+        audioSource1 = transform.Find("AudioSource1").GetComponent<AudioSource>();
+        audioSource2 = transform.Find("AudioSource2").GetComponent<AudioSource>();
     }
 
-    public void StartAnimation(float completionPercentage)
+    public void StartAnimation(int finalScore)
     {
-        ChooseMessage(completionPercentage);
-        StartCoroutine(ScoreAnimations(completionPercentage));
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();  // here so this go can start inactive
+        audioSource1 = transform.Find("AudioSource1").GetComponent<AudioSource>();
+        audioSource2 = transform.Find("AudioSource2").GetComponent<AudioSource>();
+        
+        scoreLevels = gameManager.completionPercentages * gameManager.totalGrassToCut * gameManager.scorePerGrassTile;
+        
+        ChooseMessage(finalScore);
+        messageText.gameObject.SetActive(false);
+        StartCoroutine(ScoreAnimation(finalScore));
     }
 
-    private IEnumerator ScoreAnimations(float percentage)
-    {        
-        yield return timeToNextAnim;
+    public Text scoreText;
+    
+    private IEnumerator ScoreAnimation(int finalScore)
+    {
+        audioSource2.clip = scoreCountSound;
+        var currentScore = 0;
+        while (currentScore < finalScore)
+        {
+            yield return new WaitForSeconds(timeBetweenIncs);
+            audioSource2.Play();
+            currentScore += gameManager.scorePerGrassTile;
+            scoreText.text = currentScore.ToString();
 
-        if (percentage < percentages.x)
-            yield break;      
+            UpdateGrassAnim(currentScore);
+        }
+        audioSource2.clip = textSound;
+        audioSource2.Play();
+        messageText.gameObject.SetActive(true);
+    }
+
+    private void UpdateGrassAnim(float score)
+    {
+        if (score < scoreLevels.x)
+            return;
+
+        if (!animator1.GetBool("animate"))
+        {
+            animator1.SetBool("animate", true);
+            audioSource1.clip = grassSound;
+            audioSource1.Play();
+        }
         
-        animator1.SetBool("animate", true);
-        yield return timeToNextAnim;
+        if (score < scoreLevels.y)
+            return;
         
-        if (percentage < percentages.y)
-            yield break;
+        if (!animator2.GetBool("animate"))
+        {
+            animator2.SetBool("animate", true);
+            audioSource1.clip = grassSound;
+            audioSource1.Play();
+        }
         
-        animator2.SetBool("animate", true);
-        yield return timeToNextAnim;
+        if (score < scoreLevels.z)
+            return;
         
-        if (percentage < percentages.z)
-            yield break;
-        
-        animator3.SetBool("animate", true);
-        yield return null;
+        if (!animator2.GetBool("animate"))
+        {
+            animator2.SetBool("animate", true);
+            audioSource1.clip = grassSound;
+            audioSource1.Play();
+        }
     }
 
     private void ChooseMessage(float percentage)
     {
-        if (percentage < percentages.x)
+        if (percentage < scoreLevels.x)
             messageText.text = MSG1;
 
-        else if (percentage < percentages.y)
+        else if (percentage < scoreLevels.y)
             messageText.text = MSG2;
         
-        else if (percentage < percentages.z)
+        else if (percentage < scoreLevels.z)
             messageText.text = MSG3;
         
         else

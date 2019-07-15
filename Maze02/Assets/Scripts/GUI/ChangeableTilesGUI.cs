@@ -25,11 +25,4 @@ public class ChangeableTilesGUI : MonoBehaviour
         var sliderValue = gameManager.grassCut % gameManager.GrassToTileRatio.x;
         tilesSlider.value = sliderValue;
     }
-
-//    private IEnumerator MaxThenZero()
-//    {
-//        tilesSlider.value = gameManager.GrassToTileRatio.x;
-//        yield return new WaitForSeconds(0.1f);
-//        tilesSlider.value = gameManager.GrassToTileRatio.x;
-//    }
 }
