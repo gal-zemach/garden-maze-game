@@ -14,6 +14,9 @@ public class EndGameMenu : MonoBehaviour
     public GameObject icon1, icon2, icon3;
     public AudioClip scoreCountSound, grassSound, textSound;
 
+    [HideInInspector] 
+    public bool immediateScore;
+    
     private GameManager gameManager;
     private AudioSource audioSource1, audioSource2;
     private Animator animator1, animator2, animator3;
@@ -43,7 +46,12 @@ public class EndGameMenu : MonoBehaviour
         audioSource1 = transform.Find("AudioSource1").GetComponent<AudioSource>();
         audioSource2 = transform.Find("AudioSource2").GetComponent<AudioSource>();
         
+        animator1 = icon1.GetComponent<Animator>();
+        animator2 = icon2.GetComponent<Animator>();
+        animator3 = icon3.GetComponent<Animator>();
+        
         scoreLevels = gameManager.completionPercentages * gameManager.totalGrassToCut * gameManager.scorePerGrassTile;
+        Debug.Log(scoreLevels);
         
         ChooseMessage(finalScore);
         messageText.gameObject.SetActive(false);
@@ -54,6 +62,13 @@ public class EndGameMenu : MonoBehaviour
     
     private IEnumerator ScoreAnimation(int finalScore)
     {
+        if (immediateScore)
+        {
+            scoreText.text = finalScore.ToString();
+            messageText.gameObject.SetActive(true);
+            StartCoroutine(OnlyGrassAnimations(finalScore));
+            yield break;
+        }
         audioSource2.clip = scoreCountSound;
         var currentScore = 0;
         while (currentScore < finalScore)
@@ -95,9 +110,9 @@ public class EndGameMenu : MonoBehaviour
         if (score < scoreLevels.z)
             return;
         
-        if (!animator2.GetBool("animate"))
+        if (!animator3.GetBool("animate"))
         {
-            animator2.SetBool("animate", true);
+            animator3.SetBool("animate", true);
             audioSource1.clip = grassSound;
             audioSource1.Play();
         }
@@ -116,5 +131,29 @@ public class EndGameMenu : MonoBehaviour
         
         else
             messageText.text = MSG4;
+    }
+    
+    private IEnumerator OnlyGrassAnimations(float score)
+    {        
+        var timeToNextAnim = new WaitForSeconds(0.45f);
+        yield return timeToNextAnim;
+
+        if (score < scoreLevels.x)
+            yield break;      
+        
+        animator1.SetBool("animate", true);
+        yield return timeToNextAnim;
+        
+        if (score < scoreLevels.y)
+            yield break;
+        
+        animator2.SetBool("animate", true);
+        yield return timeToNextAnim;
+        
+        if (score < scoreLevels.z)
+            yield break;
+        
+        animator3.SetBool("animate", true);
+        yield return null;
     }
 }

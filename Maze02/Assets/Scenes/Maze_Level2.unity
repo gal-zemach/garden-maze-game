@@ -11775,6 +11775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showEndGameMenu: 0
   mockScore: 0
+  immediateScore: 0
   numberToMouseOffset: {x: 15, y: -20}
   score: {fileID: 326582934}
 --- !u!114 &350907932
@@ -69289,7 +69290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51.30005, y: -170.4}
+  m_AnchoredPosition: {x: 51.30005, y: -170.39996}
   m_SizeDelta: {x: 80.8, y: 209.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7372909391694584389

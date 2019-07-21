@@ -8,6 +8,9 @@ public class GUIManager : MonoBehaviour
 {
     public bool showEndGameMenu;
     public int mockScore;
+
+    [Space(20)] 
+    public bool immediateScore;
     
     [Space(20)]
     public Vector2 numberToMouseOffset = new Vector2(40, -40);
@@ -89,6 +92,7 @@ public class GUIManager : MonoBehaviour
         
         endGameMenu.SetActive(true);
         var endGameMenuScript = endGameMenu.GetComponent<EndGameMenu>();
+        endGameMenuScript.immediateScore = immediateScore;
         endGameMenuScript.StartAnimation(finalScore);
     }
 
